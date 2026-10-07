@@ -1,0 +1,45 @@
+# TrafficTwin AI — Global Parameters Configuration
+# Source of truth for all controllers, estimators, and safety rules
+
+simulation:
+  step_length_s: 1.0
+  telematics_interval_s: 2.0
+  default_seed: 42
+  default_scenario: "normal"
+
+network:
+  junction_ids: ["J1", "J2", "J3", "J4"]
+  vehicle_length_m: 5.0
+  min_gap_m: 2.5
+  effective_vehicle_len_m: 7.5
+
+safety_firewall:
+  min_green_s: 10
+  max_green_s: 45
+  yellow_s: 3
+  all_red_s: 2
+  buffer_capacity_veh: 4
+  max_wait_threshold_s: 90
+
+wave_forecast:
+  horizon_s: 180
+  low_risk_threshold: 0.40
+  high_risk_threshold: 0.75
+
+fairness:
+  alpha_avg_wait: 0.4
+  beta_max_wait: 0.4
+  gamma_missed_cycles: 0.2
+
+emergency_preemption:
+  lead_time_s: 15
+  pass_window_s: 10
+  recovery_max_green_s: 25
+  recovery_cap_s: 60
+
+reliability:
+  gps_stale_threshold_s: 5
+  trust_predictive_threshold: 0.70
+  trust_local_threshold: 0.40
+  trust_resume_threshold: 0.80
+  shadow_recovery_stable_window_s: 30

@@ -31,7 +31,7 @@ Link, Spillback, Firewall, Trust, Fairness debt, Staged preemption, Recovery, Sh
 Event types: gps, link, junction, decision, mode. Controllers: fixed, reactive, traffictwin. Scenarios: normal, rush, blocked_downstream, ambulance, gps_outage.
 
 ## Current status
-Docs: updated for the 24-hour module-by-module plan. Code: starting M0.
+Docs: updated for the 24-hour module-by-module plan. Code: M0 completed and verified.
 Results: none yet. Do not quote any numbers until runs exist.
 
 ## Open questions
@@ -45,4 +45,4 @@ Results: none yet. Do not quote any numbers until runs exist.
 - (add user corrections here, e.g. "too verbose", "off-format") 
 
 ## Session log
-- (date) what was done · what's next
+- 2026-10-08: M0 completed (scaffolding, requirements.txt, .venv, verify_environment.py, smoke tests, ruff, bandit, pip-audit passed). Next: M1 SUMO corridor.

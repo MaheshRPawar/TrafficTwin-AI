@@ -1,0 +1,46 @@
+# Python & Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Testing & Quality Tools
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Environment & Secrets
+.env
+*.local.env
+
+# Reference Repositories (External & Read-only)
+TrafficTwin References/
+
+# Simulation & Experiment Outputs
+sumo/output/*.xml
+sumo/output/*.csv
+sumo/output/*.out
+logs/*.log
+*.log
+
+# Frontend (Node / Vite)
+frontend/node_modules/
+frontend/dist/
+frontend/.next/
+frontend/.vite/
+
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+.gemini/

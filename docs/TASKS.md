@@ -67,3 +67,4 @@ Cut rule (decide at checkpoints, no debate): behind ⇒ drop from the end: P2 �
 ## Completed
 - [x] Prototype PPT submitted
 - [x] Product scope locked, docs written
+- [x] M0 Repo + tooling (TT-01) — environment verified, gate passed
