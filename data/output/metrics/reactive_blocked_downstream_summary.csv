@@ -1,0 +1,2 @@
+scenario,controller,throughput,average_waiting_time,p95_waiting_time,average_travel_time,mean_queue_length,maximum_queue_length
+blocked_downstream,reactive,200,12.79,37.0,66.33,50.69,192.63

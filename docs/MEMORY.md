@@ -31,8 +31,8 @@ Link, Spillback, Firewall, Trust, Fairness debt, Staged preemption, Recovery, Sh
 Event types: gps, link, junction, decision, mode. Controllers: fixed, reactive, traffictwin. Scenarios: normal, rush, blocked_downstream, ambulance, gps_outage.
 
 ## Current status
-Docs: updated for the 24-hour module-by-module plan. Code: M2 completed and verified (fixed-time baseline runner, tripinfo/queue/summary parsers, 6 metrics, 4 scenario CSVs, one chart).
-Results: none yet. Do not quote any numbers until runs exist.
+Docs: updated for the 24-hour module-by-module plan. Code: M3 completed and verified (safe queue-reactive controller, TraCI runner, decision logs, reactive metrics CSVs, comparison chart).
+Results: Normal Fixed avg_wait=20.0s vs Reactive avg_wait=13.5s; Rush Fixed avg_wait=26.2s vs Reactive avg_wait=19.6s.
 
 ## Open questions
 - Date gap between R1 and the event start; R1 slot length and whether demo is live or recorded.
@@ -47,4 +47,5 @@ Results: none yet. Do not quote any numbers until runs exist.
 ## Session log
 - 2026-10-08: M0 completed (scaffolding, requirements.txt, .venv, verify_environment.py, smoke tests, ruff, bandit, pip-audit passed).
 - 2026-10-08: M1 completed (corridor.net.xml with J1-J4 at 200m spacing, 6-phase safe cycles with all-red, 4 vehicle types, 4 scenarios with seed=42, headless & GUI verified, fallback_plan.json).
-- 2026-10-08: M2 completed (run_fixed.py, tripinfo/queue/summary parsers, calc_metrics with 6 metrics+p95+emergency_delay, CSV exports, baseline chart, 24 tests pass). Normal: thru=194 avg_wait=20.0s. Rush: thru=338 avg_wait=26.2s. Next: M3 GPS stream.
+- 2026-10-08: M2 completed (run_fixed.py, tripinfo/queue/summary parsers, calc_metrics with 6 metrics+p95+emergency_delay, CSV exports, baseline chart, 24 tests pass). Normal: thru=194 avg_wait=20.0s. Rush: thru=338 avg_wait=26.2s.
+- 2026-10-08: M3 completed (safe queue-reactive controller in experiments/reactive_controller.py, run_reactive.py with TraCI, bounded green extension, min/max green, yellow/all-red clearance, decision logs, reactive metrics CSVs, fixed vs reactive comparison chart, 45 tests pass). Normal: thru=197 avg_wait=13.5s. Rush: thru=314 avg_wait=19.6s.

@@ -15,13 +15,19 @@ import statistics
 from pathlib import Path
 
 
-def calc_metrics(trips: list[dict], queue_records: list[dict], scenario: str) -> dict:
-    """Compute all M2 metrics from parsed trip and queue data.
+def calc_metrics(
+    trips: list[dict],
+    queue_records: list[dict],
+    scenario: str,
+    controller: str = "fixed",
+) -> dict:
+    """Compute metrics from parsed trip and queue data.
 
     Args:
         trips:         output of tripinfo_parser.parse_tripinfo()
         queue_records: output of queue_parser.parse_queue()
         scenario:      scenario name string (used for labeling and emergency lookup)
+        controller:    controller name string (fixed, reactive, traffictwin)
 
     Returns:
         dict with metric name -> value (float or int), rounded to 2 decimal places.
@@ -64,7 +70,7 @@ def calc_metrics(trips: list[dict], queue_records: list[dict], scenario: str) ->
 
     result = {
         "scenario": scenario,
-        "controller": "fixed",
+        "controller": controller,
         "throughput": throughput,
         "average_waiting_time": round(avg_wait, 2),
         "p95_waiting_time": round(p95_wait, 2),

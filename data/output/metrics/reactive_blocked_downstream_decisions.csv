@@ -1,0 +1,1441 @@
+timestamp,junction_id,current_phase,queue_main,queue_cross,action,reason
+0.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+0.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+0.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+0.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+1.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+1.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+1.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+1.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+2.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+2.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+2.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+2.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+3.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+3.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+3.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+3.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+4.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+4.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+4.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+4.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+5.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+5.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+5.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+5.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+6.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+6.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+6.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+6.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+7.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+7.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+7.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+7.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+8.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+8.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+8.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+8.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+9.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+9.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+9.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+9.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+10.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+10.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+10.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+10.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+11.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+11.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+11.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+11.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+12.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+12.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+12.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+12.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+13.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+13.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+13.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+13.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+14.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+14.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+14.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+14.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+15.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+15.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+15.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+15.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+16.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+16.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+16.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+16.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+17.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+17.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+17.0,J3,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+17.0,J4,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+18.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+18.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+18.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+18.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+19.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+19.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+19.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+19.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+20.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+20.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+20.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+20.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+21.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+21.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+21.0,J3,ALL_RED_1,0,1,HOLD,clearance phase active
+21.0,J4,ALL_RED_1,0,1,HOLD,clearance phase active
+22.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+22.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+22.0,J3,ALL_RED_1,0,1,HOLD,clearance phase active
+22.0,J4,ALL_RED_1,0,1,HOLD,clearance phase active
+23.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+23.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+23.0,J3,CROSS_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+23.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+24.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+24.0,J2,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+24.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+24.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+25.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+25.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+25.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+25.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+26.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+26.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+26.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+26.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+27.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+27.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+27.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+27.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+28.0,J1,MAIN_GREEN,0,2,START_TRANSITION,main queue empty and cross queue waiting (2)
+28.0,J2,ALL_RED_1,0,1,HOLD,clearance phase active
+28.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+28.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+29.0,J1,MAIN_YELLOW,0,2,HOLD,clearance phase active
+29.0,J2,ALL_RED_1,0,1,HOLD,clearance phase active
+29.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+29.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+30.0,J1,MAIN_YELLOW,0,2,HOLD,clearance phase active
+30.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+30.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+30.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+31.0,J1,MAIN_YELLOW,0,2,HOLD,clearance phase active
+31.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+31.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+31.0,J4,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+32.0,J1,ALL_RED_1,0,2,HOLD,clearance phase active
+32.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+32.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+32.0,J4,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+33.0,J1,ALL_RED_1,1,2,HOLD,clearance phase active
+33.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+33.0,J3,CROSS_GREEN,1,0,START_TRANSITION,cross queue empty and main queue waiting (1)
+33.0,J4,CROSS_GREEN,1,0,START_TRANSITION,cross queue empty and main queue waiting (1)
+34.0,J1,CROSS_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+34.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+34.0,J3,CROSS_YELLOW,1,0,HOLD,clearance phase active
+34.0,J4,CROSS_YELLOW,1,0,HOLD,clearance phase active
+35.0,J1,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+35.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+35.0,J3,CROSS_YELLOW,1,0,HOLD,clearance phase active
+35.0,J4,CROSS_YELLOW,1,0,HOLD,clearance phase active
+36.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+36.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+36.0,J3,CROSS_YELLOW,1,0,HOLD,clearance phase active
+36.0,J4,CROSS_YELLOW,1,0,HOLD,clearance phase active
+37.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+37.0,J2,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+37.0,J3,ALL_RED_2,1,0,HOLD,clearance phase active
+37.0,J4,ALL_RED_2,1,1,HOLD,clearance phase active
+38.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+38.0,J2,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+38.0,J3,ALL_RED_2,1,0,HOLD,clearance phase active
+38.0,J4,ALL_RED_2,1,1,HOLD,clearance phase active
+39.0,J1,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+39.0,J2,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+39.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+39.0,J4,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+40.0,J1,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+40.0,J2,CROSS_GREEN,3,0,START_TRANSITION,main queue (3) exceeds cross queue (0)
+40.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+40.0,J4,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+41.0,J1,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+41.0,J2,CROSS_YELLOW,3,0,HOLD,clearance phase active
+41.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+41.0,J4,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+42.0,J1,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+42.0,J2,CROSS_YELLOW,3,0,HOLD,clearance phase active
+42.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+42.0,J4,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+43.0,J1,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+43.0,J2,CROSS_YELLOW,5,0,HOLD,clearance phase active
+43.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+43.0,J4,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+44.0,J1,CROSS_GREEN,7,0,START_TRANSITION,main queue (7) exceeds cross queue (0)
+44.0,J2,ALL_RED_2,5,0,HOLD,clearance phase active
+44.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+44.0,J4,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+45.0,J1,CROSS_YELLOW,8,0,HOLD,clearance phase active
+45.0,J2,ALL_RED_2,5,1,HOLD,clearance phase active
+45.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+45.0,J4,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+46.0,J1,CROSS_YELLOW,8,0,HOLD,clearance phase active
+46.0,J2,MAIN_GREEN,3,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+46.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+46.0,J4,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+47.0,J1,CROSS_YELLOW,8,0,HOLD,clearance phase active
+47.0,J2,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+47.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+47.0,J4,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+48.0,J1,ALL_RED_2,8,1,HOLD,clearance phase active
+48.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+48.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+48.0,J4,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+49.0,J1,ALL_RED_2,9,1,HOLD,clearance phase active
+49.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+49.0,J3,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+49.0,J4,MAIN_GREEN,0,2,START_TRANSITION,main queue empty and cross queue waiting (2)
+50.0,J1,MAIN_GREEN,7,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+50.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+50.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+50.0,J4,MAIN_YELLOW,0,2,HOLD,clearance phase active
+51.0,J1,MAIN_GREEN,5,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+51.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+51.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+51.0,J4,MAIN_YELLOW,0,2,HOLD,clearance phase active
+52.0,J1,MAIN_GREEN,3,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+52.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+52.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+52.0,J4,MAIN_YELLOW,0,2,HOLD,clearance phase active
+53.0,J1,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+53.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+53.0,J3,ALL_RED_1,0,1,HOLD,clearance phase active
+53.0,J4,ALL_RED_1,0,2,HOLD,clearance phase active
+54.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+54.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+54.0,J3,ALL_RED_1,0,1,HOLD,clearance phase active
+54.0,J4,ALL_RED_1,1,2,HOLD,clearance phase active
+55.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+55.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+55.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+55.0,J4,CROSS_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+56.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+56.0,J2,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+56.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+56.0,J4,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+57.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+57.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+57.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+57.0,J4,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+58.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+58.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+58.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+58.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+59.0,J1,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+59.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+59.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+59.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+60.0,J1,MAIN_GREEN,0,2,START_TRANSITION,main queue empty and cross queue waiting (2)
+60.0,J2,ALL_RED_1,0,1,HOLD,clearance phase active
+60.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+60.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+61.0,J1,MAIN_YELLOW,0,2,HOLD,clearance phase active
+61.0,J2,ALL_RED_1,0,1,HOLD,clearance phase active
+61.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+61.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+62.0,J1,MAIN_YELLOW,0,2,HOLD,clearance phase active
+62.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+62.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+62.0,J4,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+63.0,J1,MAIN_YELLOW,1,3,HOLD,clearance phase active
+63.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+63.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+63.0,J4,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+64.0,J1,ALL_RED_1,2,4,HOLD,clearance phase active
+64.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+64.0,J3,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+64.0,J4,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+65.0,J1,ALL_RED_1,2,5,HOLD,clearance phase active
+65.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+65.0,J3,CROSS_GREEN,2,0,START_TRANSITION,cross queue empty and main queue waiting (2)
+65.0,J4,CROSS_GREEN,4,0,START_TRANSITION,main queue (4) exceeds cross queue (0)
+66.0,J1,CROSS_GREEN,2,3,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+66.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+66.0,J3,CROSS_YELLOW,3,0,HOLD,clearance phase active
+66.0,J4,CROSS_YELLOW,4,0,HOLD,clearance phase active
+67.0,J1,CROSS_GREEN,2,2,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+67.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+67.0,J3,CROSS_YELLOW,4,0,HOLD,clearance phase active
+67.0,J4,CROSS_YELLOW,4,0,HOLD,clearance phase active
+68.0,J1,CROSS_GREEN,2,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+68.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+68.0,J3,CROSS_YELLOW,5,0,HOLD,clearance phase active
+68.0,J4,CROSS_YELLOW,4,0,HOLD,clearance phase active
+69.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+69.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+69.0,J3,ALL_RED_2,5,0,HOLD,clearance phase active
+69.0,J4,ALL_RED_2,4,0,HOLD,clearance phase active
+70.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+70.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+70.0,J3,ALL_RED_2,7,0,HOLD,clearance phase active
+70.0,J4,ALL_RED_2,5,0,HOLD,clearance phase active
+71.0,J1,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+71.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+71.0,J3,MAIN_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+71.0,J4,MAIN_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+72.0,J1,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+72.0,J2,CROSS_GREEN,2,0,START_TRANSITION,cross queue empty and main queue waiting (2)
+72.0,J3,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+72.0,J4,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+73.0,J1,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+73.0,J2,CROSS_YELLOW,3,0,HOLD,clearance phase active
+73.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+73.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+74.0,J1,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+74.0,J2,CROSS_YELLOW,5,0,HOLD,clearance phase active
+74.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+74.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+75.0,J1,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+75.0,J2,CROSS_YELLOW,7,0,HOLD,clearance phase active
+75.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+75.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+76.0,J1,CROSS_GREEN,6,0,START_TRANSITION,main queue (6) exceeds cross queue (0)
+76.0,J2,ALL_RED_2,8,0,HOLD,clearance phase active
+76.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+76.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+77.0,J1,CROSS_YELLOW,6,0,HOLD,clearance phase active
+77.0,J2,ALL_RED_2,9,0,HOLD,clearance phase active
+77.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+77.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+78.0,J1,CROSS_YELLOW,7,0,HOLD,clearance phase active
+78.0,J2,MAIN_GREEN,7,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+78.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+78.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+79.0,J1,CROSS_YELLOW,8,0,HOLD,clearance phase active
+79.0,J2,MAIN_GREEN,5,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+79.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+79.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+80.0,J1,ALL_RED_2,8,0,HOLD,clearance phase active
+80.0,J2,MAIN_GREEN,3,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+80.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+80.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+81.0,J1,ALL_RED_2,8,0,HOLD,clearance phase active
+81.0,J2,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+81.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+81.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+82.0,J1,MAIN_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+82.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+82.0,J3,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+82.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+83.0,J1,MAIN_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+83.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+83.0,J3,MAIN_YELLOW,0,2,HOLD,clearance phase active
+83.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+84.0,J1,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+84.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+84.0,J3,MAIN_YELLOW,0,2,HOLD,clearance phase active
+84.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+85.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+85.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+85.0,J3,MAIN_YELLOW,0,2,HOLD,clearance phase active
+85.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+86.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+86.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+86.0,J3,ALL_RED_1,0,2,HOLD,clearance phase active
+86.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+87.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+87.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+87.0,J3,ALL_RED_1,0,2,HOLD,clearance phase active
+87.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+88.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+88.0,J2,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+88.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+88.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+89.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+89.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+89.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+89.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+90.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+90.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+90.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+90.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+91.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+91.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+91.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+91.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+92.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+92.0,J2,ALL_RED_1,0,1,HOLD,clearance phase active
+92.0,J3,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+92.0,J4,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+93.0,J1,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+93.0,J2,ALL_RED_1,1,1,HOLD,clearance phase active
+93.0,J3,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+93.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+94.0,J1,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+94.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+94.0,J3,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+94.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+95.0,J1,MAIN_YELLOW,0,1,HOLD,clearance phase active
+95.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+95.0,J3,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+95.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+96.0,J1,MAIN_YELLOW,0,1,HOLD,clearance phase active
+96.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+96.0,J3,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+96.0,J4,ALL_RED_1,0,1,HOLD,clearance phase active
+97.0,J1,MAIN_YELLOW,0,1,HOLD,clearance phase active
+97.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+97.0,J3,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+97.0,J4,ALL_RED_1,0,1,HOLD,clearance phase active
+98.0,J1,ALL_RED_1,0,1,HOLD,clearance phase active
+98.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+98.0,J3,CROSS_GREEN,7,0,START_TRANSITION,main queue (7) exceeds cross queue (0)
+98.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+99.0,J1,ALL_RED_1,0,1,HOLD,clearance phase active
+99.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+99.0,J3,CROSS_YELLOW,8,0,HOLD,clearance phase active
+99.0,J4,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+100.0,J1,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+100.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+100.0,J3,CROSS_YELLOW,8,0,HOLD,clearance phase active
+100.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+101.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+101.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+101.0,J3,CROSS_YELLOW,10,0,HOLD,clearance phase active
+101.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+102.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+102.0,J2,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+102.0,J3,ALL_RED_2,11,0,HOLD,clearance phase active
+102.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+103.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+103.0,J2,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+103.0,J3,ALL_RED_2,12,0,HOLD,clearance phase active
+103.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+104.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+104.0,J2,CROSS_GREEN,3,0,START_TRANSITION,main queue (3) exceeds cross queue (0)
+104.0,J3,MAIN_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+104.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+105.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+105.0,J2,CROSS_YELLOW,4,0,HOLD,clearance phase active
+105.0,J3,MAIN_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+105.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+106.0,J1,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+106.0,J2,CROSS_YELLOW,5,0,HOLD,clearance phase active
+106.0,J3,MAIN_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+106.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+107.0,J1,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+107.0,J2,CROSS_YELLOW,6,0,HOLD,clearance phase active
+107.0,J3,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+107.0,J4,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+108.0,J1,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+108.0,J2,ALL_RED_2,6,0,HOLD,clearance phase active
+108.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+108.0,J4,CROSS_GREEN,3,0,START_TRANSITION,main queue (3) exceeds cross queue (0)
+109.0,J1,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+109.0,J2,ALL_RED_2,7,1,HOLD,clearance phase active
+109.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+109.0,J4,CROSS_YELLOW,3,0,HOLD,clearance phase active
+110.0,J1,CROSS_GREEN,6,0,START_TRANSITION,main queue (6) exceeds cross queue (0)
+110.0,J2,MAIN_GREEN,5,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+110.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+110.0,J4,CROSS_YELLOW,5,0,HOLD,clearance phase active
+111.0,J1,CROSS_YELLOW,6,0,HOLD,clearance phase active
+111.0,J2,MAIN_GREEN,5,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+111.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+111.0,J4,CROSS_YELLOW,5,0,HOLD,clearance phase active
+112.0,J1,CROSS_YELLOW,7,0,HOLD,clearance phase active
+112.0,J2,MAIN_GREEN,3,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+112.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+112.0,J4,ALL_RED_2,6,0,HOLD,clearance phase active
+113.0,J1,CROSS_YELLOW,8,1,HOLD,clearance phase active
+113.0,J2,MAIN_GREEN,2,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+113.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+113.0,J4,ALL_RED_2,6,0,HOLD,clearance phase active
+114.0,J1,ALL_RED_2,8,1,HOLD,clearance phase active
+114.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+114.0,J3,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+114.0,J4,MAIN_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+115.0,J1,ALL_RED_2,8,1,HOLD,clearance phase active
+115.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+115.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+115.0,J4,MAIN_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+116.0,J1,MAIN_GREEN,5,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+116.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+116.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+116.0,J4,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+117.0,J1,MAIN_GREEN,4,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+117.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+117.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+117.0,J4,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+118.0,J1,MAIN_GREEN,2,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+118.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+118.0,J3,ALL_RED_1,0,1,HOLD,clearance phase active
+118.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+119.0,J1,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+119.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+119.0,J3,ALL_RED_1,0,2,HOLD,clearance phase active
+119.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+120.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+120.0,J2,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+120.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+120.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+121.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+121.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+121.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+121.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+122.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+122.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+122.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+122.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+123.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+123.0,J2,MAIN_YELLOW,0,2,HOLD,clearance phase active
+123.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+123.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+124.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+124.0,J2,ALL_RED_1,0,2,HOLD,clearance phase active
+124.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+124.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+125.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+125.0,J2,ALL_RED_1,1,2,HOLD,clearance phase active
+125.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+125.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+126.0,J1,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+126.0,J2,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+126.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+126.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+127.0,J1,MAIN_YELLOW,0,1,HOLD,clearance phase active
+127.0,J2,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+127.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+127.0,J4,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+128.0,J1,MAIN_YELLOW,0,1,HOLD,clearance phase active
+128.0,J2,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+128.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+128.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+129.0,J1,MAIN_YELLOW,0,1,HOLD,clearance phase active
+129.0,J2,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+129.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+129.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+130.0,J1,ALL_RED_1,0,1,HOLD,clearance phase active
+130.0,J2,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+130.0,J3,CROSS_GREEN,2,0,START_TRANSITION,cross queue empty and main queue waiting (2)
+130.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+131.0,J1,ALL_RED_1,1,1,HOLD,clearance phase active
+131.0,J2,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+131.0,J3,CROSS_YELLOW,3,0,HOLD,clearance phase active
+131.0,J4,ALL_RED_1,0,1,HOLD,clearance phase active
+132.0,J1,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+132.0,J2,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+132.0,J3,CROSS_YELLOW,4,0,HOLD,clearance phase active
+132.0,J4,ALL_RED_1,0,1,HOLD,clearance phase active
+133.0,J1,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+133.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+133.0,J3,CROSS_YELLOW,4,0,HOLD,clearance phase active
+133.0,J4,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+134.0,J1,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+134.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+134.0,J3,ALL_RED_2,6,0,HOLD,clearance phase active
+134.0,J4,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+135.0,J1,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+135.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+135.0,J3,ALL_RED_2,7,0,HOLD,clearance phase active
+135.0,J4,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+136.0,J1,CROSS_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+136.0,J2,CROSS_GREEN,7,0,START_TRANSITION,main queue (7) exceeds cross queue (0)
+136.0,J3,MAIN_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+136.0,J4,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+137.0,J1,CROSS_GREEN,10,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+137.0,J2,CROSS_YELLOW,9,0,HOLD,clearance phase active
+137.0,J3,MAIN_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+137.0,J4,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+138.0,J1,CROSS_GREEN,12,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+138.0,J2,CROSS_YELLOW,10,0,HOLD,clearance phase active
+138.0,J3,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+138.0,J4,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+139.0,J1,CROSS_GREEN,14,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+139.0,J2,CROSS_YELLOW,11,0,HOLD,clearance phase active
+139.0,J3,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+139.0,J4,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+140.0,J1,CROSS_GREEN,15,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+140.0,J2,ALL_RED_2,11,0,HOLD,clearance phase active
+140.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+140.0,J4,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+141.0,J1,CROSS_GREEN,15,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+141.0,J2,ALL_RED_2,11,0,HOLD,clearance phase active
+141.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+141.0,J4,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+142.0,J1,CROSS_GREEN,16,0,START_TRANSITION,main queue (16) exceeds cross queue (0)
+142.0,J2,MAIN_GREEN,8,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+142.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+142.0,J4,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+143.0,J1,CROSS_YELLOW,16,0,HOLD,clearance phase active
+143.0,J2,MAIN_GREEN,5,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+143.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+143.0,J4,CROSS_GREEN,5,0,START_TRANSITION,main queue (5) exceeds cross queue (0)
+144.0,J1,CROSS_YELLOW,16,0,HOLD,clearance phase active
+144.0,J2,MAIN_GREEN,2,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+144.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+144.0,J4,CROSS_YELLOW,5,0,HOLD,clearance phase active
+145.0,J1,CROSS_YELLOW,17,0,HOLD,clearance phase active
+145.0,J2,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+145.0,J3,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+145.0,J4,CROSS_YELLOW,5,0,HOLD,clearance phase active
+146.0,J1,ALL_RED_2,17,0,HOLD,clearance phase active
+146.0,J2,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+146.0,J3,MAIN_GREEN,0,2,START_TRANSITION,main queue empty and cross queue waiting (2)
+146.0,J4,CROSS_YELLOW,6,0,HOLD,clearance phase active
+147.0,J1,ALL_RED_2,17,0,HOLD,clearance phase active
+147.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+147.0,J3,MAIN_YELLOW,0,3,HOLD,clearance phase active
+147.0,J4,ALL_RED_2,6,0,HOLD,clearance phase active
+148.0,J1,MAIN_GREEN,13,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+148.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+148.0,J3,MAIN_YELLOW,0,3,HOLD,clearance phase active
+148.0,J4,ALL_RED_2,6,0,HOLD,clearance phase active
+149.0,J1,MAIN_GREEN,10,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+149.0,J2,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+149.0,J3,MAIN_YELLOW,0,3,HOLD,clearance phase active
+149.0,J4,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+150.0,J1,MAIN_GREEN,8,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+150.0,J2,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+150.0,J3,ALL_RED_1,1,3,HOLD,clearance phase active
+150.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+151.0,J1,MAIN_GREEN,7,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+151.0,J2,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+151.0,J3,ALL_RED_1,1,3,HOLD,clearance phase active
+151.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+152.0,J1,MAIN_GREEN,5,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+152.0,J2,MAIN_GREEN,0,3,START_TRANSITION,cross queue (3) exceeds main queue (0)
+152.0,J3,CROSS_GREEN,1,2,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+152.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+153.0,J1,MAIN_GREEN,4,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+153.0,J2,MAIN_YELLOW,0,3,HOLD,clearance phase active
+153.0,J3,CROSS_GREEN,1,2,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+153.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+154.0,J1,MAIN_GREEN,3,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+154.0,J2,MAIN_YELLOW,0,3,HOLD,clearance phase active
+154.0,J3,CROSS_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+154.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+155.0,J1,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+155.0,J2,MAIN_YELLOW,0,3,HOLD,clearance phase active
+155.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+155.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+156.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+156.0,J2,ALL_RED_1,0,3,HOLD,clearance phase active
+156.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+156.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+157.0,J1,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+157.0,J2,ALL_RED_1,1,3,HOLD,clearance phase active
+157.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+157.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+158.0,J1,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+158.0,J2,CROSS_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+158.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+158.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+159.0,J1,MAIN_YELLOW,0,2,HOLD,clearance phase active
+159.0,J2,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+159.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+159.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+160.0,J1,MAIN_YELLOW,0,2,HOLD,clearance phase active
+160.0,J2,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+160.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+160.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+161.0,J1,MAIN_YELLOW,1,2,HOLD,clearance phase active
+161.0,J2,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+161.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+161.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+162.0,J1,ALL_RED_1,3,2,HOLD,clearance phase active
+162.0,J2,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+162.0,J3,CROSS_GREEN,2,0,START_TRANSITION,cross queue empty and main queue waiting (2)
+162.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+163.0,J1,ALL_RED_1,5,2,HOLD,clearance phase active
+163.0,J2,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+163.0,J3,CROSS_YELLOW,4,0,HOLD,clearance phase active
+163.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+164.0,J1,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+164.0,J2,CROSS_GREEN,8,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+164.0,J3,CROSS_YELLOW,5,0,HOLD,clearance phase active
+164.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+165.0,J1,CROSS_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+165.0,J2,CROSS_GREEN,8,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+165.0,J3,CROSS_YELLOW,5,0,HOLD,clearance phase active
+165.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+166.0,J1,CROSS_GREEN,11,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+166.0,J2,CROSS_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+166.0,J3,ALL_RED_2,6,0,HOLD,clearance phase active
+166.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+167.0,J1,CROSS_GREEN,13,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+167.0,J2,CROSS_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+167.0,J3,ALL_RED_2,7,0,HOLD,clearance phase active
+167.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+168.0,J1,CROSS_GREEN,14,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+168.0,J2,CROSS_GREEN,9,0,START_TRANSITION,main queue (9) exceeds cross queue (0)
+168.0,J3,MAIN_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+168.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+169.0,J1,CROSS_GREEN,16,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+169.0,J2,CROSS_YELLOW,10,0,HOLD,clearance phase active
+169.0,J3,MAIN_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+169.0,J4,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+170.0,J1,CROSS_GREEN,18,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+170.0,J2,CROSS_YELLOW,10,0,HOLD,clearance phase active
+170.0,J3,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+170.0,J4,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+171.0,J1,CROSS_GREEN,19,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+171.0,J2,CROSS_YELLOW,10,0,HOLD,clearance phase active
+171.0,J3,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+171.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+172.0,J1,CROSS_GREEN,20,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+172.0,J2,ALL_RED_2,11,0,HOLD,clearance phase active
+172.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+172.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+173.0,J1,CROSS_GREEN,21,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+173.0,J2,ALL_RED_2,12,0,HOLD,clearance phase active
+173.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+173.0,J4,MAIN_YELLOW,0,1,HOLD,clearance phase active
+174.0,J1,CROSS_GREEN,23,0,START_TRANSITION,main queue (23) exceeds cross queue (0)
+174.0,J2,MAIN_GREEN,9,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+174.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+174.0,J4,ALL_RED_1,0,1,HOLD,clearance phase active
+175.0,J1,CROSS_YELLOW,24,0,HOLD,clearance phase active
+175.0,J2,MAIN_GREEN,6,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+175.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+175.0,J4,ALL_RED_1,0,1,HOLD,clearance phase active
+176.0,J1,CROSS_YELLOW,25,0,HOLD,clearance phase active
+176.0,J2,MAIN_GREEN,4,2,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+176.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+176.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+177.0,J1,CROSS_YELLOW,26,0,HOLD,clearance phase active
+177.0,J2,MAIN_GREEN,1,2,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+177.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+177.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+178.0,J1,ALL_RED_2,28,0,HOLD,clearance phase active
+178.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+178.0,J3,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+178.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+179.0,J1,ALL_RED_2,29,0,HOLD,clearance phase active
+179.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+179.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+179.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+180.0,J1,MAIN_GREEN,26,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+180.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+180.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+180.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+181.0,J1,MAIN_GREEN,24,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+181.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+181.0,J3,MAIN_YELLOW,0,3,HOLD,clearance phase active
+181.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+182.0,J1,MAIN_GREEN,20,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+182.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+182.0,J3,ALL_RED_1,0,3,HOLD,clearance phase active
+182.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+183.0,J1,MAIN_GREEN,18,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+183.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+183.0,J3,ALL_RED_1,0,3,HOLD,clearance phase active
+183.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+184.0,J1,MAIN_GREEN,16,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+184.0,J2,MAIN_GREEN,0,2,START_TRANSITION,main queue empty and cross queue waiting (2)
+184.0,J3,CROSS_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+184.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+185.0,J1,MAIN_GREEN,16,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+185.0,J2,MAIN_YELLOW,0,2,HOLD,clearance phase active
+185.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+185.0,J4,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+186.0,J1,MAIN_GREEN,15,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+186.0,J2,MAIN_YELLOW,1,2,HOLD,clearance phase active
+186.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+186.0,J4,CROSS_GREEN,1,0,START_TRANSITION,cross queue empty and main queue waiting (1)
+187.0,J1,MAIN_GREEN,13,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+187.0,J2,MAIN_YELLOW,1,2,HOLD,clearance phase active
+187.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+187.0,J4,CROSS_YELLOW,1,0,HOLD,clearance phase active
+188.0,J1,MAIN_GREEN,11,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+188.0,J2,ALL_RED_1,2,2,HOLD,clearance phase active
+188.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+188.0,J4,CROSS_YELLOW,1,0,HOLD,clearance phase active
+189.0,J1,MAIN_GREEN,9,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+189.0,J2,ALL_RED_1,3,2,HOLD,clearance phase active
+189.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+189.0,J4,CROSS_YELLOW,3,0,HOLD,clearance phase active
+190.0,J1,MAIN_GREEN,7,1,EXTEND_GREEN,"high main queue (7), extending green"
+190.0,J2,CROSS_GREEN,3,2,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+190.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+190.0,J4,ALL_RED_2,4,0,HOLD,clearance phase active
+191.0,J1,MAIN_GREEN,7,2,EXTEND_GREEN,"high main queue (7), extending green"
+191.0,J2,CROSS_GREEN,4,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+191.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+191.0,J4,ALL_RED_2,5,0,HOLD,clearance phase active
+192.0,J1,MAIN_GREEN,6,2,EXTEND_GREEN,"high main queue (6), extending green"
+192.0,J2,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+192.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+192.0,J4,MAIN_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+193.0,J1,MAIN_GREEN,4,2,EXTEND_GREEN,"high main queue (4), extending green"
+193.0,J2,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+193.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+193.0,J4,MAIN_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+194.0,J1,MAIN_GREEN,3,2,EXTEND_GREEN,"high main queue (3), extending green"
+194.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+194.0,J3,CROSS_GREEN,1,0,START_TRANSITION,cross queue empty and main queue waiting (1)
+194.0,J4,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+195.0,J1,MAIN_GREEN,3,3,EXTEND_GREEN,"high main queue (3), extending green"
+195.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+195.0,J3,CROSS_YELLOW,1,0,HOLD,clearance phase active
+195.0,J4,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+196.0,J1,MAIN_GREEN,1,3,START_TRANSITION,cross queue (3) exceeds main queue (1)
+196.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+196.0,J3,CROSS_YELLOW,2,0,HOLD,clearance phase active
+196.0,J4,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+197.0,J1,MAIN_YELLOW,0,3,HOLD,clearance phase active
+197.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+197.0,J3,CROSS_YELLOW,3,0,HOLD,clearance phase active
+197.0,J4,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+198.0,J1,MAIN_YELLOW,0,4,HOLD,clearance phase active
+198.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+198.0,J3,ALL_RED_2,3,0,HOLD,clearance phase active
+198.0,J4,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+199.0,J1,MAIN_YELLOW,0,4,HOLD,clearance phase active
+199.0,J2,CROSS_GREEN,8,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+199.0,J3,ALL_RED_2,3,0,HOLD,clearance phase active
+199.0,J4,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+200.0,J1,ALL_RED_1,0,4,HOLD,clearance phase active
+200.0,J2,CROSS_GREEN,9,0,START_TRANSITION,main queue (9) exceeds cross queue (0)
+200.0,J3,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+200.0,J4,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+201.0,J1,ALL_RED_1,1,4,HOLD,clearance phase active
+201.0,J2,CROSS_YELLOW,9,0,HOLD,clearance phase active
+201.0,J3,MAIN_GREEN,2,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+201.0,J4,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+202.0,J1,CROSS_GREEN,2,2,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+202.0,J2,CROSS_YELLOW,10,0,HOLD,clearance phase active
+202.0,J3,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+202.0,J4,MAIN_GREEN,0,2,START_TRANSITION,main queue empty and cross queue waiting (2)
+203.0,J1,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+203.0,J2,CROSS_YELLOW,11,0,HOLD,clearance phase active
+203.0,J3,MAIN_GREEN,1,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+203.0,J4,MAIN_YELLOW,0,2,HOLD,clearance phase active
+204.0,J1,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+204.0,J2,ALL_RED_2,11,0,HOLD,clearance phase active
+204.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+204.0,J4,MAIN_YELLOW,0,2,HOLD,clearance phase active
+205.0,J1,CROSS_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+205.0,J2,ALL_RED_2,12,0,HOLD,clearance phase active
+205.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+205.0,J4,MAIN_YELLOW,0,2,HOLD,clearance phase active
+206.0,J1,CROSS_GREEN,10,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+206.0,J2,MAIN_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+206.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+206.0,J4,ALL_RED_1,2,2,HOLD,clearance phase active
+207.0,J1,CROSS_GREEN,11,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+207.0,J2,MAIN_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+207.0,J3,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+207.0,J4,ALL_RED_1,2,2,HOLD,clearance phase active
+208.0,J1,CROSS_GREEN,13,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+208.0,J2,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+208.0,J3,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+208.0,J4,CROSS_GREEN,2,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+209.0,J1,CROSS_GREEN,15,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+209.0,J2,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+209.0,J3,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+209.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+210.0,J1,CROSS_GREEN,15,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+210.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+210.0,J3,MAIN_GREEN,0,4,START_TRANSITION,cross queue (4) exceeds main queue (0)
+210.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+211.0,J1,CROSS_GREEN,16,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+211.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+211.0,J3,MAIN_YELLOW,0,4,HOLD,clearance phase active
+211.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+212.0,J1,CROSS_GREEN,18,0,START_TRANSITION,main queue (18) exceeds cross queue (0)
+212.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+212.0,J3,MAIN_YELLOW,0,4,HOLD,clearance phase active
+212.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+213.0,J1,CROSS_YELLOW,19,0,HOLD,clearance phase active
+213.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+213.0,J3,MAIN_YELLOW,0,4,HOLD,clearance phase active
+213.0,J4,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+214.0,J1,CROSS_YELLOW,19,0,HOLD,clearance phase active
+214.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+214.0,J3,ALL_RED_1,0,4,HOLD,clearance phase active
+214.0,J4,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+215.0,J1,CROSS_YELLOW,22,0,HOLD,clearance phase active
+215.0,J2,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+215.0,J3,ALL_RED_1,0,4,HOLD,clearance phase active
+215.0,J4,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+216.0,J1,ALL_RED_2,24,0,HOLD,clearance phase active
+216.0,J2,MAIN_GREEN,0,3,START_TRANSITION,cross queue (3) exceeds main queue (0)
+216.0,J3,CROSS_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+216.0,J4,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+217.0,J1,ALL_RED_2,25,0,HOLD,clearance phase active
+217.0,J2,MAIN_YELLOW,0,3,HOLD,clearance phase active
+217.0,J3,CROSS_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+217.0,J4,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+218.0,J1,MAIN_GREEN,21,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+218.0,J2,MAIN_YELLOW,0,3,HOLD,clearance phase active
+218.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+218.0,J4,CROSS_GREEN,4,0,START_TRANSITION,main queue (4) exceeds cross queue (0)
+219.0,J1,MAIN_GREEN,19,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+219.0,J2,MAIN_YELLOW,0,3,HOLD,clearance phase active
+219.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+219.0,J4,CROSS_YELLOW,5,0,HOLD,clearance phase active
+220.0,J1,MAIN_GREEN,17,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+220.0,J2,ALL_RED_1,1,3,HOLD,clearance phase active
+220.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+220.0,J4,CROSS_YELLOW,5,0,HOLD,clearance phase active
+221.0,J1,MAIN_GREEN,16,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+221.0,J2,ALL_RED_1,1,3,HOLD,clearance phase active
+221.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+221.0,J4,CROSS_YELLOW,6,0,HOLD,clearance phase active
+222.0,J1,MAIN_GREEN,14,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+222.0,J2,CROSS_GREEN,2,2,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+222.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+222.0,J4,ALL_RED_2,8,0,HOLD,clearance phase active
+223.0,J1,MAIN_GREEN,13,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+223.0,J2,CROSS_GREEN,3,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+223.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+223.0,J4,ALL_RED_2,10,0,HOLD,clearance phase active
+224.0,J1,MAIN_GREEN,11,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+224.0,J2,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+224.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+224.0,J4,MAIN_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+225.0,J1,MAIN_GREEN,9,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+225.0,J2,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+225.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+225.0,J4,MAIN_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+226.0,J1,MAIN_GREEN,8,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+226.0,J2,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+226.0,J3,CROSS_GREEN,3,0,START_TRANSITION,main queue (3) exceeds cross queue (0)
+226.0,J4,MAIN_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+227.0,J1,MAIN_GREEN,7,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+227.0,J2,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+227.0,J3,CROSS_YELLOW,3,0,HOLD,clearance phase active
+227.0,J4,MAIN_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+228.0,J1,MAIN_GREEN,6,2,EXTEND_GREEN,"high main queue (6), extending green"
+228.0,J2,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+228.0,J3,CROSS_YELLOW,3,0,HOLD,clearance phase active
+228.0,J4,MAIN_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+229.0,J1,MAIN_GREEN,4,2,EXTEND_GREEN,"high main queue (4), extending green"
+229.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+229.0,J3,CROSS_YELLOW,5,0,HOLD,clearance phase active
+229.0,J4,MAIN_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+230.0,J1,MAIN_GREEN,3,2,EXTEND_GREEN,"high main queue (3), extending green"
+230.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+230.0,J3,ALL_RED_2,5,0,HOLD,clearance phase active
+230.0,J4,MAIN_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+231.0,J1,MAIN_GREEN,2,2,KEEP_GREEN,main demand below threshold
+231.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+231.0,J3,ALL_RED_2,7,0,HOLD,clearance phase active
+231.0,J4,MAIN_GREEN,8,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+232.0,J1,MAIN_GREEN,2,2,KEEP_GREEN,main demand below threshold
+232.0,J2,CROSS_GREEN,7,0,START_TRANSITION,main queue (7) exceeds cross queue (0)
+232.0,J3,MAIN_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+232.0,J4,MAIN_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+233.0,J1,MAIN_GREEN,1,3,START_TRANSITION,cross queue (3) exceeds main queue (1)
+233.0,J2,CROSS_YELLOW,7,0,HOLD,clearance phase active
+233.0,J3,MAIN_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+233.0,J4,MAIN_GREEN,10,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+234.0,J1,MAIN_YELLOW,0,3,HOLD,clearance phase active
+234.0,J2,CROSS_YELLOW,7,0,HOLD,clearance phase active
+234.0,J3,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+234.0,J4,MAIN_GREEN,10,0,EXTEND_GREEN,"high main queue (10), extending green"
+235.0,J1,MAIN_YELLOW,0,3,HOLD,clearance phase active
+235.0,J2,CROSS_YELLOW,7,0,HOLD,clearance phase active
+235.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+235.0,J4,MAIN_GREEN,10,0,EXTEND_GREEN,"high main queue (10), extending green"
+236.0,J1,MAIN_YELLOW,1,3,HOLD,clearance phase active
+236.0,J2,ALL_RED_2,8,0,HOLD,clearance phase active
+236.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+236.0,J4,MAIN_GREEN,10,0,EXTEND_GREEN,"high main queue (10), extending green"
+237.0,J1,ALL_RED_1,1,3,HOLD,clearance phase active
+237.0,J2,ALL_RED_2,8,0,HOLD,clearance phase active
+237.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+237.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+238.0,J1,ALL_RED_1,3,3,HOLD,clearance phase active
+238.0,J2,MAIN_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+238.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+238.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+239.0,J1,CROSS_GREEN,3,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+239.0,J2,MAIN_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+239.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+239.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+240.0,J1,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+240.0,J2,MAIN_GREEN,2,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+240.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+240.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+241.0,J1,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+241.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+241.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+241.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+242.0,J1,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+242.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+242.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+242.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+243.0,J1,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+243.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+243.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+243.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+244.0,J1,CROSS_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+244.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+244.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+244.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+245.0,J1,CROSS_GREEN,11,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+245.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+245.0,J3,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+245.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+246.0,J1,CROSS_GREEN,13,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+246.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+246.0,J3,MAIN_YELLOW,0,2,HOLD,clearance phase active
+246.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+247.0,J1,CROSS_GREEN,14,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+247.0,J2,MAIN_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+247.0,J3,MAIN_YELLOW,0,2,HOLD,clearance phase active
+247.0,J4,MAIN_GREEN,10,1,EXTEND_GREEN,"high main queue (10), extending green"
+248.0,J1,CROSS_GREEN,14,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+248.0,J2,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+248.0,J3,MAIN_YELLOW,0,2,HOLD,clearance phase active
+248.0,J4,MAIN_GREEN,10,2,EXTEND_GREEN,"high main queue (10), extending green"
+249.0,J1,CROSS_GREEN,15,0,START_TRANSITION,main queue (15) exceeds cross queue (0)
+249.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+249.0,J3,ALL_RED_1,0,2,HOLD,clearance phase active
+249.0,J4,MAIN_GREEN,11,2,EXTEND_GREEN,"high main queue (11), extending green"
+250.0,J1,CROSS_YELLOW,17,0,HOLD,clearance phase active
+250.0,J2,MAIN_YELLOW,0,2,HOLD,clearance phase active
+250.0,J3,ALL_RED_1,0,2,HOLD,clearance phase active
+250.0,J4,MAIN_GREEN,11,2,EXTEND_GREEN,"high main queue (11), extending green"
+251.0,J1,CROSS_YELLOW,17,0,HOLD,clearance phase active
+251.0,J2,MAIN_YELLOW,1,2,HOLD,clearance phase active
+251.0,J3,CROSS_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+251.0,J4,MAIN_GREEN,12,3,EXTEND_GREEN,"high main queue (12), extending green"
+252.0,J1,CROSS_YELLOW,19,0,HOLD,clearance phase active
+252.0,J2,ALL_RED_1,2,2,HOLD,clearance phase active
+252.0,J3,CROSS_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+252.0,J4,MAIN_GREEN,12,3,EXTEND_GREEN,"high main queue (12), extending green"
+253.0,J1,ALL_RED_2,21,0,HOLD,clearance phase active
+253.0,J2,ALL_RED_1,3,2,HOLD,clearance phase active
+253.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+253.0,J4,MAIN_GREEN,13,3,EXTEND_GREEN,"high main queue (13), extending green"
+254.0,J1,ALL_RED_2,22,1,HOLD,clearance phase active
+254.0,J2,CROSS_GREEN,3,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+254.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+254.0,J4,MAIN_GREEN,15,3,EXTEND_GREEN,"high main queue (15), extending green"
+255.0,J1,MAIN_GREEN,22,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+255.0,J2,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+255.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+255.0,J4,MAIN_GREEN,16,3,EXTEND_GREEN,"high main queue (16), extending green"
+256.0,J1,MAIN_GREEN,21,2,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+256.0,J2,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+256.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+256.0,J4,MAIN_GREEN,18,3,EXTEND_GREEN,"high main queue (18), extending green"
+257.0,J1,MAIN_GREEN,20,2,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+257.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+257.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+257.0,J4,MAIN_GREEN,18,3,EXTEND_GREEN,"high main queue (18), extending green"
+258.0,J1,MAIN_GREEN,19,2,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+258.0,J2,CROSS_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+258.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+258.0,J4,MAIN_GREEN,18,3,EXTEND_GREEN,"high main queue (18), extending green"
+259.0,J1,MAIN_GREEN,19,3,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+259.0,J2,CROSS_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+259.0,J3,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+259.0,J4,MAIN_GREEN,18,3,EXTEND_GREEN,"high main queue (18), extending green"
+260.0,J1,MAIN_GREEN,18,3,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+260.0,J2,CROSS_GREEN,10,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+260.0,J3,CROSS_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+260.0,J4,MAIN_GREEN,19,3,EXTEND_GREEN,"high main queue (19), extending green"
+261.0,J1,MAIN_GREEN,16,3,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+261.0,J2,CROSS_GREEN,11,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+261.0,J3,CROSS_GREEN,3,0,START_TRANSITION,main queue (3) exceeds cross queue (0)
+261.0,J4,MAIN_GREEN,19,3,EXTEND_GREEN,"high main queue (19), extending green"
+262.0,J1,MAIN_GREEN,16,3,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+262.0,J2,CROSS_GREEN,12,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+262.0,J3,CROSS_YELLOW,3,0,HOLD,clearance phase active
+262.0,J4,MAIN_GREEN,19,3,EXTEND_GREEN,"high main queue (19), extending green"
+263.0,J1,MAIN_GREEN,15,3,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+263.0,J2,CROSS_GREEN,13,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+263.0,J3,CROSS_YELLOW,4,0,HOLD,clearance phase active
+263.0,J4,MAIN_GREEN,19,3,EXTEND_GREEN,"high main queue (19), extending green"
+264.0,J1,MAIN_GREEN,14,4,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+264.0,J2,CROSS_GREEN,13,0,START_TRANSITION,main queue (13) exceeds cross queue (0)
+264.0,J3,CROSS_YELLOW,4,0,HOLD,clearance phase active
+264.0,J4,MAIN_GREEN,19,4,START_TRANSITION,maximum green reached (40.0s >= 40.0s)
+265.0,J1,MAIN_GREEN,14,4,EXTEND_GREEN,"high main queue (14), extending green"
+265.0,J2,CROSS_YELLOW,14,0,HOLD,clearance phase active
+265.0,J3,ALL_RED_2,5,0,HOLD,clearance phase active
+265.0,J4,MAIN_YELLOW,19,4,HOLD,clearance phase active
+266.0,J1,MAIN_GREEN,14,4,EXTEND_GREEN,"high main queue (14), extending green"
+266.0,J2,CROSS_YELLOW,14,0,HOLD,clearance phase active
+266.0,J3,ALL_RED_2,7,0,HOLD,clearance phase active
+266.0,J4,MAIN_YELLOW,19,4,HOLD,clearance phase active
+267.0,J1,MAIN_GREEN,13,4,EXTEND_GREEN,"high main queue (13), extending green"
+267.0,J2,CROSS_YELLOW,14,0,HOLD,clearance phase active
+267.0,J3,MAIN_GREEN,5,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+267.0,J4,MAIN_YELLOW,19,4,HOLD,clearance phase active
+268.0,J1,MAIN_GREEN,12,4,EXTEND_GREEN,"high main queue (12), extending green"
+268.0,J2,ALL_RED_2,14,0,HOLD,clearance phase active
+268.0,J3,MAIN_GREEN,4,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+268.0,J4,ALL_RED_1,19,4,HOLD,clearance phase active
+269.0,J1,MAIN_GREEN,11,4,EXTEND_GREEN,"high main queue (11), extending green"
+269.0,J2,ALL_RED_2,14,0,HOLD,clearance phase active
+269.0,J3,MAIN_GREEN,2,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+269.0,J4,ALL_RED_1,19,4,HOLD,clearance phase active
+270.0,J1,MAIN_GREEN,9,4,EXTEND_GREEN,"high main queue (9), extending green"
+270.0,J2,MAIN_GREEN,10,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+270.0,J3,MAIN_GREEN,1,2,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+270.0,J4,CROSS_GREEN,19,2,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+271.0,J1,MAIN_GREEN,8,5,EXTEND_GREEN,"high main queue (8), extending green"
+271.0,J2,MAIN_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+271.0,J3,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+271.0,J4,CROSS_GREEN,19,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+272.0,J1,MAIN_GREEN,7,5,EXTEND_GREEN,"high main queue (7), extending green"
+272.0,J2,MAIN_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+272.0,J3,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+272.0,J4,CROSS_GREEN,19,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+273.0,J1,MAIN_GREEN,7,5,EXTEND_GREEN,"high main queue (7), extending green"
+273.0,J2,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+273.0,J3,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+273.0,J4,CROSS_GREEN,20,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+274.0,J1,MAIN_GREEN,6,7,START_TRANSITION,cross queue (7) exceeds main queue (6)
+274.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+274.0,J3,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+274.0,J4,CROSS_GREEN,20,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+275.0,J1,MAIN_YELLOW,4,7,HOLD,clearance phase active
+275.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+275.0,J3,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+275.0,J4,CROSS_GREEN,21,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+276.0,J1,MAIN_YELLOW,4,7,HOLD,clearance phase active
+276.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+276.0,J3,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+276.0,J4,CROSS_GREEN,21,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+277.0,J1,MAIN_YELLOW,2,7,HOLD,clearance phase active
+277.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+277.0,J3,MAIN_GREEN,0,2,START_TRANSITION,main queue empty and cross queue waiting (2)
+277.0,J4,CROSS_GREEN,21,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+278.0,J1,ALL_RED_1,4,8,HOLD,clearance phase active
+278.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+278.0,J3,MAIN_YELLOW,0,2,HOLD,clearance phase active
+278.0,J4,CROSS_GREEN,21,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+279.0,J1,ALL_RED_1,3,8,HOLD,clearance phase active
+279.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+279.0,J3,MAIN_YELLOW,0,2,HOLD,clearance phase active
+279.0,J4,CROSS_GREEN,21,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+280.0,J1,CROSS_GREEN,2,7,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+280.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+280.0,J3,MAIN_YELLOW,0,2,HOLD,clearance phase active
+280.0,J4,CROSS_GREEN,21,0,START_TRANSITION,main queue (21) exceeds cross queue (0)
+281.0,J1,CROSS_GREEN,3,5,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+281.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+281.0,J3,ALL_RED_1,0,2,HOLD,clearance phase active
+281.0,J4,CROSS_YELLOW,21,0,HOLD,clearance phase active
+282.0,J1,CROSS_GREEN,3,5,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+282.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+282.0,J3,ALL_RED_1,0,2,HOLD,clearance phase active
+282.0,J4,CROSS_YELLOW,23,0,HOLD,clearance phase active
+283.0,J1,CROSS_GREEN,4,4,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+283.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+283.0,J3,CROSS_GREEN,0,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+283.0,J4,CROSS_YELLOW,23,0,HOLD,clearance phase active
+284.0,J1,CROSS_GREEN,5,3,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+284.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+284.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+284.0,J4,ALL_RED_2,24,1,HOLD,clearance phase active
+285.0,J1,CROSS_GREEN,6,2,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+285.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+285.0,J3,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+285.0,J4,ALL_RED_2,24,1,HOLD,clearance phase active
+286.0,J1,CROSS_GREEN,9,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+286.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+286.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+286.0,J4,MAIN_GREEN,23,2,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+287.0,J1,CROSS_GREEN,10,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+287.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+287.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+287.0,J4,MAIN_GREEN,24,2,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+288.0,J1,CROSS_GREEN,11,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+288.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+288.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+288.0,J4,MAIN_GREEN,25,2,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+289.0,J1,CROSS_GREEN,11,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+289.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+289.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+289.0,J4,MAIN_GREEN,27,2,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+290.0,J1,CROSS_GREEN,14,0,START_TRANSITION,main queue (14) exceeds cross queue (0)
+290.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+290.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+290.0,J4,MAIN_GREEN,27,3,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+291.0,J1,CROSS_YELLOW,16,0,HOLD,clearance phase active
+291.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+291.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+291.0,J4,MAIN_GREEN,27,3,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+292.0,J1,CROSS_YELLOW,16,0,HOLD,clearance phase active
+292.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+292.0,J3,CROSS_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+292.0,J4,MAIN_GREEN,27,3,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+293.0,J1,CROSS_YELLOW,18,0,HOLD,clearance phase active
+293.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+293.0,J3,CROSS_GREEN,2,0,START_TRANSITION,cross queue empty and main queue waiting (2)
+293.0,J4,MAIN_GREEN,27,3,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+294.0,J1,ALL_RED_2,19,0,HOLD,clearance phase active
+294.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+294.0,J3,CROSS_YELLOW,4,0,HOLD,clearance phase active
+294.0,J4,MAIN_GREEN,27,3,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+295.0,J1,ALL_RED_2,22,1,HOLD,clearance phase active
+295.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+295.0,J3,CROSS_YELLOW,4,0,HOLD,clearance phase active
+295.0,J4,MAIN_GREEN,27,3,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+296.0,J1,MAIN_GREEN,21,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+296.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+296.0,J3,CROSS_YELLOW,6,0,HOLD,clearance phase active
+296.0,J4,MAIN_GREEN,27,3,EXTEND_GREEN,"high main queue (27), extending green"
+297.0,J1,MAIN_GREEN,20,2,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+297.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+297.0,J3,ALL_RED_2,6,0,HOLD,clearance phase active
+297.0,J4,MAIN_GREEN,27,3,EXTEND_GREEN,"high main queue (27), extending green"
+298.0,J1,MAIN_GREEN,17,3,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+298.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,main demand below threshold
+298.0,J3,ALL_RED_2,7,0,HOLD,clearance phase active
+298.0,J4,MAIN_GREEN,27,3,EXTEND_GREEN,"high main queue (27), extending green"
+299.0,J1,MAIN_GREEN,16,3,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+299.0,J2,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+299.0,J3,MAIN_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+299.0,J4,MAIN_GREEN,27,3,EXTEND_GREEN,"high main queue (27), extending green"
+300.0,J1,MAIN_GREEN,15,4,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+300.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+300.0,J3,MAIN_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+300.0,J4,MAIN_GREEN,27,3,EXTEND_GREEN,"high main queue (27), extending green"
+301.0,J1,MAIN_GREEN,15,4,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+301.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+301.0,J3,MAIN_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+301.0,J4,MAIN_GREEN,27,4,EXTEND_GREEN,"high main queue (27), extending green"
+302.0,J1,MAIN_GREEN,15,4,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+302.0,J2,MAIN_YELLOW,0,1,HOLD,clearance phase active
+302.0,J3,MAIN_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+302.0,J4,MAIN_GREEN,27,4,EXTEND_GREEN,"high main queue (27), extending green"
+303.0,J1,MAIN_GREEN,14,5,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+303.0,J2,ALL_RED_1,0,1,HOLD,clearance phase active
+303.0,J3,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+303.0,J4,MAIN_GREEN,27,4,EXTEND_GREEN,"high main queue (27), extending green"
+304.0,J1,MAIN_GREEN,13,6,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+304.0,J2,ALL_RED_1,0,1,HOLD,clearance phase active
+304.0,J3,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+304.0,J4,MAIN_GREEN,27,4,EXTEND_GREEN,"high main queue (27), extending green"
+305.0,J1,MAIN_GREEN,12,6,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+305.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+305.0,J3,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+305.0,J4,MAIN_GREEN,27,4,EXTEND_GREEN,"high main queue (27), extending green"
+306.0,J1,MAIN_GREEN,12,6,EXTEND_GREEN,"high main queue (12), extending green"
+306.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+306.0,J3,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+306.0,J4,MAIN_GREEN,27,5,EXTEND_GREEN,"high main queue (27), extending green"
+307.0,J1,MAIN_GREEN,12,6,EXTEND_GREEN,"high main queue (12), extending green"
+307.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+307.0,J3,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+307.0,J4,MAIN_GREEN,27,5,EXTEND_GREEN,"high main queue (27), extending green"
+308.0,J1,MAIN_GREEN,11,6,EXTEND_GREEN,"high main queue (11), extending green"
+308.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+308.0,J3,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+308.0,J4,MAIN_GREEN,27,5,EXTEND_GREEN,"high main queue (27), extending green"
+309.0,J1,MAIN_GREEN,11,6,EXTEND_GREEN,"high main queue (11), extending green"
+309.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+309.0,J3,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+309.0,J4,MAIN_GREEN,27,5,EXTEND_GREEN,"high main queue (27), extending green"
+310.0,J1,MAIN_GREEN,11,6,EXTEND_GREEN,"high main queue (11), extending green"
+310.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+310.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+310.0,J4,MAIN_GREEN,27,5,EXTEND_GREEN,"high main queue (27), extending green"
+311.0,J1,MAIN_GREEN,9,6,EXTEND_GREEN,"high main queue (9), extending green"
+311.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+311.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+311.0,J4,MAIN_GREEN,27,6,EXTEND_GREEN,"high main queue (27), extending green"
+312.0,J1,MAIN_GREEN,8,6,EXTEND_GREEN,"high main queue (8), extending green"
+312.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+312.0,J3,MAIN_YELLOW,1,1,HOLD,clearance phase active
+312.0,J4,MAIN_GREEN,29,6,EXTEND_GREEN,"high main queue (29), extending green"
+313.0,J1,MAIN_GREEN,7,6,EXTEND_GREEN,"high main queue (7), extending green"
+313.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+313.0,J3,ALL_RED_1,1,1,HOLD,clearance phase active
+313.0,J4,MAIN_GREEN,29,6,EXTEND_GREEN,"high main queue (29), extending green"
+314.0,J1,MAIN_GREEN,7,6,EXTEND_GREEN,"high main queue (7), extending green"
+314.0,J2,CROSS_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+314.0,J3,ALL_RED_1,2,1,HOLD,clearance phase active
+314.0,J4,MAIN_GREEN,31,7,EXTEND_GREEN,"high main queue (31), extending green"
+315.0,J1,MAIN_GREEN,6,7,START_TRANSITION,cross queue (7) exceeds main queue (6)
+315.0,J2,CROSS_GREEN,0,0,START_TRANSITION,"cross street empty, returning to main arterial"
+315.0,J3,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+315.0,J4,MAIN_GREEN,31,7,EXTEND_GREEN,"high main queue (31), extending green"
+316.0,J1,MAIN_YELLOW,4,7,HOLD,clearance phase active
+316.0,J2,CROSS_YELLOW,0,0,HOLD,clearance phase active
+316.0,J3,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+316.0,J4,MAIN_GREEN,31,7,EXTEND_GREEN,"high main queue (31), extending green"
+317.0,J1,MAIN_YELLOW,3,7,HOLD,clearance phase active
+317.0,J2,CROSS_YELLOW,0,0,HOLD,clearance phase active
+317.0,J3,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+317.0,J4,MAIN_GREEN,31,7,EXTEND_GREEN,"high main queue (31), extending green"
+318.0,J1,MAIN_YELLOW,2,7,HOLD,clearance phase active
+318.0,J2,CROSS_YELLOW,2,0,HOLD,clearance phase active
+318.0,J3,CROSS_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+318.0,J4,MAIN_GREEN,32,8,EXTEND_GREEN,"high main queue (32), extending green"
+319.0,J1,ALL_RED_1,1,7,HOLD,clearance phase active
+319.0,J2,ALL_RED_2,2,0,HOLD,clearance phase active
+319.0,J3,CROSS_GREEN,10,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+319.0,J4,MAIN_GREEN,34,8,EXTEND_GREEN,"high main queue (34), extending green"
+320.0,J1,ALL_RED_1,2,7,HOLD,clearance phase active
+320.0,J2,ALL_RED_2,3,0,HOLD,clearance phase active
+320.0,J3,CROSS_GREEN,11,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+320.0,J4,MAIN_GREEN,33,8,EXTEND_GREEN,"high main queue (33), extending green"
+321.0,J1,CROSS_GREEN,3,6,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+321.0,J2,MAIN_GREEN,2,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+321.0,J3,CROSS_GREEN,11,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+321.0,J4,MAIN_GREEN,34,8,EXTEND_GREEN,"high main queue (34), extending green"
+322.0,J1,CROSS_GREEN,4,5,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+322.0,J2,MAIN_GREEN,1,2,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+322.0,J3,CROSS_GREEN,13,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+322.0,J4,MAIN_GREEN,34,8,EXTEND_GREEN,"high main queue (34), extending green"
+323.0,J1,CROSS_GREEN,4,4,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+323.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+323.0,J3,CROSS_GREEN,14,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+323.0,J4,MAIN_GREEN,34,8,EXTEND_GREEN,"high main queue (34), extending green"
+324.0,J1,CROSS_GREEN,5,3,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+324.0,J2,MAIN_GREEN,0,2,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+324.0,J3,CROSS_GREEN,16,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+324.0,J4,MAIN_GREEN,34,8,EXTEND_GREEN,"high main queue (34), extending green"
+325.0,J1,CROSS_GREEN,6,2,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+325.0,J2,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+325.0,J3,CROSS_GREEN,17,0,START_TRANSITION,main queue (17) exceeds cross queue (0)
+325.0,J4,MAIN_GREEN,34,8,EXTEND_GREEN,"high main queue (34), extending green"
+326.0,J1,CROSS_GREEN,8,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+326.0,J2,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+326.0,J3,CROSS_YELLOW,19,0,HOLD,clearance phase active
+326.0,J4,MAIN_GREEN,34,8,START_TRANSITION,maximum green reached (40.0s >= 40.0s)
+327.0,J1,CROSS_GREEN,8,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+327.0,J2,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+327.0,J3,CROSS_YELLOW,21,0,HOLD,clearance phase active
+327.0,J4,MAIN_YELLOW,34,8,HOLD,clearance phase active
+328.0,J1,CROSS_GREEN,10,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+328.0,J2,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+328.0,J3,CROSS_YELLOW,21,0,HOLD,clearance phase active
+328.0,J4,MAIN_YELLOW,34,8,HOLD,clearance phase active
+329.0,J1,CROSS_GREEN,11,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+329.0,J2,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+329.0,J3,ALL_RED_2,21,1,HOLD,clearance phase active
+329.0,J4,MAIN_YELLOW,34,8,HOLD,clearance phase active
+330.0,J1,CROSS_GREEN,12,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+330.0,J2,MAIN_GREEN,0,3,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+330.0,J3,ALL_RED_2,22,1,HOLD,clearance phase active
+330.0,J4,ALL_RED_1,34,8,HOLD,clearance phase active
+331.0,J1,CROSS_GREEN,13,0,START_TRANSITION,main queue (13) exceeds cross queue (0)
+331.0,J2,MAIN_GREEN,0,3,START_TRANSITION,cross queue (3) exceeds main queue (0)
+331.0,J3,MAIN_GREEN,18,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+331.0,J4,ALL_RED_1,34,8,HOLD,clearance phase active
+332.0,J1,CROSS_YELLOW,16,0,HOLD,clearance phase active
+332.0,J2,MAIN_YELLOW,0,3,HOLD,clearance phase active
+332.0,J3,MAIN_GREEN,15,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+332.0,J4,CROSS_GREEN,34,6,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+333.0,J1,CROSS_YELLOW,16,0,HOLD,clearance phase active
+333.0,J2,MAIN_YELLOW,0,4,HOLD,clearance phase active
+333.0,J3,MAIN_GREEN,13,1,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+333.0,J4,CROSS_GREEN,34,5,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+334.0,J1,CROSS_YELLOW,17,0,HOLD,clearance phase active
+334.0,J2,MAIN_YELLOW,0,5,HOLD,clearance phase active
+334.0,J3,MAIN_GREEN,11,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+334.0,J4,CROSS_GREEN,35,3,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+335.0,J1,ALL_RED_2,19,0,HOLD,clearance phase active
+335.0,J2,ALL_RED_1,1,5,HOLD,clearance phase active
+335.0,J3,MAIN_GREEN,9,1,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+335.0,J4,CROSS_GREEN,35,1,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+336.0,J1,ALL_RED_2,21,1,HOLD,clearance phase active
+336.0,J2,ALL_RED_1,1,5,HOLD,clearance phase active
+336.0,J3,MAIN_GREEN,8,1,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+336.0,J4,CROSS_GREEN,35,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+337.0,J1,MAIN_GREEN,21,1,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+337.0,J2,CROSS_GREEN,3,3,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+337.0,J3,MAIN_GREEN,7,1,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+337.0,J4,CROSS_GREEN,36,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+338.0,J1,MAIN_GREEN,21,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+338.0,J2,CROSS_GREEN,4,1,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+338.0,J3,MAIN_GREEN,6,1,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+338.0,J4,CROSS_GREEN,36,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+339.0,J1,MAIN_GREEN,19,2,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+339.0,J2,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+339.0,J3,MAIN_GREEN,5,1,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+339.0,J4,CROSS_GREEN,36,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+340.0,J1,MAIN_GREEN,18,3,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+340.0,J2,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+340.0,J3,MAIN_GREEN,3,1,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+340.0,J4,CROSS_GREEN,37,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+341.0,J1,MAIN_GREEN,18,3,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+341.0,J2,CROSS_GREEN,6,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+341.0,J3,MAIN_GREEN,4,1,EXTEND_GREEN,"high main queue (4), extending green"
+341.0,J4,CROSS_GREEN,37,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+342.0,J1,MAIN_GREEN,17,4,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+342.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+342.0,J3,MAIN_GREEN,3,1,EXTEND_GREEN,"high main queue (3), extending green"
+342.0,J4,CROSS_GREEN,37,0,START_TRANSITION,main queue (37) exceeds cross queue (0)
+343.0,J1,MAIN_GREEN,18,4,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+343.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+343.0,J3,MAIN_GREEN,2,1,KEEP_GREEN,main demand below threshold
+343.0,J4,CROSS_YELLOW,38,0,HOLD,clearance phase active
+344.0,J1,MAIN_GREEN,17,4,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+344.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+344.0,J3,MAIN_GREEN,1,1,KEEP_GREEN,main demand below threshold
+344.0,J4,CROSS_YELLOW,40,0,HOLD,clearance phase active
+345.0,J1,MAIN_GREEN,18,4,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+345.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+345.0,J3,MAIN_GREEN,0,1,START_TRANSITION,main queue empty and cross queue waiting (1)
+345.0,J4,CROSS_YELLOW,42,0,HOLD,clearance phase active
+346.0,J1,MAIN_GREEN,16,4,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+346.0,J2,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+346.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+346.0,J4,ALL_RED_2,43,0,HOLD,clearance phase active
+347.0,J1,MAIN_GREEN,15,4,EXTEND_GREEN,"high main queue (15), extending green"
+347.0,J2,CROSS_GREEN,7,0,START_TRANSITION,main queue (7) exceeds cross queue (0)
+347.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+347.0,J4,ALL_RED_2,44,1,HOLD,clearance phase active
+348.0,J1,MAIN_GREEN,16,4,EXTEND_GREEN,"high main queue (16), extending green"
+348.0,J2,CROSS_YELLOW,7,0,HOLD,clearance phase active
+348.0,J3,MAIN_YELLOW,0,1,HOLD,clearance phase active
+348.0,J4,MAIN_GREEN,43,2,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+349.0,J1,MAIN_GREEN,15,4,EXTEND_GREEN,"high main queue (15), extending green"
+349.0,J2,CROSS_YELLOW,7,0,HOLD,clearance phase active
+349.0,J3,ALL_RED_1,0,1,HOLD,clearance phase active
+349.0,J4,MAIN_GREEN,42,4,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+350.0,J1,MAIN_GREEN,13,4,EXTEND_GREEN,"high main queue (13), extending green"
+350.0,J2,CROSS_YELLOW,7,0,HOLD,clearance phase active
+350.0,J3,ALL_RED_1,1,1,HOLD,clearance phase active
+350.0,J4,MAIN_GREEN,42,4,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+351.0,J1,MAIN_GREEN,12,5,EXTEND_GREEN,"high main queue (12), extending green"
+351.0,J2,ALL_RED_2,8,0,HOLD,clearance phase active
+351.0,J3,CROSS_GREEN,3,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+351.0,J4,MAIN_GREEN,43,4,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+352.0,J1,MAIN_GREEN,11,5,EXTEND_GREEN,"high main queue (11), extending green"
+352.0,J2,ALL_RED_2,8,0,HOLD,clearance phase active
+352.0,J3,CROSS_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+352.0,J4,MAIN_GREEN,45,4,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+353.0,J1,MAIN_GREEN,11,5,EXTEND_GREEN,"high main queue (11), extending green"
+353.0,J2,MAIN_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (0.0s < 10.0s)
+353.0,J3,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+353.0,J4,MAIN_GREEN,46,4,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+354.0,J1,MAIN_GREEN,9,5,EXTEND_GREEN,"high main queue (9), extending green"
+354.0,J2,MAIN_GREEN,4,0,KEEP_GREEN,minimum green not satisfied (1.0s < 10.0s)
+354.0,J3,CROSS_GREEN,5,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+354.0,J4,MAIN_GREEN,46,4,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+355.0,J1,MAIN_GREEN,8,6,EXTEND_GREEN,"high main queue (8), extending green"
+355.0,J2,MAIN_GREEN,2,0,KEEP_GREEN,minimum green not satisfied (2.0s < 10.0s)
+355.0,J3,CROSS_GREEN,7,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+355.0,J4,MAIN_GREEN,46,4,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+356.0,J1,MAIN_GREEN,6,6,EXTEND_GREEN,"high main queue (6), extending green"
+356.0,J2,MAIN_GREEN,1,0,KEEP_GREEN,minimum green not satisfied (3.0s < 10.0s)
+356.0,J3,CROSS_GREEN,9,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+356.0,J4,MAIN_GREEN,46,4,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+357.0,J1,MAIN_GREEN,5,6,START_TRANSITION,cross queue (6) exceeds main queue (5)
+357.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (4.0s < 10.0s)
+357.0,J3,CROSS_GREEN,10,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+357.0,J4,MAIN_GREEN,46,4,KEEP_GREEN,minimum green not satisfied (9.0s < 10.0s)
+358.0,J1,MAIN_YELLOW,4,6,HOLD,clearance phase active
+358.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (5.0s < 10.0s)
+358.0,J3,CROSS_GREEN,11,0,KEEP_GREEN,minimum green not satisfied (7.0s < 10.0s)
+358.0,J4,MAIN_GREEN,46,4,EXTEND_GREEN,"high main queue (46), extending green"
+359.0,J1,MAIN_YELLOW,2,6,HOLD,clearance phase active
+359.0,J2,MAIN_GREEN,0,0,KEEP_GREEN,minimum green not satisfied (6.0s < 10.0s)
+359.0,J3,CROSS_GREEN,13,0,KEEP_GREEN,minimum green not satisfied (8.0s < 10.0s)
+359.0,J4,MAIN_GREEN,46,4,EXTEND_GREEN,"high main queue (46), extending green"

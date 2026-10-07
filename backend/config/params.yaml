@@ -21,6 +21,14 @@ safety_firewall:
   buffer_capacity_veh: 4
   max_wait_threshold_s: 90
 
+reactive_controller:
+  min_green_s: 10
+  max_green_s: 40
+  extension_step_s: 5
+  queue_threshold: 3
+  yellow_s: 3
+  all_red_s: 2
+
 wave_forecast:
   horizon_s: 180
   low_risk_threshold: 0.40
