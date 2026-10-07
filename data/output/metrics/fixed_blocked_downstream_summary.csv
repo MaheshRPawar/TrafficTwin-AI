@@ -1,0 +1,2 @@
+scenario,controller,throughput,average_waiting_time,p95_waiting_time,average_travel_time,mean_queue_length,maximum_queue_length
+blocked_downstream,fixed,200,19.62,46.0,71.19,43.9,190.0

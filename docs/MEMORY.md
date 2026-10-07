@@ -31,7 +31,7 @@ Link, Spillback, Firewall, Trust, Fairness debt, Staged preemption, Recovery, Sh
 Event types: gps, link, junction, decision, mode. Controllers: fixed, reactive, traffictwin. Scenarios: normal, rush, blocked_downstream, ambulance, gps_outage.
 
 ## Current status
-Docs: updated for the 24-hour module-by-module plan. Code: M1 completed and verified (4-junction corridor J1-J4 in SUMO, 6-phase static signal logic, 4 deterministic scenarios, fallback_plan.json).
+Docs: updated for the 24-hour module-by-module plan. Code: M2 completed and verified (fixed-time baseline runner, tripinfo/queue/summary parsers, 6 metrics, 4 scenario CSVs, one chart).
 Results: none yet. Do not quote any numbers until runs exist.
 
 ## Open questions
@@ -46,4 +46,5 @@ Results: none yet. Do not quote any numbers until runs exist.
 
 ## Session log
 - 2026-10-08: M0 completed (scaffolding, requirements.txt, .venv, verify_environment.py, smoke tests, ruff, bandit, pip-audit passed).
-- 2026-10-08: M1 completed (corridor.net.xml with J1-J4 at 200m spacing, 6-phase safe cycles with all-red, 4 vehicle types, 4 scenarios with seed=42, headless & GUI verified, fallback_plan.json). Next: M2 Fixed Baseline + Metrics.
+- 2026-10-08: M1 completed (corridor.net.xml with J1-J4 at 200m spacing, 6-phase safe cycles with all-red, 4 vehicle types, 4 scenarios with seed=42, headless & GUI verified, fallback_plan.json).
+- 2026-10-08: M2 completed (run_fixed.py, tripinfo/queue/summary parsers, calc_metrics with 6 metrics+p95+emergency_delay, CSV exports, baseline chart, 24 tests pass). Normal: thru=194 avg_wait=20.0s. Rush: thru=338 avg_wait=26.2s. Next: M3 GPS stream.

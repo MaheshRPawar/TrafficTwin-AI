@@ -1,0 +1,2 @@
+scenario,controller,throughput,average_waiting_time,p95_waiting_time,average_travel_time,mean_queue_length,maximum_queue_length
+normal,fixed,194,20.04,46.0,78.91,13.73,48.54

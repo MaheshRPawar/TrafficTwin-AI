@@ -1,0 +1,2 @@
+scenario,controller,throughput,average_waiting_time,p95_waiting_time,average_travel_time,mean_queue_length,maximum_queue_length
+rush,fixed,338,26.22,61.0,87.87,29.06,98.35
