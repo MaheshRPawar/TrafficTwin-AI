@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
+    <!-- Corridor Endpoints -->
+    <node id="W0" x="0.0" y="0.0" type="priority" />
+    <node id="E5" x="1000.0" y="0.0" type="priority" />
+
+    <!-- Signalized Junctions (200m spacing along East-West arterial) -->
+    <node id="J1" x="200.0" y="0.0" type="traffic_light" tl="J1" />
+    <node id="J2" x="400.0" y="0.0" type="traffic_light" tl="J2" />
+    <node id="J3" x="600.0" y="0.0" type="traffic_light" tl="J3" />
+    <node id="J4" x="800.0" y="0.0" type="traffic_light" tl="J4" />
+
+    <!-- Cross-Road North Endpoints (150m offset) -->
+    <node id="N1" x="200.0" y="150.0" type="priority" />
+    <node id="N2" x="400.0" y="150.0" type="priority" />
+    <node id="N3" x="600.0" y="150.0" type="priority" />
+    <node id="N4" x="800.0" y="150.0" type="priority" />
+
+    <!-- Cross-Road South Endpoints (150m offset) -->
+    <node id="S1" x="200.0" y="-150.0" type="priority" />
+    <node id="S2" x="400.0" y="-150.0" type="priority" />
+    <node id="S3" x="600.0" y="-150.0" type="priority" />
+    <node id="S4" x="800.0" y="-150.0" type="priority" />
+</nodes>

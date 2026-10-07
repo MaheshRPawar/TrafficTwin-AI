@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tlLogics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tllogic_file.xsd">
+    <!-- Fixed-time safe 2-phase signal plan with yellow and all-red clearance intervals -->
+    <!-- Cycle: 30s Main Green + 3s Main Yellow + 2s All Red + 20s Cross Green + 3s Cross Yellow + 2s All Red = 60s -->
+
+    <tlLogic id="J1" type="static" programID="0" offset="0">
+        <phase duration="30" state="rrrrGGGggrrrrGGGgg" name="MAIN_GREEN"/>
+        <phase duration="3"  state="rrrryyyyyrrrryyyyy" name="MAIN_YELLOW"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrr" name="ALL_RED_1"/>
+        <phase duration="20" state="GGggrrrrrGGggrrrrr" name="CROSS_GREEN"/>
+        <phase duration="3"  state="yyyyrrrrryyyyrrrrr" name="CROSS_YELLOW"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrr" name="ALL_RED_2"/>
+    </tlLogic>
+
+    <tlLogic id="J2" type="static" programID="0" offset="0">
+        <phase duration="30" state="rrrrGGGggrrrrGGGgg" name="MAIN_GREEN"/>
+        <phase duration="3"  state="rrrryyyyyrrrryyyyy" name="MAIN_YELLOW"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrr" name="ALL_RED_1"/>
+        <phase duration="20" state="GGggrrrrrGGggrrrrr" name="CROSS_GREEN"/>
+        <phase duration="3"  state="yyyyrrrrryyyyrrrrr" name="CROSS_YELLOW"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrr" name="ALL_RED_2"/>
+    </tlLogic>
+
+    <tlLogic id="J3" type="static" programID="0" offset="0">
+        <phase duration="30" state="rrrrGGGggrrrrGGGgg" name="MAIN_GREEN"/>
+        <phase duration="3"  state="rrrryyyyyrrrryyyyy" name="MAIN_YELLOW"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrr" name="ALL_RED_1"/>
+        <phase duration="20" state="GGggrrrrrGGggrrrrr" name="CROSS_GREEN"/>
+        <phase duration="3"  state="yyyyrrrrryyyyrrrrr" name="CROSS_YELLOW"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrr" name="ALL_RED_2"/>
+    </tlLogic>
+
+    <tlLogic id="J4" type="static" programID="0" offset="0">
+        <phase duration="30" state="rrrrGGGggrrrrGGGgg" name="MAIN_GREEN"/>
+        <phase duration="3"  state="rrrryyyyyrrrryyyyy" name="MAIN_YELLOW"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrr" name="ALL_RED_1"/>
+        <phase duration="20" state="GGggrrrrrGGggrrrrr" name="CROSS_GREEN"/>
+        <phase duration="3"  state="yyyyrrrrryyyyrrrrr" name="CROSS_YELLOW"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrr" name="ALL_RED_2"/>
+    </tlLogic>
+</tlLogics>

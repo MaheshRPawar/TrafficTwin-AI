@@ -1,0 +1,50 @@
+{
+  "description": "TrafficTwin AI - Stored Local Safe Fallback Signal Plan",
+  "cycle_length_s": 60,
+  "default_offset_s": 0,
+  "junctions": ["J1", "J2", "J3", "J4"],
+  "phases": [
+    {
+      "index": 0,
+      "name": "MAIN_GREEN",
+      "duration_s": 30,
+      "state": "rrrrGGGggrrrrGGGgg",
+      "description": "Main East-West arterial green"
+    },
+    {
+      "index": 1,
+      "name": "MAIN_YELLOW",
+      "duration_s": 3,
+      "state": "rrrryyyyyrrrryyyyy",
+      "description": "Main arterial yellow change interval"
+    },
+    {
+      "index": 2,
+      "name": "ALL_RED_1",
+      "duration_s": 2,
+      "state": "rrrrrrrrrrrrrrrrrr",
+      "description": "All-red clearance interval before cross phase"
+    },
+    {
+      "index": 3,
+      "name": "CROSS_GREEN",
+      "duration_s": 20,
+      "state": "GGggrrrrrGGggrrrrr",
+      "description": "Cross road North-South green"
+    },
+    {
+      "index": 4,
+      "name": "CROSS_YELLOW",
+      "duration_s": 3,
+      "state": "yyyyrrrrryyyyrrrrr",
+      "description": "Cross road yellow change interval"
+    },
+    {
+      "index": 5,
+      "name": "ALL_RED_2",
+      "duration_s": 2,
+      "state": "rrrrrrrrrrrrrrrrrr",
+      "description": "All-red clearance interval before main phase"
+    }
+  ]
+}

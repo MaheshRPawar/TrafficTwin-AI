@@ -68,3 +68,4 @@ Cut rule (decide at checkpoints, no debate): behind ⇒ drop from the end: P2 �
 - [x] Prototype PPT submitted
 - [x] Product scope locked, docs written
 - [x] M0 Repo + tooling (TT-01) — environment verified, gate passed
+- [x] M1 SUMO corridor (TT-02) — 4-junction corridor J1-J4, safe 6-phase signals, 4 scenarios verified headless & GUI, fallback_plan.json created
