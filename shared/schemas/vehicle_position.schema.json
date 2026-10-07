@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VehiclePositionEvent",
+  "description": "Normalized GPS-like vehicle position observation from simulated telemetry.",
+  "type": "object",
+  "required": [
+    "event_type",
+    "event_id",
+    "vehicle_id",
+    "vehicle_type",
+    "timestamp",
+    "corridor_id",
+    "junction_id",
+    "lane_id",
+    "road_segment_id",
+    "x",
+    "y",
+    "speed_kmph",
+    "heading_degrees",
+    "source",
+    "freshness_seconds"
+  ],
+  "properties": {
+    "event_type": {
+      "type": "string",
+      "enum": ["vehicle_position"]
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "vehicle_id": {
+      "type": "string"
+    },
+    "vehicle_type": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "corridor_id": {
+      "type": "string"
+    },
+    "junction_id": {
+      "type": ["string", "null"]
+    },
+    "lane_id": {
+      "type": "string"
+    },
+    "road_segment_id": {
+      "type": "string"
+    },
+    "x": {
+      "type": "number"
+    },
+    "y": {
+      "type": "number"
+    },
+    "speed_kmph": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "heading_degrees": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 360.0
+    },
+    "source": {
+      "type": "string",
+      "enum": ["simulated_sumo"]
+    },
+    "freshness_seconds": {
+      "type": "number",
+      "minimum": 0.0
+    }
+  },
+  "additionalProperties": false
+}
