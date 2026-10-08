@@ -31,8 +31,8 @@ Link, Spillback, Firewall, Trust, Fairness debt, Staged preemption, Recovery, Sh
 Event types: gps, link, junction, decision, mode. Controllers: fixed, reactive, traffictwin. Scenarios: normal, rush, blocked_downstream, ambulance, gps_outage.
 
 ## Current status
-Docs: updated for the 24-hour module-by-module plan. Code: M5 completed and verified (signal safety firewall in backend/app/guards/safety_firewall.py, runtime TraCI validation boundary in reactive_controller.py step_junction, 40s max green aligned with params.yaml, clearance & conflict checks, audit CSV logging, demo in experiments/demo_safety_firewall.py, 82 tests pass).
-Results: Normal Fixed avg_wait=20.0s vs Reactive avg_wait=13.5s; Rush Fixed avg_wait=26.2s vs Reactive avg_wait=19.6s. GPS streams: normal (9162 events), rush (18972 events), blocked_downstream (17271 events), ambulance (11400 events). M5 Firewall: 5/5 demo cases verified, all 23 firewall unit/integration tests pass.
+Docs: updated for Module M6 spillback controller. Code: M6 completed and verified (spillback-aware controller in experiments/spillback_controller.py and backend/app/controllers/spillback_controller.py, downstream capacity & occupancy calculation, rule-based NORMAL/WARNING/CRITICAL risk classification, downstream corridor mapping J1->J1_J2, J2->J2_J3, J3->J3_J4, J4->J4_E5, M3->M6->M5->TraCI execution flow, audit CSV decision logging, runner in experiments/run_spillback.py, demo in experiments/demo_spillback.py, docs in docs/M6_SPILLBACK.md, 13 new M6 tests, 95 total tests pass, ruff clean, bandit clean).
+Results: Normal thru=197 avg_wait=13.5s; Rush thru=314 avg_wait=19.6s; Blocked Downstream thru=200 avg_wait=12.8s mean_queue=50.67 (1 SPILLBACK_BLOCK, 1 protected transition, peak occupancy=0.917); Ambulance thru=250 avg_wait=11.6s.
 
 ## Open questions
 - Date gap between R1 and the event start; R1 slot length and whether demo is live or recorded.
@@ -43,6 +43,7 @@ Results: Normal Fixed avg_wait=20.0s vs Reactive avg_wait=13.5s; Rush Fixed avg_
 
 ## Corrections log
 - 2026-10-08: Aligned M5 firewall max_green_s from 45.0s to 40.0s matching project params.yaml, and inserted runtime validation gateway into M3 step_junction prior to TraCI actuation.
+- 2026-10-08: Configured M6 spillback thresholds in params.yaml (warning=0.75, critical=0.85); verified fail-closed M5 firewall boundary for all M6 signal actions.
 
 ## Session log
 - 2026-10-08: M0 completed (scaffolding, requirements.txt, .venv, verify_environment.py, smoke tests, ruff, bandit, pip-audit passed).
@@ -51,4 +52,5 @@ Results: Normal Fixed avg_wait=20.0s vs Reactive avg_wait=13.5s; Rush Fixed avg_
 - 2026-10-08: M3 completed (safe queue-reactive controller in experiments/reactive_controller.py, run_reactive.py with TraCI, bounded green extension, min/max green, yellow/all-red clearance, decision logs, reactive metrics CSVs, fixed vs reactive comparison chart, 45 tests pass). Normal: thru=197 avg_wait=13.5s. Rush: thru=314 avg_wait=19.6s.
 - 2026-10-08: M4 completed (backend/app/stream/gps_event.py, shared/schemas/vehicle_position.schema.json, generate_gps_events.py, replay_gps.py, 4 scenario JSONL streams generated with 100% validity, 59 tests pass).
 - 2026-10-08: M5 completed & verified (backend/app/guards/safety_firewall.py, backend/app/guards/__init__.py, runtime TraCI validation in experiments/reactive_controller.py, experiments/demo_safety_firewall.py, docs/M5_SAFETY_FIREWALL.md, 23 tests in tests/test_m5_firewall.py, 82 total tests pass, ruff clean, bandit clean).
+- 2026-10-08: M6 completed & verified (experiments/spillback_controller.py, backend/app/controllers/spillback_controller.py, experiments/run_spillback.py, experiments/demo_spillback.py, docs/M6_SPILLBACK.md, 13 tests in tests/test_m6_spillback.py, 95 total tests pass, ruff clean, bandit clean, m6-ready tag).
 

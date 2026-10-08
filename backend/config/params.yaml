@@ -29,6 +29,12 @@ reactive_controller:
   yellow_s: 3
   all_red_s: 2
 
+spillback:
+  enabled: true
+  warning_threshold: 0.75
+  critical_threshold: 0.85
+  occupancy_threshold: 0.75
+
 wave_forecast:
   horizon_s: 180
   low_risk_threshold: 0.40
