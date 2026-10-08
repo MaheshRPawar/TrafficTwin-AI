@@ -8,7 +8,26 @@ The project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html
 
 ## [0.1.0] - 2026-10-08
 
-### Core MVP Release — Complete Local Decision-Support Platform (Modules M0–M11)
+### Professional Refactor & Public Simulation Dashboard
+
+#### Added
+- **Public Simulation Dashboard (`/public`):** Dedicated citizen/public view driven by the same real-time simulation backend and dataset as the Operator Control Room.
+  - Linear corridor schematic (`West Entry → J1 → J2 → J3 → J4 → East Exit`).
+  - Active traffic alerts (congestion, emergency preemption, peak volumes, normal flow).
+  - Countdown signal timing display (current signal lamp, seconds left, next signal).
+  - Public intersection status table.
+  - Clean client-side routing between `/` (Operator) and `/public` (Public).
+- **Dataset Documentation:** Added `data/README.md` cataloging scenario benchmarks, output files, metric conventions, and data authenticity rules.
+
+#### Cleaned & Removed
+- Removed 8 obsolete, unused frontend component prototypes (`BottomCharts.jsx`, `CorridorSchematic.jsx`, `CorridorView.jsx`, `DecisionTrace.jsx`, `LeftRail.jsx`, `OperationPanel.jsx`, `RightPanel.jsx`, `TopBar.jsx`).
+- Removed empty placeholder directories (`backend/app/predict`, `backend/app/state`, `experiments/scripts`).
+- Removed decorative emojis, AI badges, and marketing terminology, standardizing on a clean transportation-engineering design system.
+- Modularized dashboard views into `frontend/src/pages/OperatorDashboard.jsx` and `frontend/src/pages/PublicDashboard.jsx`.
+
+---
+
+### Core MVP Foundation (Modules M0–M11)
 
 #### Module M9 — Digital Twin Plan A/B/C Evaluator
 - **Deterministic Counterfactual Evaluator:** Evaluates candidate signal strategies in the local Digital Twin prior to recommendation.

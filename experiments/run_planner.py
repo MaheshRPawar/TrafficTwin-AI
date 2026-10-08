@@ -52,7 +52,7 @@ OUTPUT_DIR = Path("sumo/output")
 RESULTS_DIR = Path("data/output/metrics")
 SAFETY_DIR = Path("data/output/safety")
 
-VALID_SCENARIOS = ["rush", "blocked_downstream", "normal", "ambulance"]
+VALID_SCENARIOS = ["rush", "rush_hour", "blocked_downstream", "normal", "ambulance"]
 JUNCTION_IDS = ["J1", "J2", "J3", "J4"]
 
 
@@ -82,6 +82,7 @@ def save_planner_decision_log(records: list[dict], output_path: Path) -> None:
 
 def run_planner_scenario(scenario: str) -> dict:
     """Execute SUMO corridor run evaluated by Digital Twin Planner."""
+    scenario = "rush" if scenario == "rush_hour" else scenario
     cfg_path = SCENARIOS_DIR / f"corridor_{scenario}.sumocfg"
     if not cfg_path.exists():
         print(f"ERROR: Config not found: {cfg_path}")

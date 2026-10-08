@@ -201,7 +201,7 @@ export default function RightOperationsConsole({
             {/* Operator Advisory Banner */}
             <div className={`operator-advisory ${isCrit ? 'adv-crit' : 'adv-norm'}`}>
               <div className="adv-title">
-                {isCrit ? '⚠ CRITICAL SPILLBACK HAZARD' : '✓ CORRIDOR IN STABLE EQUILIBRIUM'}
+                {isCrit ? '[ALERT] CRITICAL SPILLBACK HAZARD' : '[OK] CORRIDOR IN STABLE EQUILIBRIUM'}
               </div>
               <p className="adv-text">
                 {isCrit
@@ -258,7 +258,7 @@ export default function RightOperationsConsole({
                     {!isPlanValid && plan.rejection_reasons && (
                       <div className="rejection-reason-box">
                         {plan.rejection_reasons.map((r, i) => (
-                          <div key={i} className="rej-text">✕ {r}</div>
+                          <div key={i} className="rej-text">[-] {r}</div>
                         ))}
                       </div>
                     )}
@@ -324,7 +324,7 @@ export default function RightOperationsConsole({
           {/* Role Check Banner */}
           {userRole === 'VIEWER' ? (
             <div className="viewer-role-notice">
-              <span>🔒 Viewer Role: Read-only access. Operator or Admin authorization required to apply recommendations.</span>
+              <span>Viewer Role: Read-only access. Operator or Admin authorization required to apply recommendations.</span>
             </div>
           ) : (
             <button
@@ -335,7 +335,7 @@ export default function RightOperationsConsole({
               {isApproving
                 ? 'Applying Verification...'
                 : rec.status === 'APPROVED'
-                ? '✓ RECOMMENDATION APPROVED'
+                ? 'RECOMMENDATION APPROVED'
                 : `AUTHORIZE ACTION (${userRole})`}
             </button>
           )}

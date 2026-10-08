@@ -1,27 +1,31 @@
 # TrafficTwin AI
 
-> **Aarambh WCE Hackathon 2026 — Complete Core MVP (Modules M0–M11)**  
-> **A Local-First, Simulation-Based Decision Support Platform for Arterial Corridor Control**
+> **Aarambh WCE Hackathon 2026 — Core Decision-Support Platform**  
+> **Simulation-Based, Local-First Traffic Optimization & Corridor Safety Platform**
 
 ---
 
-## Overview
+## 1. Overview
 
 TrafficTwin AI is an authority-facing traffic control decision-support platform that couples a deterministic **Eclipse SUMO Digital Twin** with a **multi-layer safety and optimization pipeline**.
 
-Before any signal action is recommended or simulated, candidate strategies are evaluated counterfactually against physical constraints, downstream capacities, cross-street starvation thresholds, emergency priority directives, and an immutable Signal Safety Firewall.
+Before any signal action is recommended or executed, candidate strategies are evaluated counterfactually against physical link storage, downstream capacity, cross-street starvation thresholds, emergency priority directives, and an immutable Signal Safety Firewall.
+
+The platform provides two distinct dashboards:
+1. **Operator Control Room (`/`)**: For traffic engineers and operators with counterfactual Plan A/B/C evaluation, downstream spillback protection, emergency preemption tracking, fail-safe reliability modes, and verified authorization.
+2. **Public Simulation Dashboard (`/public`)**: For citizens and observers with clear corridor status, active traffic alerts, queue sizes, and current/next signal countdown timings without exposure of internal control mechanics.
 
 ```
 Traffic State (J1–J4)
        │
        ▼
-[M3] Queue-Reactive Proposer
+[M3] Queue-Reactive Controller
        │
        ▼
 [M7] Fairness & Emergency Directives
        │
        ▼
-[M6] Spillback Capacity Guard (85% occupancy threshold)
+[M6] Spillback Capacity Guard (85% link occupancy lock)
        │
        ▼
 [M9] Digital Twin Plan Evaluator (Plan A vs B vs C scoring)
@@ -30,63 +34,45 @@ Traffic State (J1–J4)
 [M5] Signal Safety Firewall (10s min green, clearance, conflicts)
        │
        ▼
-SUMO Actuation / Operator Approval / TraCI
+SUMO / TraCI Simulation Execution
 ```
 
 ---
 
-## Key Features
+## 2. Key Modules & Capabilities
 
-### 1. Four-Junction Synchronized Corridor (M1–M2)
-- Models arterial intersections **J1 $\rightarrow$ J2 $\rightarrow$ J3 $\rightarrow$ J4** with calibrated main arterial and cross-street flows.
-- Baseline fixed-time benchmarked against adaptive strategies.
-
-### 2. Queue-Reactive & Spillback-Aware Control (M3, M6)
-- Bounded green extension ($10\,\text{s} \le \text{green} \le 40\,\text{s}$).
-- Real-time downstream link capacity tracking. Proactively suppresses upstream green extensions when downstream occupancy reaches $\ge 85\%$ to prevent gridlock.
-
-### 3. Cross-Street Fairness & Ambulance Preemption (M7)
-- **Fairness Debt Tracking:** Prevents cross-street starvation by enforcing priority when debt exceeds threshold.
-- **Staged Emergency Preemption:** Detects emergency vehicles, clears downstream queues, grants priority green, and enters a graceful post-emergency recovery cycle.
-
-### 4. Reliability & Fail-Safe Architecture (M8)
-- Four-stage operational state machine:
+- **Corridor Modeling (M1–M2):** Four synchronized arterial junctions (**J1 $\rightarrow$ J2 $\rightarrow$ J3 $\rightarrow$ J4**) benchmarked against a calibrated fixed-time baseline.
+- **Adaptive & Spillback Protection (M3, M6):** Bounded green extensions ($10\,\text{s} \le \text{green} \le 40\,\text{s}$) with active downstream link protection that blocks upstream extensions when downstream storage reaches $\ge 85\%$ occupancy.
+- **Fairness & Emergency Preemption (M7):** Cross-street fairness debt accumulation prevents starvation; staged emergency preemption flushes downstream queues for approaching emergency vehicles and executes post-emergency recovery.
+- **Reliability & Fail-Safe State Machine (M8):**
   $$\text{PREDICTIVE} \longleftrightarrow \text{SAFE\_ADAPTIVE} \longleftrightarrow \text{LOCAL\_SAFE} \longleftrightarrow \text{SHADOW\_RECOVERY}$$
-- Automated graceful degradation upon telemetry lag, sensor loss, or controller timeouts.
-
-### 5. Digital Twin Counterfactual Planner (M9)
-- Real-time deterministic evaluation of candidate plans:
+- **Digital Twin Plan Evaluator (M9):**
   - **Plan A:** Current safe schedule.
   - **Plan B:** Bounded green extension (+5s).
   - **Plan C:** Downstream link clearing and coordinated arterial clearance.
-- Transparent scoring formula:
-  $$\text{PlanScore} = 1.0 \cdot \text{delay} + 2.0 \cdot \text{queue} + 3.0 \cdot \text{spillback} + 1.5 \cdot \text{fairness} + 5.0 \cdot \text{emergency}$$
-- Selects the lowest-scoring valid candidate; safely defaults to `SAFE_ADAPTIVE` if all plans violate safety rules.
-
-### 6. Operator Control Room & REST API (M10)
-- **FastAPI Endpoints:** Real-time corridor telemetry, recommendation details, immutable audit logs, and replay traces.
-- **Local RBAC:** `VIEWER` (read-only), `OPERATOR` (authorized approval), and `ADMIN`.
-- **Security Guarantee:** Rejects raw TraCI commands or unvalidated phase injections. Only pre-validated recommendations can be approved.
-- **Industrial Dashboard:** Clean, light transportation engineering aesthetic with Recharts analytics and React Flow decision visualization.
+  - Transparent deterministic scoring:
+    $$\text{PlanScore} = 1.0 \cdot \text{delay} + 2.0 \cdot \text{queue} + 3.0 \cdot \text{spillback} + 1.5 \cdot \text{fairness} + 5.0 \cdot \text{emergency}$$
+- **Operator Dashboard & REST API (M10):** Role-gated recommendations (`VIEWER` read-only, `OPERATOR` / `ADMIN` approval), immutable audit logging, and replay. Raw TraCI injection is strictly rejected.
+- **Public Simulation Dashboard (M10 Extension):** Accessible at `/public`, displays corridor progression, active traffic alerts, queues, and signal countdowns.
 
 ---
 
-## System Boundaries & Operational Context
+## 3. System Boundaries & Operational Context
 
-- **Simulation-Based:** Built on Eclipse SUMO and TraCI.
-- **Local-First & Offline:** Functions entirely without cloud or external network dependencies.
-- **Authority-Facing:** Designed as decision-support for traffic engineers and operators, not public end-user routing.
-- **Not Live Municipal Control:** Simulation testbed demonstrating deterministic safety constraints prior to physical hardware deployment.
+- **Simulation Testbed:** Built on Eclipse SUMO 1.27+ and TraCI.
+- **Local-First & Offline:** Runs entirely without cloud or external network dependencies.
+- **Authority-Facing:** Decision support for traffic operations centers, not public GPS routing.
+- **Not Live Municipal Hardware Control:** Proves deterministic safety constraints prior to physical deployment.
 
 ---
 
-## Quick Start Guide
+## 4. Quick Start Guide
 
 ### Prerequisites
 - Python 3.10+ (with Eclipse SUMO installed and `SUMO_HOME` configured)
 - Node.js 18+ and npm
 
-### 1. Backend Setup & Test Suite
+### 1. Backend Setup & Automated Verification
 ```bash
 # Clone repository
 git clone https://github.com/MaheshRPawar/TrafficTwin-AI.git
@@ -96,121 +82,124 @@ cd TrafficTwin-AI
 python -m venv .venv
 .venv\Scripts\activate  # On Linux/macOS: source .venv/bin/activate
 
-# Install Python dependencies
+# Install dependencies
 pip install -r requirements.txt
 
 # Run full test suite (142 tests)
 pytest -v
 
-# Run linters and security checks
+# Run linters and security analysis
 ruff check .
 bandit -r backend experiments
 pip-audit
 ```
 
-### 2. Run Offline Experiments & Benchmarks
+### 2. Launch Backend API
 ```bash
-# Run Digital Twin Planner across scenarios
+python -m uvicorn backend.app.main:app --reload --port 8000
+```
+
+### 3. Launch Frontend Dashboards
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+- **Operator Dashboard:** Open `http://localhost:5173/`
+- **Public Simulation Dashboard:** Open `http://localhost:5173/public`
+*(You can also toggle between views via the navigation button in either header).*
+
+### 4. Run Offline Simulations & Benchmarks
+```bash
+# Run Digital Twin counterfactual evaluation across all scenarios:
 python experiments/run_planner.py --scenario normal
 python experiments/run_planner.py --scenario rush_hour
 python experiments/run_planner.py --scenario blocked_downstream
 python experiments/run_planner.py --scenario ambulance
 ```
 
-### 3. Launch Backend API
-```bash
-# Start FastAPI service on port 8000
-python -m uvicorn backend.app.main:app --reload --port 8000
-```
+---
 
-### 4. Launch Operator Frontend
-```bash
-cd frontend
-npm install
-npm run dev
-```
-Open your browser at `http://localhost:5173`.
+## 5. Dashboard Descriptions
+
+### Operator Control Room (`/`)
+- **Corridor Digital Twin:** Synchronized 4-junction schematic with per-junction queues, phases, and downstream occupancy bars.
+- **M9 Plans Tab:** Compares Plan A, B, and C with component score breakdowns and validation/rejection reasons.
+- **Flow Tab:** React Flow decision sequence from Traffic State through Safety Firewall to Signal Action.
+- **Audit Tab:** Timestamped immutable audit log of system transitions and decisions.
+- **Approval Panel:** Role-gated recommendation approval (`VIEWER` is read-only; `OPERATOR` / `ADMIN` can authorize).
+
+### Public Simulation Dashboard (`/public`)
+- **Corridor Overview:** Linear West Entry $\rightarrow$ J1 $\rightarrow$ J2 $\rightarrow$ J3 $\rightarrow$ J4 $\rightarrow$ East Exit view with traffic status badges.
+- **Signal & Timing Display:** Current signal lamp (Green / Yellow / Red), seconds remaining countdown, and next signal indication.
+- **Traffic Alerts:** Clean public advisory banner for incidents, high traffic volumes, or emergency vehicles.
+- **Intersection Status Table:** Tabular overview of queues, signal phases, and traffic levels across all corridor junctions.
 
 ---
 
-## REST API Overview
-
-| Endpoint | Method | Role Required | Description |
-| :--- | :---: | :---: | :--- |
-| `/health` | `GET` | Any | Subsystem health, controller mode, active scenario |
-| `/api/corridor/state` | `GET` | Any | 4-junction live states (queues, phases, occupancy) |
-| `/api/recommendations/current` | `GET` | Any | Active recommendation and full pipeline trace |
-| `/api/audit-events` | `GET` | Any | Immutable decision audit history |
-| `/api/replay` | `GET` | Any | Recorded simulation traces across scenarios |
-| `/api/recommendations/{id}/approve-simulation` | `POST` | `OPERATOR`, `ADMIN` | Authorizes an existing pre-validated recommendation (`VIEWER` returns 403) |
-
----
-
-## Judge Demonstration Flow
+## 6. Judge & Viva Demonstration Flow
 
 1. **Corridor Overview:** View J1–J4 synchronized corridor with real-time queue lengths and phase indicators.
-2. **Scenario Selection:** Select **BLOCKED DOWNSTREAM** scenario.
-3. **Inspect J3 Critical Link:**
+2. **Scenario Selection — Blocked Downstream:** Select `BLOCKED DOWNSTREAM` scenario and inspect Junction J3:
    - Queue: $12\,\text{veh}$
    - Downstream Link (`J3_J4`): $47 / 53\,\text{veh}$ ($88.7\%$ occupancy $\rightarrow$ **CRITICAL**)
-4. **Inspect Pipeline Decision:**
+3. **Inspect Decision Pipeline:**
    - **M3:** Proposes `EXTEND_GREEN` to serve queue.
-   - **M6:** Overrides with `SPILLBACK_BLOCK` due to critical downstream congestion.
-   - **M9:** Evaluates Plan A, B, C; rejects Plan B (spillback risk), selects Plan C (downstream clearance).
-   - **M5:** Validates safe phase transition to yellow clearance.
-5. **Emergency & Recovery:** Switch to **AMBULANCE** scenario to demonstrate staged preemption, downstream queue evacuation, and post-emergency fairness recovery.
-6. **Fail-Safe Mode Transition:** Observe automated degradation to `SAFE_ADAPTIVE` / `LOCAL_SAFE` upon telemetry failure, followed by `SHADOW_RECOVERY`.
-7. **Operator Authorization:** Switch between `VIEWER` and `OPERATOR` roles to demonstrate access control and audit logging.
+   - **M6:** Overrides with `SPILLBACK_BLOCK` to prevent intersection gridlock.
+   - **M9:** Evaluates Plan A, B, and C. Plan B is rejected (`m6_spillback_violation`); Plan C is selected for downstream clearance coordination.
+   - **M5:** Validates safe phase transition to yellow clearance ($3\,\text{s}$).
+4. **Public Dashboard View:** Switch to `/public` to observe citizen-facing traffic alerts, signal countdowns, and congestion notices without technical internals.
+5. **Emergency & Recovery:** Select `AMBULANCE` scenario:
+   - Staged preemption clears downstream queues, grants priority green, and initiates post-emergency fairness debt service.
+6. **Fail-Safe Mode Degradation:** Observe automated degradation from `PREDICTIVE` to `SAFE_ADAPTIVE` / `LOCAL_SAFE` upon telemetry loss, followed by `SHADOW_RECOVERY`.
+7. **Role Authorization:** Switch role from `VIEWER` (read-only) to `OPERATOR` to demonstrate access control and audit logging.
 
 ---
 
-## Repository Structure
+## 7. Repository Structure
 
 ```
 TrafficTwin-AI/
 ├── backend/
 │   ├── app/
-│   │   ├── guards/safety_firewall.py     # M5 Signal Safety Firewall
-│   │   ├── planner/                      # M9 Digital Twin Plan Evaluator
-│   │   │   ├── models.py
-│   │   │   └── evaluator.py
-│   │   ├── reliability/                  # M8 Multi-mode Fail-Safe Manager
-│   │   │   └── fail_safe_manager.py
-│   │   └── main.py                       # M10 FastAPI backend & RBAC
-│   └── config/params.yaml                # Authoritative system parameters
-├── experiments/                          # Core simulation controllers & runners
-│   ├── baseline_fixed.py                 # M2 Fixed-time baseline
-│   ├── reactive_controller.py            # M3 Queue-reactive controller
-│   ├── stream_replay.py                  # M4 GPS stream & replay engine
-│   ├── spillback_controller.py           # M6 Spillback capacity guard
-│   ├── emergency_controller.py           # M7 Fairness & emergency controller
-│   └── run_planner.py                    # M9 Experiment runner
-├── frontend/                             # M10 Operator Control Room (React+Vite)
+│   │   ├── controllers/      # Controller adapters
+│   │   ├── guards/           # M5 Safety Firewall & clearance rules
+│   │   ├── planner/          # M9 Digital Twin Plan Evaluator
+│   │   ├── reliability/      # M8 Multi-mode Fail-Safe Manager
+│   │   ├── stream/           # M4 Telematics stream model
+│   │   └── main.py           # FastAPI service, RBAC & endpoints
+│   └── config/params.yaml    # Central operational parameters
+├── experiments/              # Offline simulation controllers & runners
+│   ├── baseline_fixed.py     # M2 Fixed-time baseline
+│   ├── reactive_controller.py# M3 Queue-reactive controller
+│   ├── spillback_controller.py# M6 Spillback capacity guard
+│   ├── emergency_controller.py# M7 Fairness & emergency controller
+│   ├── stream_replay.py      # M4 GPS stream & replay engine
+│   └── run_planner.py        # M9 Experiment runner
+├── frontend/                 # React + Vite application
 │   ├── src/
-│   │   ├── components/                   # Corridor, charts, React Flow, logs
-│   │   ├── services/trafficService.js    # Live API client with fallback
-│   │   └── App.jsx
+│   │   ├── pages/            # OperatorDashboard.jsx & PublicDashboard.jsx
+│   │   ├── components/       # Corridor, charts, React Flow
+│   │   ├── hooks/            # useTrafficData.js
+│   │   ├── services/         # trafficService.js
+│   │   ├── App.jsx           # Clean view routing
+│   │   └── App.css           # Control room & public design system
 │   └── package.json
-├── tests/                                # M11 Automated Test Suite (142 tests)
-│   ├── test_m1_corridor.py
-│   ├── test_m2_baseline.py
-│   ├── test_m3_reactive.py
-│   ├── test_m4_stream.py
-│   ├── test_m5_firewall.py
-│   ├── test_m6_spillback.py
-│   ├── test_m7_ambulance_recovery.py
-│   ├── test_m8_failsafe.py
-│   ├── test_m9_planner.py
-│   ├── test_m10_api_dashboard.py
-│   └── test_m11_integration_flows.py
-├── docs/                                 # Technical documentation & evidence
-│   ├── M9_DIGITAL_TWIN_PLANNER.md
-│   └── ...
+├── data/                     # Scenario outputs & README catalog
+│   ├── output/metrics/       # SUMO travel time and queue CSVs
+│   ├── output/safety/        # Firewall decision CSVs
+│   └── README.md
+├── sumo/                     # Eclipse SUMO network & scenario configs
+│   ├── scenarios/            # .sumocfg for normal, rush, blocked, ambulance
+│   ├── net/                  # 4-junction corridor road network (.net.xml)
+│   └── routes/               # Calibrated traffic demand flows (.rou.xml)
+├── tests/                    # Automated Test Suite (142 tests passing)
 └── CHANGELOG.md
 ```
 
 ---
 
-## License
+## 8. License
 
 This project is licensed under the MIT License — see the LICENSE file for details.
