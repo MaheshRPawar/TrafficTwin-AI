@@ -4,10 +4,11 @@ Provides REST endpoints and WebSocket stream for the TrafficTwin Control Room.
 Serves authentic simulation results, metrics, and corridor state.
 """
 
-from pathlib import Path
 import csv
 import json
-from typing import Dict, Any, List, Optional
+from pathlib import Path
+from typing import Any
+
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -68,11 +69,11 @@ SCENARIOS = {
 }
 
 
-def read_summary_csv(file_path: Path) -> Optional[Dict[str, float]]:
+def read_summary_csv(file_path: Path) -> dict[str, float] | None:
     """Reads a simulation summary CSV and returns metrics dictionary."""
     if not file_path.exists():
         return None
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
             return {
@@ -87,7 +88,7 @@ def read_summary_csv(file_path: Path) -> Optional[Dict[str, float]]:
 
 
 @app.get("/api/health")
-def get_health() -> Dict[str, Any]:
+def get_health() -> dict[str, Any]:
     """Returns backend connection status and simulation environment details."""
     return {
         "status": "connected",
@@ -103,13 +104,13 @@ def get_health() -> Dict[str, Any]:
 
 
 @app.get("/api/scenarios")
-def list_scenarios() -> List[Dict[str, Any]]:
+def list_scenarios() -> list[dict[str, Any]]:
     """Lists available corridor scenarios."""
     return list(SCENARIOS.values())
 
 
 @app.get("/api/scenarios/{scenario_id}/summary")
-def get_scenario_summary(scenario_id: str) -> Dict[str, Any]:
+def get_scenario_summary(scenario_id: str) -> dict[str, Any]:
     """Returns comparative metrics (Fixed vs Reactive M3 vs Spillback M6) from recorded CSV outputs."""
     if scenario_id not in SCENARIOS:
         raise HTTPException(status_code=404, detail="Scenario not found")
@@ -168,7 +169,7 @@ def get_scenario_summary(scenario_id: str) -> Dict[str, Any]:
 
 
 @app.get("/api/scenarios/{scenario_id}/junctions")
-def get_junctions_state(scenario_id: str) -> Dict[str, Any]:
+def get_junctions_state(scenario_id: str) -> dict[str, Any]:
     """Returns corridor junction states for J1, J2, J3, J4."""
     if scenario_id not in SCENARIOS:
         raise HTTPException(status_code=404, detail="Scenario not found")
@@ -242,7 +243,7 @@ def get_junctions_state(scenario_id: str) -> Dict[str, Any]:
 
 
 @app.get("/api/scenarios/{scenario_id}/decision_trace")
-def get_decision_trace(scenario_id: str) -> List[Dict[str, Any]]:
+def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
     """Returns the operational decision record trace for the 6-step control chain."""
     if scenario_id == "blocked_downstream":
         return [
@@ -385,14 +386,14 @@ def get_decision_trace(scenario_id: str) -> List[Dict[str, Any]]:
 
 
 @app.get("/api/scenarios/{scenario_id}/gps_sample")
-def get_gps_sample(scenario_id: str, limit: int = 50) -> List[Dict[str, Any]]:
+def get_gps_sample(scenario_id: str, limit: int = 50) -> list[dict[str, Any]]:
     """Returns sample vehicle positions from recorded M4 GPS events."""
     gps_file = GPS_DIR / f"{scenario_id}.jsonl"
     if not gps_file.exists():
         return []
 
     events = []
-    with open(gps_file, "r", encoding="utf-8") as f:
+    with open(gps_file, encoding="utf-8") as f:
         for idx, line in enumerate(f):
             if idx >= limit:
                 break

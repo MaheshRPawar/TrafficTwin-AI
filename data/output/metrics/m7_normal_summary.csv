@@ -1,0 +1,2 @@
+scenario,controller,throughput,average_waiting_time,p95_waiting_time,average_travel_time,mean_queue_length,maximum_queue_length,emergency_delay
+normal,m7_intelligence,197,13.5,37.0,75.23,12.53,48.93,0.0
