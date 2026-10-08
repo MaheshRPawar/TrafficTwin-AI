@@ -57,3 +57,10 @@ reliability:
   trust_local_threshold: 0.40
   trust_resume_threshold: 0.80
   shadow_recovery_stable_window_s: 30
+
+planner:
+  weight_delay: 1.0
+  weight_queue: 2.0
+  weight_spillback: 3.0
+  weight_fairness: 1.5
+  weight_emergency: 5.0

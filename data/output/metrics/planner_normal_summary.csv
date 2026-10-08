@@ -1,0 +1,2 @@
+scenario,controller,throughput,average_waiting_time,p95_waiting_time,average_travel_time,mean_queue_length,maximum_queue_length
+normal,m9_planner,193,30.15,78.0,85.86,18.41,70.4

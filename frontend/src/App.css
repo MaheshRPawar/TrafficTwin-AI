@@ -1018,3 +1018,349 @@
   color: #94a3b8;
   line-height: 1.35;
 }
+
+/* ============================================================
+   ROLE SELECTOR & OPERATOR APPROVAL (Module M10)
+   ============================================================ */
+.role-select {
+  appearance: none;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 24px 6px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  outline: none;
+}
+
+.role-select:focus {
+  border-color: #2563eb;
+}
+
+/* M9 Planner Section */
+.planner-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.planner-header-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.selected-plan-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 4px 0 2px 0;
+}
+
+.planner-explanation {
+  font-size: 10.5px;
+  color: #64748b;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.plans-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.plan-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.12s ease;
+}
+
+.plan-card-selected {
+  border-color: #2563eb;
+  background-color: #f8fbff;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+.plan-card-invalid {
+  border-color: #fecaca;
+  background-color: #fffafb;
+  opacity: 0.85;
+}
+
+.plan-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan-name-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.plan-validity-pill {
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.pill-valid {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.pill-invalid {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.plan-score-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.score-label {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.score-val {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.score-breakdown-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px 6px;
+  background-color: #f1f5f9;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 9.5px;
+  color: #475569;
+  font-family: monospace;
+}
+
+.rejection-reason-box {
+  background-color: #fef2f2;
+  border: 1px solid #fee2e2;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 9.5px;
+  color: #dc2626;
+}
+
+/* Audit Log Section */
+.audit-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.audit-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.audit-count {
+  font-size: 9px;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.audit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.audit-item {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 7px 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.audit-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.audit-event-type {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.audit-event-time {
+  font-size: 8.5px;
+  color: #94a3b8;
+}
+
+.audit-item-details {
+  font-size: 10px;
+  color: #334155;
+  line-height: 1.3;
+}
+
+.audit-item-badge {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.audit-status-tag {
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.tag-info { background-color: #eff6ff; color: #2563eb; }
+.tag-pass { background-color: #ecfdf5; color: #059669; }
+.tag-blocked { background-color: #fee2e2; color: #dc2626; }
+.tag-approved { background-color: #ecfdf5; color: #059669; }
+.tag-selected { background-color: #eff6ff; color: #2563eb; }
+.tag-pending_approval { background-color: #fef3c7; color: #d97706; }
+
+.audit-junction-tag {
+  font-size: 8.5px;
+  color: #64748b;
+  background-color: #f1f5f9;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+/* Approval Box */
+.console-approval-box {
+  margin-top: 8px;
+  padding: 10px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.approval-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rec-id {
+  font-size: 9.5px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.rec-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rec-action-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.rec-status-pill {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.rec-approved {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.rec-pending {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.rec-reason-text {
+  font-size: 10px;
+  color: #64748b;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.viewer-role-notice {
+  background-color: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 9.5px;
+  color: #64748b;
+}
+
+.btn-approve-recommendation {
+  background-color: #059669;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.12s ease;
+  text-align: center;
+}
+
+.btn-approve-recommendation:hover:not(:disabled) {
+  background-color: #047857;
+}
+
+.btn-approved {
+  background-color: #10b981;
+  opacity: 0.9;
+  cursor: default;
+}
+
+.approval-feedback {
+  font-size: 9.5px;
+  border-radius: 4px;
+  padding: 4px 6px;
+}
+
+.fb-success {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.fb-error {
+  background-color: #fef2f2;
+  color: #dc2626;
+}

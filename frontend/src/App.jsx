@@ -13,13 +13,22 @@ export default function App() {
     setSelectedScenario,
     selectedJunction,
     setSelectedJunction,
+    userRole,
+    setUserRole,
     activeData,
+    corridorState,
+    currentRecommendation,
+    auditEvents,
     connectionStatus,
     isBackendConnected,
     replayStep,
     isReplaying,
     handleReplay,
+    approvalStatus,
+    handleApproveRecommendation,
   } = useTrafficData();
+
+  const metrics = activeData.metrics;
 
   return (
     <div className="app-container">
@@ -40,6 +49,23 @@ export default function App() {
             <div className="connection-badge-wrapper">
               <span className={`connection-dot ${isBackendConnected ? 'dot-live' : 'dot-recorded'}`}></span>
               <span className="connection-text mono">{connectionStatus}</span>
+            </div>
+
+            {/* Local Role Selector */}
+            <div className="control-group">
+              <label className="control-label">ROLE</label>
+              <div className="select-wrapper">
+                <select
+                  value={userRole}
+                  onChange={(e) => setUserRole(e.target.value)}
+                  className="role-select mono"
+                >
+                  <option value="VIEWER">Viewer (Read-Only)</option>
+                  <option value="OPERATOR">Operator (Approved)</option>
+                  <option value="ADMIN">Admin (Full Control)</option>
+                </select>
+                <span className="select-arrow">▼</span>
+              </div>
             </div>
 
             {/* Scenario Selector */}
@@ -96,7 +122,7 @@ export default function App() {
             <div className="kpi-content">
               <div className="kpi-label">Throughput</div>
               <div className="kpi-value-row">
-                <span className="kpi-value mono">{activeData.metrics.throughput}</span>
+                <span className="kpi-value mono">{metrics.throughput}</span>
                 <span className="kpi-unit">veh</span>
                 <span className="kpi-trend trend-down">
                   <span className="trend-arrow">↓</span> 0%
@@ -114,7 +140,7 @@ export default function App() {
             <div className="kpi-content">
               <div className="kpi-label">Avg Waiting Time</div>
               <div className="kpi-value-row">
-                <span className="kpi-value mono">{activeData.metrics.avgWait}</span>
+                <span className="kpi-value mono">{metrics.avgWait}</span>
                 <span className="kpi-unit">s</span>
                 <span className="kpi-trend trend-down">
                   <span className="trend-arrow">↓</span> 0%
@@ -132,7 +158,7 @@ export default function App() {
             <div className="kpi-content">
               <div className="kpi-label">Max Queue Length</div>
               <div className="kpi-value-row">
-                <span className="kpi-value mono">{activeData.metrics.maxQueue.toFixed(1)}</span>
+                <span className="kpi-value mono">{metrics.maxQueue.toFixed(1)}</span>
                 <span className="kpi-unit">veh</span>
                 <span className="kpi-trend trend-down">
                   <span className="trend-arrow">↓</span> 0%
@@ -150,8 +176,8 @@ export default function App() {
             <div className="kpi-content">
               <div className="kpi-label">Peak Downstream</div>
               <div className="kpi-value-row">
-                <span className={`kpi-value mono ${activeData.metrics.peakDownstreamOcc >= 85 ? 'text-crit' : ''}`}>
-                  {activeData.metrics.peakDownstreamOcc}%
+                <span className={`kpi-value mono ${metrics.peakDownstreamOcc >= 85 ? 'text-crit' : ''}`}>
+                  {metrics.peakDownstreamOcc}%
                 </span>
                 <span className="kpi-trend trend-up">
                   <span className="trend-arrow">↑</span> +11.1%
@@ -161,7 +187,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Card 5: Spillback Blocks */}
+          {/* Card 5: Spillback Blocks / Safety Enforced */}
           <div className="kpi-card">
             <div className="kpi-icon-box bg-blue-soft text-blue">
               <ShieldIcon />
@@ -169,7 +195,7 @@ export default function App() {
             <div className="kpi-content">
               <div className="kpi-label">Spillback Overrides</div>
               <div className="kpi-value-row">
-                <span className="kpi-value mono">{activeData.metrics.spillbackBlocks}</span>
+                <span className="kpi-value mono">{metrics.spillbackBlocks}</span>
                 <span className="kpi-status-dash">—</span>
               </div>
               <div className="kpi-compare-label text-slate">M6 Guard Protected</div>
@@ -196,14 +222,20 @@ export default function App() {
             </div>
           </div>
 
-          {/* Right Column (Operations Console + Decision Flow Graph) */}
+          {/* Right Column (Operations Console + M9 Plans + Decision Flow Graph + Audit Log) */}
           <div className="right-operations-col">
             <RightOperationsConsole
               selectedJunction={selectedJunction}
               scenarioData={activeData}
+              corridorState={corridorState}
+              currentRecommendation={currentRecommendation}
+              auditEvents={auditEvents}
+              userRole={userRole}
               replayStep={replayStep}
               isReplaying={isReplaying}
               onReplay={handleReplay}
+              onApprove={handleApproveRecommendation}
+              approvalStatus={approvalStatus}
             />
           </div>
         </div>

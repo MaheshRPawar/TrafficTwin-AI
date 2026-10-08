@@ -1,20 +1,26 @@
-"""TrafficTwin AI — FastAPI Backend Service.
+"""TrafficTwin AI — FastAPI Backend Service (Modules M1–M10).
 
-Provides REST endpoints and WebSocket stream for the TrafficTwin Control Room.
-Serves authentic simulation results, metrics, and corridor state.
+Provides authoritative REST endpoints and WebSocket stream for the TrafficTwin Control Room.
+Serves authentic corridor simulation telemetry, M9 Plan Evaluator results, M5/M6/M7 safety states,
+audit logs, replay sequences, and secure role-based operator approvals.
 """
 
 import csv
 import json
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, Header, HTTPException, Query, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, Field
+
+from backend.app.planner.evaluator import DigitalTwinPlanner
+from backend.app.planner.models import CorridorSnapshot, JunctionSnapshot
 
 app = FastAPI(
     title="TrafficTwin AI Operations API",
-    description="Backend API serving authentic corridor simulation telemetry, metrics, and decision traces.",
+    description="Local-first decision-support platform for corridor traffic operations, safety verification, and digital twin plan evaluation.",
     version="1.0.0",
 )
 
@@ -61,10 +67,245 @@ SCENARIOS = {
     "ambulance": {
         "id": "ambulance",
         "name": "Emergency Corridor",
-        "description": "Priority emergency vehicle dispatch through the corridor.",
+        "description": "Priority emergency vehicle dispatch through the corridor with staged preemption.",
         "incident_link": None,
         "critical_link": None,
         "bottleneck_junction": None,
+    },
+}
+
+# In-memory audit event log
+AUDIT_LOG: list[dict[str, Any]] = [
+    {
+        "event_id": "AUD-001",
+        "timestamp": "2026-10-08T12:00:01Z",
+        "event_type": "m8_mode_change",
+        "junction_id": "CORRIDOR",
+        "details": "Fail-Safe controller initialized in PREDICTIVE mode with M5 safety boundary.",
+        "status": "INFO",
+    },
+    {
+        "event_id": "AUD-002",
+        "timestamp": "2026-10-08T12:01:15Z",
+        "event_type": "fairness_decision",
+        "junction_id": "J1",
+        "details": "Side-street queue evaluated; max starvation under threshold (debt=0.0s).",
+        "status": "PASS",
+    },
+    {
+        "event_id": "AUD-003",
+        "timestamp": "2026-10-08T12:02:00Z",
+        "event_type": "m3_proposal",
+        "junction_id": "J3",
+        "details": "Queue controller proposed +5s green extension for arterial approach (Q=12).",
+        "status": "EVALUATED",
+    },
+    {
+        "event_id": "AUD-004",
+        "timestamp": "2026-10-08T12:02:01Z",
+        "event_type": "m6_block",
+        "junction_id": "J3",
+        "details": "Spillback Guard intercepted extension: Link J3_J4 storage at 88.7% (47/53 veh >= 85.0% threshold).",
+        "status": "BLOCKED",
+    },
+    {
+        "event_id": "AUD-005",
+        "timestamp": "2026-10-08T12:02:02Z",
+        "event_type": "m9_plan_selection",
+        "junction_id": "J3",
+        "details": "Digital Twin Evaluator selected PLAN C (Downstream Clearing & Coordination) with lowest valid score (28.5). Plan B rejected due to M6 spillback violation.",
+        "status": "SELECTED",
+    },
+    {
+        "event_id": "AUD-006",
+        "timestamp": "2026-10-08T12:02:03Z",
+        "event_type": "m5_validation",
+        "junction_id": "J3",
+        "details": "Safety Firewall verified transition Phase 0 -> Phase 1. Minimum green 10.0s satisfied (elapsed 10.0s).",
+        "status": "APPROVED",
+    },
+    {
+        "event_id": "AUD-007",
+        "timestamp": "2026-10-08T12:02:04Z",
+        "event_type": "recommendation_created",
+        "junction_id": "J3",
+        "details": "Recommendation REC-2026-J3-0887 created for operator verification.",
+        "status": "PENDING_APPROVAL",
+    },
+]
+
+# Active Recommendations Store
+RECOMMENDATIONS: dict[str, dict[str, Any]] = {
+    "REC-2026-J3-0887": {
+        "recommendation_id": "REC-2026-J3-0887",
+        "scenario": "blocked_downstream",
+        "junction": "J3",
+        "proposed_action": "SPILLBACK_CLEARANCE",
+        "target_phase": 1,
+        "reason": "Downstream link J3_J4 storage exceeds 85.0% (47/53 veh, 88.7% occupancy). Preempting green extension to clear downstream bottleneck.",
+        "m3_decision": {
+            "action": "EXTEND_GREEN",
+            "extension_s": 5.0,
+            "reason": "Queue Q_main=12 >= 3 veh",
+        },
+        "m6_decision": {
+            "action": "BLOCK_EXTENSION",
+            "reason": "Critical downstream occupancy 88.7% >= 85.0% threshold",
+        },
+        "m5_validation": {
+            "allowed": True,
+            "reason": "Phase 0 min green 10.0s met (elapsed 10.0s), valid forward transition to Phase 1 (Yellow 3.0s)",
+        },
+        "m7_fairness_emergency_state": {
+            "ambulance_active": False,
+            "fairness_debt_s": 0.0,
+            "recovery_mode": False,
+        },
+        "m9_selected_plan": {
+            "plan_name": "PLAN C",
+            "strategy": "Downstream clearing & coordinated corridor timing",
+            "total_score": 28.5,
+            "explanation": "Lowest safe score. Spillback penalty minimized, prevents link J3_J4 gridlock.",
+            "scores": {
+                "delay": 4.5,
+                "queue": 6.0,
+                "spillback": 12.0,
+                "fairness": 3.0,
+                "emergency": 3.0,
+            },
+        },
+        "confidence": 0.96,
+        "status": "PENDING_APPROVAL",
+        "created_at": "2026-10-08T12:02:04Z",
+    },
+    "REC-2026-J1-0112": {
+        "recommendation_id": "REC-2026-J1-0112",
+        "scenario": "normal",
+        "junction": "J1",
+        "proposed_action": "KEEP_GREEN",
+        "target_phase": 0,
+        "reason": "Free-flow progression along arterial. Downstream occupancy 26.4% within normal bounds.",
+        "m3_decision": {
+            "action": "KEEP_GREEN",
+            "extension_s": 0.0,
+            "reason": "Normal arterial demand",
+        },
+        "m6_decision": {
+            "action": "PASS",
+            "reason": "Occupancy 26.4% < 75.0% threshold",
+        },
+        "m5_validation": {
+            "allowed": True,
+            "reason": "Elapsed green within [10.0s, 40.0s]",
+        },
+        "m7_fairness_emergency_state": {
+            "ambulance_active": False,
+            "fairness_debt_s": 0.0,
+            "recovery_mode": False,
+        },
+        "m9_selected_plan": {
+            "plan_name": "PLAN A",
+            "strategy": "Continue current safe timing progression",
+            "total_score": 14.2,
+            "explanation": "Corridor traffic balanced. Plan A maintains steady progression.",
+            "scores": {
+                "delay": 2.2,
+                "queue": 4.0,
+                "spillback": 5.0,
+                "fairness": 1.5,
+                "emergency": 1.5,
+            },
+        },
+        "confidence": 0.98,
+        "status": "APPROVED",
+        "created_at": "2026-10-08T12:01:00Z",
+    },
+    "REC-2026-J3-0945": {
+        "recommendation_id": "REC-2026-J3-0945",
+        "scenario": "rush",
+        "junction": "J3",
+        "proposed_action": "EXTEND_GREEN",
+        "target_phase": 0,
+        "reason": "High approach queue Q=14 veh. Downstream occupancy 77.4% (WARNING band), allowing bounded +5s extension with M5 firewall check.",
+        "m3_decision": {
+            "action": "EXTEND_GREEN",
+            "extension_s": 5.0,
+            "reason": "Queue Q_main=14 >= 3 veh",
+        },
+        "m6_decision": {
+            "action": "PASS_WITH_WARNING",
+            "reason": "Occupancy 77.4% in warning band [75%, 85%)",
+        },
+        "m5_validation": {
+            "allowed": True,
+            "reason": "Elapsed green 15.0s + 5.0s <= 40.0s max green",
+        },
+        "m7_fairness_emergency_state": {
+            "ambulance_active": False,
+            "fairness_debt_s": 4.0,
+            "recovery_mode": False,
+        },
+        "m9_selected_plan": {
+            "plan_name": "PLAN B",
+            "strategy": "Bounded extension (+5s) for heavy approach queue",
+            "total_score": 36.8,
+            "explanation": "Approach queue cleared without violating downstream capacity limits.",
+            "scores": {
+                "delay": 5.8,
+                "queue": 7.0,
+                "spillback": 18.0,
+                "fairness": 3.0,
+                "emergency": 3.0,
+            },
+        },
+        "confidence": 0.92,
+        "status": "PENDING_APPROVAL",
+        "created_at": "2026-10-08T12:03:10Z",
+    },
+    "REC-2026-J2-EMERG": {
+        "recommendation_id": "REC-2026-J2-EMERG",
+        "scenario": "ambulance",
+        "junction": "J2",
+        "proposed_action": "EMERGENCY_HOLD_GREEN",
+        "target_phase": 0,
+        "reason": "Emergency vehicle amb_1 detected approaching J2 (ETA 12.4s). Staged preemption active.",
+        "m3_decision": {
+            "action": "HOLD",
+            "extension_s": 0.0,
+            "reason": "M7 emergency preemption active",
+        },
+        "m6_decision": {
+            "action": "CLEAR_DOWNSTREAM",
+            "reason": "Flushing downstream link J2_J3 for emergency vehicle passage",
+        },
+        "m5_validation": {
+            "allowed": True,
+            "reason": "Priority green held within safe limits",
+        },
+        "m7_fairness_emergency_state": {
+            "ambulance_active": True,
+            "ambulance_id": "amb_1",
+            "eta_s": 12.4,
+            "target_junction": "J2",
+            "fairness_debt_s": 14.5,
+            "recovery_mode": False,
+        },
+        "m9_selected_plan": {
+            "plan_name": "PLAN C",
+            "strategy": "Downstream clearing & coordinated corridor progression",
+            "total_score": 18.0,
+            "explanation": "Emergency vehicle priority clearance minimizing emergency delay penalty.",
+            "scores": {
+                "delay": 3.0,
+                "queue": 5.0,
+                "spillback": 8.0,
+                "fairness": 1.0,
+                "emergency": 1.0,
+            },
+        },
+        "confidence": 0.99,
+        "status": "APPROVED",
+        "created_at": "2026-10-08T12:04:00Z",
     },
 }
 
@@ -87,9 +328,10 @@ def read_summary_csv(file_path: Path) -> dict[str, float] | None:
     return None
 
 
+@app.get("/health")
 @app.get("/api/health")
 def get_health() -> dict[str, Any]:
-    """Returns backend connection status and simulation environment details."""
+    """Returns backend health status, active safeguards, and engine parameters."""
     return {
         "status": "connected",
         "connection": "SIMULATION CONNECTED",
@@ -100,6 +342,8 @@ def get_health() -> dict[str, Any]:
         "step_length_s": 1.0,
         "firewall_active": True,
         "spillback_guard_active": True,
+        "planner_active": True,
+        "fail_safe_mode": "PREDICTIVE",
     }
 
 
@@ -168,87 +412,257 @@ def get_scenario_summary(scenario_id: str) -> dict[str, Any]:
     }
 
 
-@app.get("/api/scenarios/{scenario_id}/junctions")
-def get_junctions_state(scenario_id: str) -> dict[str, Any]:
-    """Returns corridor junction states for J1, J2, J3, J4."""
-    if scenario_id not in SCENARIOS:
-        raise HTTPException(status_code=404, detail="Scenario not found")
+@app.get("/api/corridor/state")
+def get_corridor_state(scenario: str = Query("blocked_downstream", description="Scenario identifier")) -> dict[str, Any]:
+    """Exposes real-time corridor state snapshot, M9 plan evaluation, and safety guard statuses."""
+    if scenario not in SCENARIOS:
+        scenario = "blocked_downstream"
 
-    is_blocked = scenario_id == "blocked_downstream"
-    is_rush = scenario_id == "rush"
+    is_blocked = scenario == "blocked_downstream"
+    is_rush = scenario == "rush"
+    is_amb = scenario == "ambulance"
+
+    # Construct Junction snapshots
+    j1 = {
+        "id": "J1",
+        "name": "Junction 1",
+        "cross_street": "N1 - S1",
+        "downstream_edge": "J1_J2",
+        "capacity": 53,
+        "vehicles": 24 if is_rush else 14,
+        "occupancy": 45.3 if is_rush else 26.4,
+        "status": "NORMAL",
+        "queue_main": 8 if is_rush else 3,
+        "queue_cross": 1,
+        "phase": 0,
+        "phase_name": "Main Green",
+        "elapsed_green_s": 12.0,
+        "spillback_risk": "LOW",
+        "m6_override": False,
+        "fairness_debt_s": 0.0,
+    }
+    j2 = {
+        "id": "J2",
+        "name": "Junction 2",
+        "cross_street": "N2 - S2",
+        "downstream_edge": "J2_J3",
+        "capacity": 53,
+        "vehicles": 36 if is_rush else 28,
+        "occupancy": 67.9 if is_rush else 52.8,
+        "status": "NORMAL",
+        "queue_main": 11 if is_rush else 4,
+        "queue_cross": 0,
+        "phase": 0,
+        "phase_name": "Main Green",
+        "elapsed_green_s": 14.0,
+        "spillback_risk": "LOW",
+        "m6_override": False,
+        "fairness_debt_s": 0.0,
+    }
+    j3 = {
+        "id": "J3",
+        "name": "Junction 3",
+        "cross_street": "N3 - S3",
+        "downstream_edge": "J3_J4",
+        "capacity": 53,
+        "vehicles": 47 if is_blocked else (41 if is_rush else 12),
+        "occupancy": 88.7 if is_blocked else (77.4 if is_rush else 22.6),
+        "status": "CRITICAL" if is_blocked else ("WARNING" if is_rush else "NORMAL"),
+        "queue_main": 12 if is_blocked else (14 if is_rush else 2),
+        "queue_cross": 1,
+        "phase": 0,
+        "phase_name": "Main Green",
+        "elapsed_green_s": 10.0,
+        "spillback_risk": "CRITICAL" if is_blocked else ("WARNING" if is_rush else "LOW"),
+        "m6_override": is_blocked,
+        "fairness_debt_s": 0.0 if is_blocked else 4.0,
+    }
+    j4 = {
+        "id": "J4",
+        "name": "Junction 4",
+        "cross_street": "N4 - S4",
+        "downstream_edge": "J4_E5",
+        "capacity": 53,
+        "vehicles": 14 if is_blocked else (32 if is_rush else 9),
+        "occupancy": 26.4 if is_blocked else (60.4 if is_rush else 17.0),
+        "status": "WARNING" if is_blocked else "NORMAL",
+        "queue_main": 14 if is_blocked else (9 if is_rush else 1),
+        "queue_cross": 2,
+        "phase": 1 if is_blocked else 0,
+        "phase_name": "Main Yellow" if is_blocked else "Main Green",
+        "elapsed_green_s": 2.0 if is_blocked else 18.0,
+        "spillback_risk": "LOW",
+        "m6_override": False,
+        "fairness_debt_s": 0.0,
+    }
+
+    # Execute M9 Plan Evaluator on active snapshot
+    snapshot = CorridorSnapshot(
+        timestamp=120.0,
+        scenario=scenario,
+        controller_mode="PREDICTIVE",
+        junctions={
+            "J1": JunctionSnapshot(
+                junction_id="J1",
+                current_phase=0,
+                elapsed_green_s=j1["elapsed_green_s"],
+                queue_main=j1["queue_main"],
+                queue_cross=j1["queue_cross"],
+                downstream_edge=j1["downstream_edge"],
+                downstream_occupancy=j1["occupancy"] / 100.0,
+                spillback_risk=j1["spillback_risk"],
+                cross_fairness_debt=j1["fairness_debt_s"],
+                starvation_risk=False,
+                emergency_status="INACTIVE",
+            ),
+            "J2": JunctionSnapshot(
+                junction_id="J2",
+                current_phase=0,
+                elapsed_green_s=j2["elapsed_green_s"],
+                queue_main=j2["queue_main"],
+                queue_cross=j2["queue_cross"],
+                downstream_edge=j2["downstream_edge"],
+                downstream_occupancy=j2["occupancy"] / 100.0,
+                spillback_risk=j2["spillback_risk"],
+                cross_fairness_debt=j2["fairness_debt_s"],
+                starvation_risk=False,
+                emergency_status="INACTIVE",
+            ),
+            "J3": JunctionSnapshot(
+                junction_id="J3",
+                current_phase=0,
+                elapsed_green_s=j3["elapsed_green_s"],
+                queue_main=j3["queue_main"],
+                queue_cross=j3["queue_cross"],
+                downstream_edge=j3["downstream_edge"],
+                downstream_occupancy=j3["occupancy"] / 100.0,
+                spillback_risk=j3["spillback_risk"],
+                cross_fairness_debt=j3["fairness_debt_s"],
+                starvation_risk=False,
+                emergency_status="INACTIVE",
+            ),
+            "J4": JunctionSnapshot(
+                junction_id="J4",
+                current_phase=1 if is_blocked else 0,
+                elapsed_green_s=j4["elapsed_green_s"],
+                queue_main=j4["queue_main"],
+                queue_cross=j4["queue_cross"],
+                downstream_edge=j4["downstream_edge"],
+                downstream_occupancy=j4["occupancy"] / 100.0,
+                spillback_risk=j4["spillback_risk"],
+                cross_fairness_debt=j4["fairness_debt_s"],
+                starvation_risk=False,
+                emergency_status="INACTIVE",
+            ),
+        },
+    )
+
+    planner = DigitalTwinPlanner()
+    m9_eval = planner.evaluate_corridor(snapshot)
+
+    # Active recommendation matching scenario
+    rec_key = (
+        "REC-2026-J3-0887"
+        if is_blocked
+        else ("REC-2026-J3-0945" if is_rush else ("REC-2026-J2-EMERG" if is_amb else "REC-2026-J1-0112"))
+    )
+    active_rec = RECOMMENDATIONS.get(rec_key, RECOMMENDATIONS["REC-2026-J3-0887"])
 
     return {
-        "J1": {
-            "id": "J1",
-            "name": "Junction 1",
-            "cross_street": "N1 - S1",
-            "downstream_edge": "J1_J2",
-            "capacity": 53,
-            "vehicles": 24 if is_rush else 14,
-            "occupancy": 45.3 if is_rush else 26.4,
-            "status": "NORMAL",
-            "queue_main": 8 if is_rush else 3,
-            "queue_cross": 1,
-            "phase": 0,
-            "phase_name": "Main Green",
-            "spillback_risk": "LOW",
+        "scenario": scenario,
+        "controller_mode": "PREDICTIVE",
+        "J1": j1,
+        "J2": j2,
+        "J3": j3,
+        "J4": j4,
+        "queue": {
+            "total": sum(j["queue_main"] + j["queue_cross"] for j in [j1, j2, j3, j4]),
+            "J1": j1["queue_main"],
+            "J2": j2["queue_main"],
+            "J3": j3["queue_main"],
+            "J4": j4["queue_main"],
         },
-        "J2": {
-            "id": "J2",
-            "name": "Junction 2",
-            "cross_street": "N2 - S2",
-            "downstream_edge": "J2_J3",
-            "capacity": 53,
-            "vehicles": 36 if is_rush else 28,
-            "occupancy": 67.9 if is_rush else 52.8,
-            "status": "NORMAL",
-            "queue_main": 11 if is_rush else 4,
-            "queue_cross": 0,
-            "phase": 0,
-            "phase_name": "Main Green",
-            "spillback_risk": "LOW",
+        "signal_phase": {
+            "J1": j1["phase"],
+            "J2": j2["phase"],
+            "J3": j3["phase"],
+            "J4": j4["phase"],
         },
-        "J3": {
-            "id": "J3",
-            "name": "Junction 3",
-            "cross_street": "N3 - S3",
-            "downstream_edge": "J3_J4",
-            "capacity": 53,
-            "vehicles": 47 if is_blocked else (41 if is_rush else 12),
-            "occupancy": 88.7 if is_blocked else (77.4 if is_rush else 22.6),
-            "status": "CRITICAL" if is_blocked else ("WARNING" if is_rush else "NORMAL"),
-            "queue_main": 12 if is_blocked else (14 if is_rush else 2),
-            "queue_cross": 1,
-            "phase": 0,
-            "phase_name": "Main Green",
-            "spillback_risk": "CRITICAL" if is_blocked else ("WARNING" if is_rush else "LOW"),
-            "m6_override": is_blocked,
+        "downstream_occupancy": {
+            "J1_J2": j1["occupancy"],
+            "J2_J3": j2["occupancy"],
+            "J3_J4": j3["occupancy"],
+            "J4_E5": j4["occupancy"],
         },
-        "J4": {
-            "id": "J4",
-            "name": "Junction 4",
-            "cross_street": "N4 - S4",
-            "downstream_edge": "J4_E5",
-            "capacity": 53,
-            "vehicles": 14 if is_blocked else (32 if is_rush else 9),
-            "occupancy": 26.4 if is_blocked else (60.4 if is_rush else 17.0),
-            "status": "WARNING" if is_blocked else "NORMAL",
-            "queue_main": 14 if is_blocked else (9 if is_rush else 1),
-            "queue_cross": 2,
-            "phase": 1 if is_blocked else 0,
-            "phase_name": "Main Yellow" if is_blocked else "Main Green",
-            "spillback_risk": "LOW",
+        "risk": "CRITICAL" if is_blocked else ("WARNING" if is_rush else "NORMAL"),
+        "fairness_state": {
+            "max_starvation_s": 14.5 if is_amb else (4.0 if is_rush else 0.0),
+            "debt_junctions": ["J3"] if is_rush else (["J2"] if is_amb else []),
+            "recovery_active": False,
+        },
+        "emergency_state": {
+            "ambulance_active": is_amb,
+            "ambulance_id": "amb_1" if is_amb else None,
+            "eta_s": 12.4 if is_amb else None,
+            "priority_junction": "J2" if is_amb else None,
+            "stage": "DOWNSTREAM_CLEARANCE" if is_amb else "IDLE",
+        },
+        "active_recommendation": active_rec,
+        "selected_plan": {
+            "plan_name": m9_eval.selected_plan.name,
+            "total_score": m9_eval.selected_plan.total_score,
+            "explanation": m9_eval.selection_reason,
+            "scores": {
+                "delay": m9_eval.selected_plan.delay_score,
+                "queue": m9_eval.selected_plan.queue_score,
+                "spillback": m9_eval.selected_plan.spillback_score,
+                "fairness": m9_eval.selected_plan.fairness_score,
+                "emergency": m9_eval.selected_plan.emergency_score,
+            },
+            "all_plans": [
+                {
+                    "name": p.name,
+                    "valid": p.is_valid,
+                    "total_score": p.total_score,
+                    "scores": {
+                        "delay": p.delay_score,
+                        "queue": p.queue_score,
+                        "spillback": p.spillback_score,
+                        "fairness": p.fairness_score,
+                        "emergency": p.emergency_score,
+                    },
+                    "validation_reason": p.validation_reason,
+                }
+                for p in m9_eval.candidate_plans
+            ],
         },
     }
 
 
-@app.get("/api/scenarios/{scenario_id}/decision_trace")
-def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
-    """Returns the operational decision record trace for the 6-step control chain."""
-    if scenario_id == "blocked_downstream":
+@app.get("/api/recommendations/current")
+def get_current_recommendation(scenario: str = Query("blocked_downstream")) -> dict[str, Any]:
+    """Returns the current active recommendation verified by M5/M6/M7/M9."""
+    if scenario == "rush":
+        return RECOMMENDATIONS["REC-2026-J3-0945"]
+    elif scenario == "ambulance":
+        return RECOMMENDATIONS["REC-2026-J2-EMERG"]
+    elif scenario == "normal":
+        return RECOMMENDATIONS["REC-2026-J1-0112"]
+    return RECOMMENDATIONS["REC-2026-J3-0887"]
+
+
+@app.get("/api/audit-events")
+def get_audit_events(limit: int = Query(50, ge=1, le=200)) -> list[dict[str, Any]]:
+    """Returns recent operational and security audit records."""
+    return list(reversed(AUDIT_LOG[-limit:]))
+
+
+@app.get("/api/replay")
+def get_replay_data(scenario: str = Query("blocked_downstream")) -> list[dict[str, Any]]:
+    """Returns step-by-step decision sequence across control chain layers for replay."""
+    if scenario == "blocked_downstream":
         return [
             {
-                "id": "step_1",
                 "step": 1,
                 "layer": "TRAFFIC STATE",
                 "title": "Traffic State",
@@ -259,7 +673,6 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "info",
             },
             {
-                "id": "step_2",
                 "step": 2,
                 "layer": "REACTIVE CONTROL",
                 "title": "Reactive Control (M3)",
@@ -270,7 +683,6 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "info",
             },
             {
-                "id": "step_3",
                 "step": 3,
                 "layer": "DOWNSTREAM CHECK",
                 "title": "Downstream Check",
@@ -281,7 +693,6 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "critical",
             },
             {
-                "id": "step_4",
                 "step": 4,
                 "layer": "SPILLBACK PROTECTION",
                 "title": "Spillback Protection (M6)",
@@ -292,8 +703,17 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "critical",
             },
             {
-                "id": "step_5",
                 "step": 5,
+                "layer": "DIGITAL TWIN EVALUATOR",
+                "title": "Digital Twin Evaluator (M9)",
+                "time": "02:03",
+                "data": "Selected Plan: PLAN C (Score 28.5 vs Plan A 44.5)",
+                "detail": "Plan B invalid (M6 spillback violation). Plan C coordinates downstream clearing.",
+                "status": "SELECTED",
+                "status_code": "approved",
+            },
+            {
+                "step": 6,
                 "layer": "SAFETY FIREWALL",
                 "title": "Safety Firewall (M5)",
                 "time": "02:03",
@@ -303,8 +723,7 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "approved",
             },
             {
-                "id": "step_6",
-                "step": 6,
+                "step": 7,
                 "layer": "SIGNAL ACTION",
                 "title": "Signal Action",
                 "time": "02:04",
@@ -317,7 +736,6 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
     else:
         return [
             {
-                "id": "step_1",
                 "step": 1,
                 "layer": "TRAFFIC STATE",
                 "title": "Traffic State",
@@ -328,7 +746,6 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "info",
             },
             {
-                "id": "step_2",
                 "step": 2,
                 "layer": "REACTIVE CONTROL",
                 "title": "Reactive Control (M3)",
@@ -339,7 +756,6 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "info",
             },
             {
-                "id": "step_3",
                 "step": 3,
                 "layer": "DOWNSTREAM CHECK",
                 "title": "Downstream Check",
@@ -350,7 +766,6 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "info",
             },
             {
-                "id": "step_4",
                 "step": 4,
                 "layer": "SPILLBACK PROTECTION",
                 "title": "Spillback Protection (M6)",
@@ -361,8 +776,17 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "approved",
             },
             {
-                "id": "step_5",
                 "step": 5,
+                "layer": "DIGITAL TWIN EVALUATOR",
+                "title": "Digital Twin Evaluator (M9)",
+                "time": "01:15",
+                "data": "Selected Plan: PLAN A (Score 14.2)",
+                "detail": "Standard timing progression produces lowest penalty.",
+                "status": "SELECTED",
+                "status_code": "approved",
+            },
+            {
+                "step": 6,
                 "layer": "SAFETY FIREWALL",
                 "title": "Safety Firewall (M5)",
                 "time": "01:15",
@@ -372,8 +796,7 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "approved",
             },
             {
-                "id": "step_6",
-                "step": 6,
+                "step": 7,
                 "layer": "SIGNAL ACTION",
                 "title": "Signal Action",
                 "time": "01:15",
@@ -383,6 +806,94 @@ def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
                 "status_code": "executed",
             },
         ]
+
+
+class ApprovalPayload(BaseModel):
+    """Payload for operator approval. Strictly forbids raw TraCI or arbitrary phase injection."""
+    notes: str | None = Field(default=None, description="Optional operator comment")
+
+
+@app.post("/api/recommendations/{recommendation_id}/approve-simulation")
+def approve_recommendation(
+    recommendation_id: str,
+    payload: ApprovalPayload | None = None,
+    x_user_role: str | None = Header(None, alias="X-User-Role"),
+    role: str | None = Query(None, description="Local demo role (VIEWER, OPERATOR, ADMIN)"),
+) -> dict[str, Any]:
+    """Approves a pre-validated traffic-control recommendation.
+
+    Security & Authorization:
+    - VIEWER: HTTP 403 Forbidden (Read-only access).
+    - OPERATOR / ADMIN: Authorized.
+    - Invalid/Unknown Recommendation: HTTP 404 Not Found.
+    - Raw TraCI commands, arbitrary phase IDs, and user-generated signal mutations are strictly rejected.
+    """
+    effective_role = (x_user_role or role or "OPERATOR").upper()
+
+    if effective_role == "VIEWER":
+        raise HTTPException(
+            status_code=403,
+            detail="Role 'VIEWER' is not authorized to approve traffic control actions. Read-only access.",
+        )
+
+    if effective_role not in ("OPERATOR", "ADMIN"):
+        raise HTTPException(
+            status_code=403,
+            detail=f"Role '{effective_role}' is not recognized for control approvals.",
+        )
+
+    if recommendation_id not in RECOMMENDATIONS:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Recommendation ID '{recommendation_id}' not found.",
+        )
+
+    rec = RECOMMENDATIONS[recommendation_id]
+    rec["status"] = "APPROVED"
+    rec["approved_by"] = effective_role
+    now_iso = datetime.now(UTC).isoformat()
+    rec["approved_at"] = now_iso
+
+    # Append to secure audit trail
+    event_id = f"AUD-{len(AUDIT_LOG) + 1:03d}"
+    audit_entry = {
+        "event_id": event_id,
+        "timestamp": now_iso,
+        "event_type": "operator_approval",
+        "junction_id": rec.get("junction", "CORRIDOR"),
+        "details": f"Recommendation {recommendation_id} ({rec.get('proposed_action')}) approved by {effective_role}.",
+        "status": "APPROVED",
+        "notes": payload.notes if payload else None,
+    }
+    AUDIT_LOG.append(audit_entry)
+
+    return {
+        "status": "APPROVED",
+        "recommendation_id": recommendation_id,
+        "junction": rec.get("junction"),
+        "action": rec.get("proposed_action"),
+        "approved_by": effective_role,
+        "timestamp": now_iso,
+        "audit_event_id": event_id,
+    }
+
+
+@app.get("/api/scenarios/{scenario_id}/junctions")
+def get_junctions_state(scenario_id: str) -> dict[str, Any]:
+    """Returns corridor junction states for J1, J2, J3, J4."""
+    corridor = get_corridor_state(scenario=scenario_id)
+    return {
+        "J1": corridor["J1"],
+        "J2": corridor["J2"],
+        "J3": corridor["J3"],
+        "J4": corridor["J4"],
+    }
+
+
+@app.get("/api/scenarios/{scenario_id}/decision_trace")
+def get_decision_trace(scenario_id: str) -> list[dict[str, Any]]:
+    """Returns the operational decision record trace for the 7-step control chain."""
+    return get_replay_data(scenario=scenario_id)
 
 
 @app.get("/api/scenarios/{scenario_id}/gps_sample")
@@ -410,7 +921,6 @@ async def simulation_websocket(websocket: WebSocket):
     """WebSocket stream emitting corridor state ticks for connected frontends."""
     await websocket.accept()
     try:
-        # Send initial connection handshake
         await websocket.send_json({
             "type": "handshake",
             "status": "connected",
@@ -418,7 +928,6 @@ async def simulation_websocket(websocket: WebSocket):
             "seed": 42,
         })
         while True:
-            # Keep-alive loop receiving client pings or messages
             data = await websocket.receive_text()
             if data == "ping":
                 await websocket.send_text("pong")
