@@ -8,6 +8,8 @@ from pathlib import Path
 
 import yaml
 
+from backend.app.guards.safety_firewall import validate_action
+
 # Phase mapping for 6-phase program
 PHASE_NAMES = {
     0: "MAIN_GREEN",
@@ -204,15 +206,33 @@ def step_junction(
         queue_threshold=config["queue_threshold"],
     )
 
-    # Apply decision
-    if action == "START_TRANSITION":
-        yellow_phase = NEXT_CLEARANCE_PHASE[cur_phase]
-        traci_client.trafficlight.setPhase(junction_id, yellow_phase)
-    elif action == "EXTEND_GREEN":
-        # Keep green within bounded max limit
-        if state["allocated_green"] < config["max_green_s"]:
-            step_len = min(config["extension_step_s"], config["max_green_s"] - state["allocated_green"])
-            state["allocated_green"] += step_len
+    # Validate proposed action through M5 Safety Firewall before execution
+    proposed_action = {
+        "junction_id": junction_id,
+        "current_phase": cur_phase,
+        "requested_phase": NEXT_CLEARANCE_PHASE.get(cur_phase) if action == "START_TRANSITION" else cur_phase,
+        "action": action,
+        "timestamp": sim_time,
+        "elapsed_green_s": green_time,
+        "extension_s": config.get("extension_step_s", 5.0) if action == "EXTEND_GREEN" else 0.0,
+        "reason": reason,
+    }
+    fw_result = validate_action(proposed_action)
+
+    # Apply decision only if approved by Safety Firewall
+    if fw_result["allowed"]:
+        if action == "START_TRANSITION":
+            yellow_phase = NEXT_CLEARANCE_PHASE[cur_phase]
+            traci_client.trafficlight.setPhase(junction_id, yellow_phase)
+        elif action == "EXTEND_GREEN":
+            # Keep green within bounded max limit
+            if state["allocated_green"] < config["max_green_s"]:
+                step_len = min(config["extension_step_s"], config["max_green_s"] - state["allocated_green"])
+                state["allocated_green"] += step_len
+    else:
+        # Firewall rejected unsafe proposal — block command from reaching TraCI
+        action = "HOLD"
+        reason = f"firewall_blocked: {fw_result['reason']}"
 
     return {
         "timestamp": sim_time,

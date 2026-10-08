@@ -2,5 +2,5 @@ timestamp,junction_id,current_phase,requested_phase,action,allowed,reason
 15.0,J1,0,0,KEEP_GREEN,True,valid_action
 6.0,J2,0,1,START_TRANSITION,False,minimum_green_not_reached
 25.0,J3,0,3,START_TRANSITION,False,conflicting_phase
-43.0,J4,0,0,EXTEND_GREEN,False,maximum_green_exceeded
+39.0,J4,0,0,EXTEND_GREEN,False,maximum_green_exceeded
 20.0,J2,0,1,START_TRANSITION,True,valid_transition

@@ -63,7 +63,7 @@ def load_firewall_config(config_path=None) -> dict:
 
     defaults = {
         "min_green_s": 10.0,
-        "max_green_s": 45.0,
+        "max_green_s": 40.0,
         "yellow_s": 3.0,
         "all_red_s": 2.0,
     }
@@ -78,7 +78,7 @@ def load_firewall_config(config_path=None) -> dict:
             cfg = data["safety_firewall"]
             return {
                 "min_green_s": float(cfg.get("min_green_s", 10.0)),
-                "max_green_s": float(cfg.get("max_green_s", 45.0)),
+                "max_green_s": float(cfg.get("max_green_s", 40.0)),
                 "yellow_s": float(cfg.get("yellow_s", 3.0)),
                 "all_red_s": float(cfg.get("all_red_s", 2.0)),
             }
@@ -107,7 +107,7 @@ def validate_action(action: dict, config: dict | None = None) -> dict:
         config = load_firewall_config()
 
     min_green_s = float(config.get("min_green_s", 10.0))
-    max_green_s = float(config.get("max_green_s", 45.0))
+    max_green_s = float(config.get("max_green_s", 40.0))
 
     # Check action dictionary structure
     if not isinstance(action, dict):

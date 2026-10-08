@@ -31,8 +31,8 @@ Link, Spillback, Firewall, Trust, Fairness debt, Staged preemption, Recovery, Sh
 Event types: gps, link, junction, decision, mode. Controllers: fixed, reactive, traffictwin. Scenarios: normal, rush, blocked_downstream, ambulance, gps_outage.
 
 ## Current status
-Docs: updated for the 24-hour module-by-module plan. Code: M5 completed and verified (signal safety firewall in backend/app/guards/safety_firewall.py, junction/phase/action validation, clearance & conflict checks, audit CSV logging, demo in experiments/demo_safety_firewall.py, 79 tests pass).
-Results: Normal Fixed avg_wait=20.0s vs Reactive avg_wait=13.5s; Rush Fixed avg_wait=26.2s vs Reactive avg_wait=19.6s. GPS streams: normal (9162 events), rush (18972 events), blocked_downstream (17271 events), ambulance (11400 events). M5 Firewall: 5/5 demo cases verified, all 20 firewall unit/integration tests pass.
+Docs: updated for the 24-hour module-by-module plan. Code: M5 completed and verified (signal safety firewall in backend/app/guards/safety_firewall.py, runtime TraCI validation boundary in reactive_controller.py step_junction, 40s max green aligned with params.yaml, clearance & conflict checks, audit CSV logging, demo in experiments/demo_safety_firewall.py, 82 tests pass).
+Results: Normal Fixed avg_wait=20.0s vs Reactive avg_wait=13.5s; Rush Fixed avg_wait=26.2s vs Reactive avg_wait=19.6s. GPS streams: normal (9162 events), rush (18972 events), blocked_downstream (17271 events), ambulance (11400 events). M5 Firewall: 5/5 demo cases verified, all 23 firewall unit/integration tests pass.
 
 ## Open questions
 - Date gap between R1 and the event start; R1 slot length and whether demo is live or recorded.
@@ -42,7 +42,7 @@ Results: Normal Fixed avg_wait=20.0s vs Reactive avg_wait=13.5s; Rush Fixed avg_
 - Demo hardware and display setup.
 
 ## Corrections log
-- (add user corrections here, e.g. "too verbose", "off-format") 
+- 2026-10-08: Aligned M5 firewall max_green_s from 45.0s to 40.0s matching project params.yaml, and inserted runtime validation gateway into M3 step_junction prior to TraCI actuation.
 
 ## Session log
 - 2026-10-08: M0 completed (scaffolding, requirements.txt, .venv, verify_environment.py, smoke tests, ruff, bandit, pip-audit passed).
@@ -50,5 +50,5 @@ Results: Normal Fixed avg_wait=20.0s vs Reactive avg_wait=13.5s; Rush Fixed avg_
 - 2026-10-08: M2 completed (run_fixed.py, tripinfo/queue/summary parsers, calc_metrics with 6 metrics+p95+emergency_delay, CSV exports, baseline chart, 24 tests pass). Normal: thru=194 avg_wait=20.0s. Rush: thru=338 avg_wait=26.2s.
 - 2026-10-08: M3 completed (safe queue-reactive controller in experiments/reactive_controller.py, run_reactive.py with TraCI, bounded green extension, min/max green, yellow/all-red clearance, decision logs, reactive metrics CSVs, fixed vs reactive comparison chart, 45 tests pass). Normal: thru=197 avg_wait=13.5s. Rush: thru=314 avg_wait=19.6s.
 - 2026-10-08: M4 completed (backend/app/stream/gps_event.py, shared/schemas/vehicle_position.schema.json, generate_gps_events.py, replay_gps.py, 4 scenario JSONL streams generated with 100% validity, 59 tests pass).
-- 2026-10-08: M5 completed (backend/app/guards/safety_firewall.py, backend/app/guards/__init__.py, experiments/demo_safety_firewall.py, docs/M5_SAFETY_FIREWALL.md, 20 new tests in tests/test_m5_firewall.py, 79 total tests pass, ruff clean, bandit clean).
+- 2026-10-08: M5 completed & verified (backend/app/guards/safety_firewall.py, backend/app/guards/__init__.py, runtime TraCI validation in experiments/reactive_controller.py, experiments/demo_safety_firewall.py, docs/M5_SAFETY_FIREWALL.md, 23 tests in tests/test_m5_firewall.py, 82 total tests pass, ruff clean, bandit clean).
 

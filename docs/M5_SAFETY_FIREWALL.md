@@ -107,7 +107,7 @@ $$0 \longrightarrow 1 \longrightarrow 2 \longrightarrow 3 \longrightarrow 4 \lon
 | **All-Red Clearance** | Direct jump from yellow to green (`1 → 3` or `4 → 0`) skipping all-red | `all_red_clearance_required` |
 | **Legal Progression** | Any non-consecutive phase jump (e.g. `0 → 4`, `2 → 5`) | `illegal_phase_transition` |
 | **Minimum Green** | Attempting to terminate green before `min_green_s` (10s) elapses | `minimum_green_not_reached` |
-| **Maximum Green** | Green extension exceeding `max_green_s` (45s firewall cap) | `maximum_green_exceeded` |
+| **Maximum Green** | Green extension exceeding `max_green_s` (40s project cap) | `maximum_green_exceeded` |
 
 ---
 
