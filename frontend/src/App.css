@@ -1966,3 +1966,75 @@
   margin: 0;
   line-height: 1.4;
 }
+
+/* ============================================================
+   8. SIMULATION PLAYBACK & LOCATE CONTROLS
+   ============================================================ */
+.sim-control-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+.sim-btn-play,
+.sim-btn-step,
+.sim-btn-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: inherit;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.sim-btn-play:hover,
+.sim-btn-step:hover,
+.sim-btn-reset:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.sim-btn-play.active {
+  background-color: #2563eb;
+  border-color: #1d4ed8;
+  color: #ffffff;
+}
+
+.sim-speed-wrapper {
+  margin-left: 2px;
+}
+
+.sim-speed-select {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 3px 18px 3px 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+}
+
+.locate-select {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 5px 22px 5px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+}
+

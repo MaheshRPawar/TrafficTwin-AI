@@ -5,6 +5,11 @@ export default function CorridorDigitalTwin({
   selectedJunction,
   setSelectedJunction,
   replayStep,
+  selectedItemType = 'junction',
+  selectedItemId = 'J3',
+  onSelectItem,
+  roadsList = [],
+  vehiclesList = [],
 }) {
   const containerRef = useRef(null);
   const [rotate, setRotate] = useState({ x: 8, y: -2 });
@@ -35,6 +40,14 @@ export default function CorridorDigitalTwin({
     { id: 'J2', x: 440, label: 'J2' },
     { id: 'J3', x: 650, label: 'J3' },
     { id: 'J4', x: 860, label: 'J4' },
+  ];
+
+  const roadSegments = [
+    { id: 'W0_J1', x1: 42, x2: 230, label: 'W0 → J1' },
+    { id: 'J1_J2', x1: 230, x2: 440, label: 'J1 → J2' },
+    { id: 'J2_J3', x1: 440, x2: 650, label: 'J2 → J3' },
+    { id: 'J3_J4', x1: 650, x2: 860, label: 'J3 → J4' },
+    { id: 'J4_E5', x1: 860, x2: 1038, label: 'J4 → E5' },
   ];
 
   const isBlocked = scenarioData.id === 'blocked_downstream';
@@ -158,6 +171,42 @@ export default function CorridorDigitalTwin({
             <text x="50" y="138" fill="#cbd5e1" fontSize="7" fontFamily="monospace">WB L0</text>
             <text x="50" y="156" fill="#cbd5e1" fontSize="7" fontFamily="monospace">WB L1</text>
 
+            {/* Interactive Clickable Road Segments Overlays */}
+            {roadSegments.map((seg) => {
+              const isSelected = selectedItemType === 'road' && selectedItemId === seg.id;
+              return (
+                <g
+                  key={seg.id}
+                  className="road-segment-interactive"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (onSelectItem) onSelectItem('road', seg.id);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <rect
+                    x={seg.x1}
+                    y="88"
+                    width={seg.x2 - seg.x1}
+                    height="74"
+                    fill={isSelected ? 'rgba(37, 99, 235, 0.22)' : 'transparent'}
+                    stroke={isSelected ? '#2563eb' : 'transparent'}
+                    strokeWidth={isSelected ? 2.5 : 0}
+                    strokeDasharray={isSelected ? '6 4' : 'none'}
+                    rx="4"
+                  />
+                  {isSelected && (
+                    <g transform={`translate(${(seg.x1 + seg.x2) / 2}, 78)`}>
+                      <rect x="-42" y="-14" width="84" height="18" rx="4" fill="#2563eb" />
+                      <text x="0" y="-2" textAnchor="middle" fill="#ffffff" fontSize="9" fontWeight="700" fontFamily="monospace">
+                        LINK {seg.id}
+                      </text>
+                    </g>
+                  )}
+                </g>
+              );
+            })}
+
             {/* CRITICAL CONSTRAINED LINK: J3 -> J4 (x: 672 to 838) */}
             {isBlocked && (
               <g className="bottleneck-zone">
@@ -184,46 +233,109 @@ export default function CorridorDigitalTwin({
               <rect x="672" y="89" width="166" height="35" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" strokeWidth="1" strokeDasharray="4 4" rx="3" />
             )}
 
-            {/* ANIMATED VEHICLES (Deterministic flowing markers) */}
+            {/* ANIMATED & INTERACTIVE VEHICLES */}
             {/* 1. Free-flow Eastbound vehicles */}
             {[
-              { base: 60, speed: 1.2, lane: 98, color: '#38bdf8' },
-              { base: 140, speed: 1.4, lane: 114, color: '#ffffff' },
-              { base: 280, speed: 1.3, lane: 98, color: '#38bdf8' },
-              { base: 370, speed: 1.1, lane: 114, color: '#ffffff' },
-              { base: 490, speed: 1.2, lane: 98, color: '#38bdf8' },
-            ].map((v, i) => {
+              { id: 'veh_eb_12', base: 280, speed: 1.3, lane: 98, color: '#38bdf8' },
+              { id: 'veh_eb_3', base: 60, speed: 1.2, lane: 98, color: '#38bdf8' },
+              { id: 'veh_eb_7', base: 140, speed: 1.4, lane: 114, color: '#ffffff' },
+              { id: 'veh_eb_9', base: 370, speed: 1.1, lane: 114, color: '#ffffff' },
+              { id: 'veh_eb_14', base: 490, speed: 1.2, lane: 98, color: '#38bdf8' },
+            ].map((v) => {
               const xPos = (v.base + animTick * v.speed) % 1000 + 40;
-              // Don't show inside congested zone if blocked
               if (isBlocked && xPos >= 670 && xPos <= 830) return null;
+              const isSelected = selectedItemType === 'vehicle' && selectedItemId === v.id;
               return (
-                <rect
-                  key={`eb-${i}`}
-                  x={xPos}
-                  y={v.lane}
-                  width="16"
-                  height="8"
-                  rx="2"
-                  fill={v.color}
-                  stroke="#1e293b"
-                  strokeWidth="0.5"
-                />
+                <g
+                  key={v.id}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (onSelectItem) onSelectItem('vehicle', v.id);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {isSelected && (
+                    <circle cx={xPos + 8} cy={v.lane + 4} r="14" fill="none" stroke="#2563eb" strokeWidth="2" strokeDasharray="4 2" />
+                  )}
+                  <rect
+                    x={xPos}
+                    y={v.lane}
+                    width="16"
+                    height="8"
+                    rx="2"
+                    fill={isSelected ? '#2563eb' : v.color}
+                    stroke="#1e293b"
+                    strokeWidth="0.5"
+                  />
+                  {isSelected && (
+                    <text x={xPos + 8} y={v.lane - 6} textAnchor="middle" fontSize="8" fontWeight="700" fill="#2563eb" fontFamily="monospace">
+                      {v.id}
+                    </text>
+                  )}
+                </g>
               );
             })}
 
-            {/* 2. Congested Packed Vehicles on J3 -> J4 link (when Blocked) */}
+            {/* 2. Emergency Ambulance Vehicle: amb_1 */}
+            {(() => {
+              const isAmbSelected = selectedItemType === 'vehicle' && selectedItemId === 'amb_1';
+              const ambX = 390;
+              const ambY = 98;
+              return (
+                <g
+                  key="amb_1"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (onSelectItem) onSelectItem('vehicle', 'amb_1');
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {/* Ambulance Beacon Halo */}
+                  <circle cx={ambX + 9} cy={ambY + 4} r={isAmbSelected ? 18 : 12} fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" strokeWidth={isAmbSelected ? 2 : 1} strokeDasharray="3 3" />
+                  {/* Vehicle Body */}
+                  <rect x={ambX} y={ambY} width="18" height="9" rx="2" fill="#ef4444" stroke="#ffffff" strokeWidth="1" />
+                  {/* Cross Symbol */}
+                  <line x1={ambX + 9} y1={ambY + 2} x2={ambX + 9} y2={ambY + 7} stroke="#ffffff" strokeWidth="1.5" />
+                  <line x1={ambX + 6.5} y1={ambY + 4.5} x2={ambX + 11.5} y2={ambY + 4.5} stroke="#ffffff" strokeWidth="1.5" />
+                  <text x={ambX + 9} y={ambY - 6} textAnchor="middle" fontSize="8" fontWeight="800" fill="#ef4444" fontFamily="monospace">
+                    AMB_1
+                  </text>
+                </g>
+              );
+            })()}
+
+            {/* 3. Congested Packed Vehicles on J3 -> J4 link (when Blocked) */}
             {isBlocked && (
               <g className="congested-vehicles-group">
-                {[680, 698, 716, 734, 752, 770, 788, 806, 824].map((vx, i) => (
-                  <React.Fragment key={`cong-${i}`}>
-                    <rect x={vx} y="98" width="14" height="8" rx="2" fill={i % 2 === 0 ? '#ef4444' : '#f97316'} stroke="#7f1d1d" strokeWidth="0.5" />
-                    <rect x={vx - 8} y="114" width="14" height="8" rx="2" fill={i % 3 === 0 ? '#ef4444' : '#ea580c'} stroke="#7f1d1d" strokeWidth="0.5" />
-                  </React.Fragment>
-                ))}
+                {[680, 698, 716, 734, 752, 770, 788, 806, 824].map((vx, i) => {
+                  const vehId = i === 3 ? 'veh_eb_18' : `veh_eb_${20 + i}`;
+                  const isSelected = selectedItemType === 'vehicle' && selectedItemId === vehId;
+                  return (
+                    <g
+                      key={`cong-${i}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (onSelectItem) onSelectItem('vehicle', vehId);
+                      }}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      {isSelected && (
+                        <circle cx={vx + 7} cy="102" r="14" fill="none" stroke="#2563eb" strokeWidth="2" strokeDasharray="4 2" />
+                      )}
+                      <rect x={vx} y="98" width="14" height="8" rx="2" fill={isSelected ? '#2563eb' : i % 2 === 0 ? '#ef4444' : '#f97316'} stroke="#7f1d1d" strokeWidth="0.5" />
+                      <rect x={vx - 8} y="114" width="14" height="8" rx="2" fill={i % 3 === 0 ? '#ef4444' : '#ea580c'} stroke="#7f1d1d" strokeWidth="0.5" />
+                      {isSelected && (
+                        <text x={vx + 7} y="92" textAnchor="middle" fontSize="8" fontWeight="700" fill="#2563eb" fontFamily="monospace">
+                          {vehId}
+                        </text>
+                      )}
+                    </g>
+                  );
+                })}
               </g>
             )}
 
-            {/* 3. J3 Approach Queue (12 queued vehicles before J3) */}
+            {/* 4. J3 Approach Queue (12 queued vehicles before J3) */}
             {isBlocked && (
               <g className="j3-queue-pack">
                 {[570, 586, 602, 618].map((qx, i) => (
@@ -235,7 +347,7 @@ export default function CorridorDigitalTwin({
               </g>
             )}
 
-            {/* 4. Westbound vehicles (Right to Left flow) */}
+            {/* 5. Westbound vehicles (Right to Left flow) */}
             {[
               { base: 950, speed: 1.3, lane: 133, color: '#ffffff' },
               { base: 780, speed: 1.2, lane: 151, color: '#38bdf8' },
@@ -261,7 +373,7 @@ export default function CorridorDigitalTwin({
 
             {/* 4 INTERSECTION NODES (J1, J2, J3, J4) */}
             {junctions.map((j) => {
-              const isSelected = selectedJunction === j.id;
+              const isSelected = selectedItemType === 'junction' && selectedItemId === j.id;
               const isJ3 = j.id === 'J3';
               const jData = scenarioData.junctions[j.id];
 
@@ -277,7 +389,10 @@ export default function CorridorDigitalTwin({
                 <g
                   key={j.id}
                   className={nodeClass}
-                  onClick={() => setSelectedJunction(j.id)}
+                  onClick={() => {
+                    setSelectedJunction(j.id);
+                    if (onSelectItem) onSelectItem('junction', j.id);
+                  }}
                   onMouseEnter={(e) => {
                     const rect = containerRef.current.getBoundingClientRect();
                     setHoveredJunction(j.id);
@@ -409,7 +524,10 @@ export default function CorridorDigitalTwin({
             <div
               key={j.id}
               className={`twin-j-card ${isCrit ? 'card-critical' : ''} ${isSelected ? 'card-selected' : ''}`}
-              onClick={() => setSelectedJunction(j.id)}
+              onClick={() => {
+                setSelectedJunction(j.id);
+                if (onSelectItem) onSelectItem('junction', j.id);
+              }}
             >
               <div className="j-card-top">
                 <span className="j-card-name mono">{j.id}</span>

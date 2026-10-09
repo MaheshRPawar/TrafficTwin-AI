@@ -13,9 +13,39 @@ export default function RightOperationsConsole({
   onReplay,
   onApprove,
   approvalStatus,
+  selectedItemType = 'junction',
+  selectedItemId = 'J3',
+  onSelectItem,
+  roadsList = [],
+  vehiclesList = [],
 }) {
   const [activeTab, setActiveTab] = useState('CURRENT_STATE');
   const [isApproving, setIsApproving] = useState(false);
+
+  // Road or Vehicle lookup
+  const selectedRoad = roadsList.find((r) => r.road_id === selectedItemId) || {
+    road_id: selectedItemId,
+    name: `Corridor Link ${selectedItemId}`,
+    from_node: selectedItemId.split('_')[0] || 'J3',
+    to_node: selectedItemId.split('_')[1] || 'J4',
+    length_m: 250.0,
+    lanes: 2,
+    speed_limit_kmh: 50.0,
+    capacity_veh: 53,
+    occupancy_percent: selectedItemId === 'J3_J4' ? 88.7 : 35.0,
+    status: selectedItemId === 'J3_J4' ? 'SPILLBACK RISK' : 'CLEAR',
+  };
+
+  const selectedVehicle = vehiclesList.find((v) => v.vehicle_id === selectedItemId) || {
+    vehicle_id: selectedItemId,
+    type: selectedItemId.startsWith('amb') ? 'emergency' : 'passenger',
+    speed_kmh: selectedItemId.startsWith('amb') ? 46.2 : 28.5,
+    lane_id: `${selectedItemId.startsWith('amb') ? 'J2_J3_0' : 'J3_J4_0'}`,
+    road_segment: selectedItemId.startsWith('amb') ? 'J2_J3' : 'J3_J4',
+    distance_to_signal_m: selectedItemId.startsWith('amb') ? 38.5 : 12.0,
+    status: selectedItemId.startsWith('amb') ? 'PRIORITY_PREEMPTION' : 'QUEUED',
+    preempted_junction: selectedItemId.startsWith('amb') ? 'J2' : null,
+  };
 
   const jData = corridorState?.[selectedJunction] || scenarioData.junctions[selectedJunction] || scenarioData.junctions.J3;
   const isJ3 = selectedJunction === 'J3';
@@ -82,20 +112,54 @@ export default function RightOperationsConsole({
 
   return (
     <aside className="operations-console">
-      {/* 1. TOP HEADER: Junction Identity & Status */}
+      {/* 1. TOP HEADER: Junction, Road, or Vehicle Identity & Status */}
       <div className="console-header">
-        <div className="console-identity">
-          <span className="console-sup micro-label">SELECTED INTERSECTION</span>
-          <h2 className="console-junction-title mono">
-            {selectedJunction} / EASTBOUND
-          </h2>
-          <span className="console-sub">Corridor Station // {jData.corridorPos || '600m'}</span>
-        </div>
+        {selectedItemType === 'road' ? (
+          <>
+            <div className="console-identity">
+              <span className="console-sup micro-label">SELECTED ROAD LINK</span>
+              <h2 className="console-junction-title mono">
+                LINK {selectedRoad.road_id}
+              </h2>
+              <span className="console-sub">{selectedRoad.name} // {selectedRoad.length_m}m</span>
+            </div>
 
-        <div className={`console-status-pill ${isCrit ? 'pill-crit' : isWarn ? 'pill-warn' : 'pill-norm'}`}>
-          <span className={`pill-dot ${isCrit ? 'dot-crit' : isWarn ? 'dot-warn' : 'dot-norm'}`}></span>
-          {jData.risk || jData.spillback_risk || 'NORMAL'}
-        </div>
+            <div className={`console-status-pill ${selectedRoad.status === 'SPILLBACK RISK' ? 'pill-crit' : 'pill-norm'}`}>
+              <span className={`pill-dot ${selectedRoad.status === 'SPILLBACK RISK' ? 'dot-crit' : 'dot-norm'}`}></span>
+              {selectedRoad.status}
+            </div>
+          </>
+        ) : selectedItemType === 'vehicle' ? (
+          <>
+            <div className="console-identity">
+              <span className="console-sup micro-label">INSPECTED VEHICLE</span>
+              <h2 className="console-junction-title mono">
+                {selectedVehicle.vehicle_id}
+              </h2>
+              <span className="console-sub">{selectedVehicle.type.toUpperCase()} // Arterial GPS Stream</span>
+            </div>
+
+            <div className={`console-status-pill ${selectedVehicle.type === 'emergency' ? 'pill-crit' : 'pill-norm'}`}>
+              <span className={`pill-dot ${selectedVehicle.type === 'emergency' ? 'dot-crit' : 'dot-norm'}`}></span>
+              {selectedVehicle.status}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="console-identity">
+              <span className="console-sup micro-label">SELECTED INTERSECTION</span>
+              <h2 className="console-junction-title mono">
+                {selectedJunction} / EASTBOUND
+              </h2>
+              <span className="console-sub">Corridor Station // {jData.corridorPos || '600m'}</span>
+            </div>
+
+            <div className={`console-status-pill ${isCrit ? 'pill-crit' : isWarn ? 'pill-warn' : 'pill-norm'}`}>
+              <span className={`pill-dot ${isCrit ? 'dot-crit' : isWarn ? 'dot-warn' : 'dot-norm'}`}></span>
+              {jData.risk || jData.spillback_risk || 'NORMAL'}
+            </div>
+          </>
+        )}
       </div>
 
       {/* 2. OPERATIONAL TABS */}
@@ -127,8 +191,150 @@ export default function RightOperationsConsole({
       </div>
 
       <div className="console-body">
-        {/* TAB 1: CURRENT STATE VIEW */}
-        {activeTab === 'CURRENT_STATE' && (
+        {/* TAB 1: CURRENT STATE VIEW - ROAD INSPECTOR */}
+        {activeTab === 'CURRENT_STATE' && selectedItemType === 'road' && (
+          <div className="state-section">
+            <div className="state-metric-grid">
+              <div className="state-row">
+                <span className="state-label">Segment Identifier</span>
+                <span className="state-val mono">{selectedRoad.road_id}</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Topology Orientation</span>
+                <span className="state-val mono">{selectedRoad.from_node} → {selectedRoad.to_node} (Eastbound)</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Physical Length</span>
+                <span className="state-val mono">{selectedRoad.length_m} meters</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Lane Configuration</span>
+                <span className="state-val mono">{selectedRoad.lanes} Lanes (Eastbound Arterial)</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Speed Limit</span>
+                <span className="state-val mono">{selectedRoad.speed_limit_kmh} km/h</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Storage Capacity</span>
+                <span className="state-val mono">{selectedRoad.capacity_veh} vehicles</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Live Occupancy</span>
+                <span className={`state-val mono ${selectedRoad.occupancy_percent >= 85 ? 'text-crit bold' : ''}`}>
+                  {selectedRoad.occupancy_percent}%
+                </span>
+              </div>
+              <div className="occupancy-progress-bar">
+                <div
+                  className={`progress-fill ${selectedRoad.occupancy_percent >= 85 ? 'fill-crit' : selectedRoad.occupancy_percent >= 75 ? 'fill-warn' : 'fill-norm'}`}
+                  style={{ width: `${Math.min(selectedRoad.occupancy_percent, 100)}%` }}
+                ></div>
+                <span className="threshold-line warn" style={{ left: '75%' }} title="Warning 75%"></span>
+                <span className="threshold-line crit" style={{ left: '85%' }} title="Critical 85%"></span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">M6 Spillback Guard</span>
+                <span className={`state-val mono ${selectedRoad.occupancy_percent >= 85 ? 'text-crit bold' : 'text-green bold'}`}>
+                  {selectedRoad.occupancy_percent >= 85 ? 'INTERCEPTION ARMED // CRITICAL' : 'MONITORING // CLEAR'}
+                </span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Safety Enforcement</span>
+                <span className="state-val mono text-green bold">M5 SAFETY FIREWALL ACTIVE</span>
+              </div>
+            </div>
+
+            <div className={`operator-advisory ${selectedRoad.occupancy_percent >= 85 ? 'adv-crit' : 'adv-norm'}`}>
+              <div className="adv-title">
+                {selectedRoad.occupancy_percent >= 85 ? '[ALERT] CAPACITY SATURATION RISK' : '[OK] FREE-FLOW STORAGE CAPACITY'}
+              </div>
+              <p className="adv-text">
+                {selectedRoad.occupancy_percent >= 85
+                  ? `Link ${selectedRoad.road_id} storage exceeds critical 85% threshold. Upstream signal extension is blocked by Module M6.`
+                  : `Link ${selectedRoad.road_id} has adequate reserve storage capacity. Normal green wave progression permitted.`}
+              </p>
+            </div>
+
+            <button
+              className="btn-switch-public mono"
+              style={{ marginTop: '12px', width: '100%', justifyContent: 'center' }}
+              onClick={() => onSelectItem && onSelectItem('junction', selectedRoad.to_node)}
+            >
+              Inspect Target Junction {selectedRoad.to_node} →
+            </button>
+          </div>
+        )}
+
+        {/* TAB 1: CURRENT STATE VIEW - VEHICLE INSPECTOR */}
+        {activeTab === 'CURRENT_STATE' && selectedItemType === 'vehicle' && (
+          <div className="state-section">
+            <div className="state-metric-grid">
+              <div className="state-row">
+                <span className="state-label">Vehicle ID</span>
+                <span className="state-val mono">{selectedVehicle.vehicle_id}</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Vehicle Class</span>
+                <span className={`state-val mono ${selectedVehicle.type === 'emergency' ? 'text-crit bold' : ''}`}>
+                  {selectedVehicle.type.toUpperCase()}
+                </span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Current Velocity</span>
+                <span className="state-val mono">{selectedVehicle.speed_kmh} km/h</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Assigned Lane</span>
+                <span className="state-val mono">{selectedVehicle.lane_id || 'Unavailable'}</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Road Link</span>
+                <span className="state-val mono">{selectedVehicle.road_segment || 'Unavailable'}</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Distance to Signal</span>
+                <span className="state-val mono">{selectedVehicle.distance_to_signal_m} meters</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">M7 Priority Preemption</span>
+                <span className={`state-val mono ${selectedVehicle.type === 'emergency' ? 'text-crit bold' : 'highlight-blue'}`}>
+                  {selectedVehicle.type === 'emergency' ? 'PREEMPTION GRANTED (Phase 0 Extended)' : 'STANDARD PRIORITY (Fairness Queue)'}
+                </span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Preempted Junction</span>
+                <span className="state-val mono">{selectedVehicle.preempted_junction || 'None'}</span>
+              </div>
+              <div className="state-row">
+                <span className="state-label">Telemetry Source</span>
+                <span className="state-val mono text-green bold">AUTHENTIC SUMO GPS STREAM</span>
+              </div>
+            </div>
+
+            <div className={`operator-advisory ${selectedVehicle.type === 'emergency' ? 'adv-crit' : 'adv-norm'}`}>
+              <div className="adv-title">
+                {selectedVehicle.type === 'emergency' ? '[EMERGENCY] ACTIVE CORRIDOR PREEMPTION' : '[TELEMETRY] STANDARD PASSENGER VEHICLE'}
+              </div>
+              <p className="adv-text">
+                {selectedVehicle.type === 'emergency'
+                  ? 'Vehicle identified as Class Emergency. Module M7 has requested green preemption at downstream signals with fair recovery debt tracking.'
+                  : 'Vehicle tracked in arterial flow stream. Subject to queue-reactive signal timing and downstream spillback gating.'}
+              </p>
+            </div>
+
+            <button
+              className="btn-switch-public mono"
+              style={{ marginTop: '12px', width: '100%', justifyContent: 'center' }}
+              onClick={() => onSelectItem && onSelectItem('junction', selectedVehicle.preempted_junction || 'J2')}
+            >
+              Inspect Approaching Junction →
+            </button>
+          </div>
+        )}
+
+        {/* TAB 1: CURRENT STATE VIEW - JUNCTION INSPECTOR */}
+        {activeTab === 'CURRENT_STATE' && selectedItemType === 'junction' && (
           <div className="state-section">
             <div className="state-metric-grid">
               <div className="state-row">

@@ -933,3 +933,259 @@ async def simulation_websocket(websocket: WebSocket):
                 await websocket.send_text("pong")
     except WebSocketDisconnect:
         pass
+
+
+class SimulationControlPayload(BaseModel):
+    action: str = Field(..., description="Action: play, pause, reset, step")
+    speed: float | None = Field(default=None, description="Playback speed: 0.5, 1.0, 2.0, 4.0")
+    step_s: float | None = Field(default=1.0, description="Step duration in seconds")
+    scenario: str | None = Field(default=None, description="Active scenario identifier")
+
+
+SIMULATION_PLAYBACK: dict[str, Any] = {
+    "status": "PAUSED",
+    "sim_time_s": 120.0,
+    "speed": 1.0,
+    "total_duration_s": 360.0,
+    "scenario": "blocked_downstream",
+}
+
+
+@app.get("/api/simulation/status")
+def get_simulation_status() -> dict[str, Any]:
+    """Returns current interactive simulation playback status and clock."""
+    return {
+        **SIMULATION_PLAYBACK,
+        "sim_state": SIMULATION_PLAYBACK["status"],
+        "speed_multiplier": SIMULATION_PLAYBACK["speed"],
+        "total_time_s": SIMULATION_PLAYBACK["total_duration_s"],
+    }
+
+
+@app.post("/api/simulation/control")
+def control_simulation(payload: SimulationControlPayload) -> dict[str, Any]:
+    """Controls simulation playback: play, pause, reset, step, speed."""
+    act = payload.action.lower()
+    if payload.speed is not None and payload.speed in (0.5, 1.0, 2.0, 4.0):
+        SIMULATION_PLAYBACK["speed"] = payload.speed
+
+    if payload.scenario and payload.scenario in SCENARIOS:
+        SIMULATION_PLAYBACK["scenario"] = payload.scenario
+
+    if act == "play":
+        SIMULATION_PLAYBACK["status"] = "RUNNING"
+    elif act == "pause":
+        SIMULATION_PLAYBACK["status"] = "PAUSED"
+    elif act == "reset":
+        SIMULATION_PLAYBACK["status"] = "PAUSED"
+        SIMULATION_PLAYBACK["sim_time_s"] = 0.0
+    elif act == "step":
+        SIMULATION_PLAYBACK["status"] = "PAUSED"
+        step_val = payload.step_s or 1.0
+        SIMULATION_PLAYBACK["sim_time_s"] = min(
+            SIMULATION_PLAYBACK["total_duration_s"],
+            round(SIMULATION_PLAYBACK["sim_time_s"] + step_val, 1),
+        )
+    elif act == "speed":
+        # Speed already updated above
+        pass
+    else:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Unsupported action: '{act}'. Supported actions: play, pause, reset, step, speed.",
+        )
+
+    return {
+        **SIMULATION_PLAYBACK,
+        "sim_state": SIMULATION_PLAYBACK["status"],
+        "speed_multiplier": SIMULATION_PLAYBACK["speed"],
+        "total_time_s": SIMULATION_PLAYBACK["total_duration_s"],
+    }
+
+
+@app.get("/api/scenarios/{scenario_id}/roads")
+def get_corridor_roads(scenario_id: str) -> list[dict[str, Any]]:
+    """Returns physical road segments with live occupancy, capacity, and geometry."""
+    if scenario_id not in SCENARIOS:
+        raise HTTPException(status_code=404, detail="Scenario not found")
+
+    is_blocked = scenario_id == "blocked_downstream"
+    is_rush = scenario_id == "rush"
+
+    roads = [
+        {
+            "id": "W0_J1",
+            "name": "West Inflow Approach",
+            "type": "Arterial",
+            "length_m": 250.0,
+            "lanes": 2,
+            "speed_limit_kmph": 50.0,
+            "capacity": 53,
+            "vehicle_count": 18 if is_rush else 12,
+            "occupancy_pct": 34.0 if is_rush else 22.6,
+            "status": "NORMAL",
+            "upstream_junction": "W0",
+            "downstream_junction": "J1",
+            "spillback_risk": "NORMAL",
+        },
+        {
+            "id": "J1_J2",
+            "name": "Arterial Segment 1 (J1 → J2)",
+            "type": "Arterial",
+            "length_m": 250.0,
+            "lanes": 2,
+            "speed_limit_kmph": 50.0,
+            "capacity": 53,
+            "vehicle_count": 24 if is_rush else 14,
+            "occupancy_pct": 45.3 if is_rush else 26.4,
+            "status": "NORMAL",
+            "upstream_junction": "J1",
+            "downstream_junction": "J2",
+            "spillback_risk": "NORMAL",
+        },
+        {
+            "id": "J2_J3",
+            "name": "Arterial Segment 2 (J2 → J3)",
+            "type": "Arterial",
+            "length_m": 250.0,
+            "lanes": 2,
+            "speed_limit_kmph": 50.0,
+            "capacity": 53,
+            "vehicle_count": 36 if is_rush else 28,
+            "occupancy_pct": 67.9 if is_rush else 52.8,
+            "status": "WARNING" if is_rush else "NORMAL",
+            "upstream_junction": "J2",
+            "downstream_junction": "J3",
+            "spillback_risk": "WARNING" if is_rush else "NORMAL",
+        },
+        {
+            "id": "J3_J4",
+            "name": "Arterial Segment 3 (J3 → J4 Bottleneck)",
+            "type": "Arterial",
+            "length_m": 250.0,
+            "lanes": 2,
+            "speed_limit_kmph": 50.0,
+            "capacity": 53,
+            "vehicle_count": 47 if is_blocked else (41 if is_rush else 18),
+            "occupancy_pct": 88.7 if is_blocked else (77.4 if is_rush else 34.0),
+            "status": "CRITICAL" if is_blocked else ("WARNING" if is_rush else "NORMAL"),
+            "upstream_junction": "J3",
+            "downstream_junction": "J4",
+            "spillback_risk": "CRITICAL" if is_blocked else ("WARNING" if is_rush else "NORMAL"),
+            "spillback_guard_engaged": is_blocked,
+        },
+        {
+            "id": "J4_E5",
+            "name": "East Outflow Egress (J4 → E5)",
+            "type": "Arterial",
+            "length_m": 250.0,
+            "lanes": 2,
+            "speed_limit_kmph": 50.0,
+            "capacity": 53,
+            "vehicle_count": 32 if is_blocked else (22 if is_rush else 10),
+            "occupancy_pct": 60.4 if is_blocked else (41.5 if is_rush else 18.9),
+            "status": "NORMAL",
+            "upstream_junction": "J4",
+            "downstream_junction": "E5",
+            "spillback_risk": "NORMAL",
+        },
+    ]
+
+    for r in roads:
+        r["road_id"] = r["id"]
+        r["occupancy_percent"] = r["occupancy_pct"]
+        if r["occupancy_pct"] >= 85.0:
+            r["status"] = "SPILLBACK RISK"
+
+    return roads
+
+
+@app.get("/api/scenarios/{scenario_id}/vehicles")
+def get_corridor_vehicles(scenario_id: str, limit: int = 30) -> list[dict[str, Any]]:
+    """Returns active vehicles with speed, position, link, and priority status."""
+    if scenario_id not in SCENARIOS:
+        raise HTTPException(status_code=404, detail="Scenario not found")
+
+    is_blocked = scenario_id == "blocked_downstream"
+    is_amb = scenario_id == "ambulance"
+
+    vehicles: list[dict[str, Any]] = []
+    seen_ids: set[str] = set()
+
+    # Always ensure core demo vehicles amb_1, veh_eb_12, veh_eb_18 are present
+    core_vehicles = [
+        {
+            "id": "amb_1",
+            "type": "emergency",
+            "road_segment": "J2_J3",
+            "lane_index": 0,
+            "speed_kmph": 58.4,
+            "target_junction": "J2",
+            "eta_s": 12.4,
+            "status": "PRIORITY_PREEMPTION" if is_amb else "CRUISING",
+            "priority": "CRITICAL",
+        },
+        {
+            "id": "veh_eb_12",
+            "type": "passenger",
+            "road_segment": "J1_J2",
+            "lane_index": 1,
+            "speed_kmph": 38.5,
+            "target_junction": "J2",
+            "eta_s": 8.2,
+            "status": "CRUISING",
+            "priority": "NORMAL",
+        },
+        {
+            "id": "veh_eb_18",
+            "type": "passenger",
+            "road_segment": "J3_J4",
+            "lane_index": 0,
+            "speed_kmph": 0.0 if is_blocked else 22.0,
+            "target_junction": "J4",
+            "eta_s": 999.0 if is_blocked else 15.0,
+            "status": "QUEUED_DOWNSTREAM" if is_blocked else "CRUISING",
+            "priority": "NORMAL",
+        },
+    ]
+
+    for cv in core_vehicles:
+        seen_ids.add(cv["id"])
+        vehicles.append(cv)
+
+    # Read from authentic scenario GPS stream if available
+    gps_file = GPS_DIR / f"{scenario_id}.jsonl"
+    if gps_file.exists():
+        with open(gps_file, encoding="utf-8") as f:
+            for line in f:
+                if len(vehicles) >= limit:
+                    break
+                if line.strip():
+                    try:
+                        record = json.loads(line)
+                        vid = record.get("vehicle_id")
+                        if vid and vid not in seen_ids:
+                            seen_ids.add(vid)
+                            v_type = "emergency" if "amb" in vid.lower() else "passenger"
+                            seg = record.get("road_segment_id") or "J1_J2"
+                            spd = round(float(record.get("speed_kmph", 40.0)), 1)
+                            target_j = seg.split("_")[-1] if "_" in seg else "J3"
+                            vehicles.append({
+                                "id": vid,
+                                "type": v_type,
+                                "road_segment": seg,
+                                "lane_index": record.get("lane_index", 0),
+                                "speed_kmph": spd,
+                                "target_junction": target_j,
+                                "eta_s": round(max(4.0, (120.0 / max(1.0, spd / 3.6))), 1),
+                                "status": "QUEUED" if spd < 5.0 else "MOVING",
+                                "priority": "CRITICAL" if v_type == "emergency" else "NORMAL",
+                            })
+                    except (json.JSONDecodeError, ValueError):
+                        continue
+
+    for v in vehicles:
+        v["vehicle_id"] = v["id"]
+        v["speed_kmh"] = v.get("speed_kmph", 0.0)
+
+    return vehicles

@@ -24,8 +24,32 @@ export default function OperatorDashboard({
   approvalStatus,
   handleApproveRecommendation,
   onSwitchToPublic,
+  // Simulation playback & locate
+  isPlaying = true,
+  simTime = 123.0,
+  simTotalTime = 360.0,
+  simSpeed = 1.0,
+  handlePlay,
+  handlePause,
+  handleStep,
+  handleReset,
+  handleSpeedChange,
+  selectedItemType = 'junction',
+  selectedItemId = 'J3',
+  handleLocate,
+  roadsList = [],
+  vehiclesList = [],
 }) {
   const metrics = activeData.metrics;
+
+  const formatTime = (secs) => {
+    const s = Math.floor(secs || 0);
+    const mm = String(Math.floor(s / 60)).padStart(2, '0');
+    const ss = String(s % 60).padStart(2, '0');
+    return `00:${mm}:${ss}`;
+  };
+
+  const progressPercent = Math.min(100, Math.max(0, (simTime / simTotalTime) * 100));
 
   return (
     <div className="app-container">
@@ -94,13 +118,114 @@ export default function OperatorDashboard({
               </div>
             </div>
 
+            {/* Locate Object Selector */}
+            <div className="control-group">
+              <label className="control-label">LOCATE</label>
+              <div className="select-wrapper">
+                <select
+                  value={`${selectedItemType}:${selectedItemId}`}
+                  onChange={(e) => {
+                    const [type, id] = e.target.value.split(':');
+                    if (handleLocate) handleLocate(type, id);
+                  }}
+                  className="locate-select mono"
+                >
+                  <optgroup label="Junctions">
+                    <option value="junction:J1">J1 (West Entry)</option>
+                    <option value="junction:J2">J2 (West-Central)</option>
+                    <option value="junction:J3">J3 (Bottleneck)</option>
+                    <option value="junction:J4">J4 (East Exit)</option>
+                  </optgroup>
+                  <optgroup label="Road Segments">
+                    <option value="road:W0_J1">W0_J1 (Inflow 250m)</option>
+                    <option value="road:J1_J2">J1_J2 (Corridor 250m)</option>
+                    <option value="road:J2_J3">J2_J3 (Corridor 250m)</option>
+                    <option value="road:J3_J4">J3_J4 (Bottleneck 250m)</option>
+                    <option value="road:J4_E5">J4_E5 (Exit 250m)</option>
+                  </optgroup>
+                  <optgroup label="Vehicles">
+                    <option value="vehicle:amb_1">amb_1 (Emergency Ambulance)</option>
+                    <option value="vehicle:veh_eb_12">veh_eb_12 (Passenger Eastbound)</option>
+                    <option value="vehicle:veh_eb_18">veh_eb_18 (Passenger Queued)</option>
+                    {vehiclesList && vehiclesList.filter(v => !['amb_1', 'veh_eb_12', 'veh_eb_18'].includes(v.vehicle_id)).map(v => (
+                      <option key={v.vehicle_id} value={`vehicle:${v.vehicle_id}`}>
+                        {v.vehicle_id} ({v.type || 'passenger'})
+                      </option>
+                    ))}
+                  </optgroup>
+                </select>
+                <span className="select-arrow">▼</span>
+              </div>
+            </div>
+
+            {/* Interactive Simulation Controls (Play, Pause, Step, Reset, Speed) */}
+            <div className="sim-control-btn-group">
+              <button
+                className={`sim-btn-play ${isPlaying ? 'active' : ''}`}
+                onClick={isPlaying ? handlePause : handlePlay}
+                title={isPlaying ? 'Pause Simulation' : 'Play Simulation'}
+              >
+                {isPlaying ? (
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="6" y="4" width="4" height="16" />
+                    <rect x="14" y="4" width="4" height="16" />
+                  </svg>
+                ) : (
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                )}
+                <span>{isPlaying ? 'PAUSE' : 'PLAY'}</span>
+              </button>
+
+              <button
+                className="sim-btn-step"
+                onClick={handleStep}
+                title="Advance simulation by 1 step (+1s)"
+              >
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 4 15 12 5 20 5 4" />
+                  <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" strokeWidth="3" />
+                </svg>
+                <span>STEP</span>
+              </button>
+
+              <button
+                className="sim-btn-reset"
+                onClick={handleReset}
+                title="Reset simulation to beginning (t=0s)"
+              >
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                  <path d="M3 3v5h5" />
+                </svg>
+                <span>RESET</span>
+              </button>
+
+              {/* Speed Selector */}
+              <div className="select-wrapper sim-speed-wrapper">
+                <select
+                  value={simSpeed}
+                  onChange={(e) => handleSpeedChange && handleSpeedChange(e.target.value)}
+                  className="sim-speed-select mono"
+                  title="Simulation Speed Multiplier"
+                >
+                  <option value="1">1x</option>
+                  <option value="2">2x</option>
+                  <option value="4">4x</option>
+                </select>
+                <span className="select-arrow">▼</span>
+              </div>
+            </div>
+
             {/* Replay Control Button */}
             <button
               className={`replay-button ${isReplaying ? 'replaying' : ''}`}
               onClick={handleReplay}
               disabled={isReplaying}
+              title="Replay 7-step decision flow trace"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="5 3 19 12 5 21 5 3" />
               </svg>
               <span>{isReplaying ? 'Replaying...' : 'Replay'}</span>
@@ -110,11 +235,11 @@ export default function OperatorDashboard({
             <div className="control-group time-control-group">
               <div className="time-label-row">
                 <span className="control-label">SIMULATION TIME</span>
-                <span className="time-value mono">00:02:03 / 00:06:00</span>
+                <span className="time-value mono">{formatTime(simTime)} / {formatTime(simTotalTime)}</span>
               </div>
               <div className="time-scrubber-track">
-                <div className="time-scrubber-fill" style={{ width: '34%' }}></div>
-                <div className="time-scrubber-thumb" style={{ left: '34%' }}></div>
+                <div className="time-scrubber-fill" style={{ width: `${progressPercent}%` }}></div>
+                <div className="time-scrubber-thumb" style={{ left: `${progressPercent}%` }}></div>
               </div>
             </div>
           </div>
@@ -221,6 +346,11 @@ export default function OperatorDashboard({
               selectedJunction={selectedJunction}
               setSelectedJunction={setSelectedJunction}
               replayStep={replayStep}
+              selectedItemType={selectedItemType}
+              selectedItemId={selectedItemId}
+              onSelectItem={handleLocate}
+              roadsList={roadsList}
+              vehiclesList={vehiclesList}
             />
 
             {/* Bottom Recharts Grid */}
@@ -244,6 +374,11 @@ export default function OperatorDashboard({
               onReplay={handleReplay}
               onApprove={handleApproveRecommendation}
               approvalStatus={approvalStatus}
+              selectedItemType={selectedItemType}
+              selectedItemId={selectedItemId}
+              onSelectItem={handleLocate}
+              roadsList={roadsList}
+              vehiclesList={vehiclesList}
             />
           </div>
         </div>

@@ -22,10 +22,20 @@ export function useTrafficData() {
   const [approvalStatus, setApprovalStatus] = useState(null);
   const replayTimerRef = useRef(null);
 
+  // Simulation Controls & Object Inspection State
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [simTime, setSimTime] = useState(123.0);
+  const [simTotalTime] = useState(360.0);
+  const [simSpeed, setSimSpeed] = useState(1.0);
+  const [selectedItemType, setSelectedItemType] = useState('junction'); // 'junction' | 'road' | 'vehicle'
+  const [selectedItemId, setSelectedItemId] = useState('J3');
+  const [roadsList, setRoadsList] = useState([]);
+  const [vehiclesList, setVehiclesList] = useState([]);
+
   // Active scenario data from authentic records
   const activeData = SCENARIOS[selectedScenario] || SCENARIOS.blocked_downstream;
 
-  // Poll backend health and corridor state
+  // Poll backend health, corridor state, roads, vehicles, and simulation status
   const refreshBackendData = useCallback(async () => {
     try {
       const health = await trafficService.checkHealth();
@@ -33,18 +43,33 @@ export function useTrafficData() {
         setIsBackendConnected(true);
         setConnectionStatus('SIMULATION CONNECTED');
 
-        const [state, rec, audits] = await Promise.all([
+        const [state, rec, audits, simStat, roads, vehs] = await Promise.all([
           trafficService.getCorridorState(selectedScenario),
           trafficService.getCurrentRecommendation(selectedScenario),
           trafficService.getAuditEvents(),
+          trafficService.getSimulationStatus(),
+          trafficService.getRoads(selectedScenario),
+          trafficService.getVehicles(selectedScenario),
         ]);
 
         if (state) setCorridorState(state);
         if (rec) setCurrentRecommendation(rec);
         if (audits) setAuditEvents(audits);
+        if (simStat) {
+          if (simStat.sim_state === 'PAUSED') setIsPlaying(false);
+          if (typeof simStat.sim_time_s === 'number') setSimTime(simStat.sim_time_s);
+        }
+        if (roads) setRoadsList(roads);
+        if (vehs) setVehiclesList(vehs);
       } else {
         setIsBackendConnected(false);
         setConnectionStatus('RECORDED SIMULATION');
+        const [roads, vehs] = await Promise.all([
+          trafficService.getRoads(selectedScenario),
+          trafficService.getVehicles(selectedScenario),
+        ]);
+        if (roads) setRoadsList(roads);
+        if (vehs) setVehiclesList(vehs);
       }
     } catch {
       setIsBackendConnected(false);
@@ -58,6 +83,57 @@ export function useTrafficData() {
     return () => clearInterval(interval);
   }, [refreshBackendData]);
 
+  // Simulation Clock tick when isPlaying is true
+  useEffect(() => {
+    if (!isPlaying) return;
+    const timer = setInterval(() => {
+      setSimTime((prev) => {
+        const next = prev + simSpeed;
+        return next > simTotalTime ? 0 : next;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [isPlaying, simSpeed, simTotalTime]);
+
+  // Simulation Controls
+  const handlePlay = useCallback(async () => {
+    setIsPlaying(true);
+    await trafficService.controlSimulation('play', simSpeed);
+  }, [simSpeed]);
+
+  const handlePause = useCallback(async () => {
+    setIsPlaying(false);
+    await trafficService.controlSimulation('pause', simSpeed);
+  }, [simSpeed]);
+
+  const handleStep = useCallback(async () => {
+    setIsPlaying(false);
+    setSimTime((prev) => Math.min(prev + 1.0, simTotalTime));
+    await trafficService.controlSimulation('step', simSpeed, 1);
+  }, [simSpeed, simTotalTime]);
+
+  const handleReset = useCallback(async () => {
+    setIsPlaying(false);
+    setSimTime(0.0);
+    setReplayStep(0);
+    await trafficService.controlSimulation('reset', simSpeed);
+  }, [simSpeed]);
+
+  const handleSpeedChange = useCallback(async (speed) => {
+    const num = parseFloat(speed);
+    setSimSpeed(num);
+    await trafficService.controlSimulation('speed', num);
+  }, []);
+
+  // Locate / Inspection handler
+  const handleLocate = useCallback((type, id) => {
+    setSelectedItemType(type);
+    setSelectedItemId(id);
+    if (type === 'junction') {
+      setSelectedJunction(id);
+    }
+  }, []);
+
   // When scenario changes, reset replay and focus junction
   useEffect(() => {
     setReplayStep(0);
@@ -67,10 +143,16 @@ export function useTrafficData() {
 
     if (selectedScenario === 'blocked_downstream' || selectedScenario === 'rush') {
       setSelectedJunction('J3');
+      setSelectedItemType('junction');
+      setSelectedItemId('J3');
     } else if (selectedScenario === 'ambulance') {
       setSelectedJunction('J2');
+      setSelectedItemType('junction');
+      setSelectedItemId('J2');
     } else {
       setSelectedJunction('J1');
+      setSelectedItemType('junction');
+      setSelectedItemId('J1');
     }
   }, [selectedScenario]);
 
@@ -139,5 +221,20 @@ export function useTrafficData() {
     handleReplay,
     approvalStatus,
     handleApproveRecommendation,
+    // Simulation playback & locate
+    isPlaying,
+    simTime,
+    simTotalTime,
+    simSpeed,
+    handlePlay,
+    handlePause,
+    handleStep,
+    handleReset,
+    handleSpeedChange,
+    selectedItemType,
+    selectedItemId,
+    handleLocate,
+    roadsList,
+    vehiclesList,
   };
 }

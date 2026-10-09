@@ -84,6 +84,20 @@ export default function App() {
       approvalStatus={trafficData.approvalStatus}
       handleApproveRecommendation={trafficData.handleApproveRecommendation}
       onSwitchToPublic={navigateToPublic}
+      isPlaying={trafficData.isPlaying}
+      simTime={trafficData.simTime}
+      simTotalTime={trafficData.simTotalTime}
+      simSpeed={trafficData.simSpeed}
+      handlePlay={trafficData.handlePlay}
+      handlePause={trafficData.handlePause}
+      handleStep={trafficData.handleStep}
+      handleReset={trafficData.handleReset}
+      handleSpeedChange={trafficData.handleSpeedChange}
+      selectedItemType={trafficData.selectedItemType}
+      selectedItemId={trafficData.selectedItemId}
+      handleLocate={trafficData.handleLocate}
+      roadsList={trafficData.roadsList}
+      vehiclesList={trafficData.vehiclesList}
     />
   );
 }
