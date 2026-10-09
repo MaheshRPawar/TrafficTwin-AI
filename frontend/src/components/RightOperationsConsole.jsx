@@ -520,8 +520,8 @@ export default function RightOperationsConsole({
 
           <div className="rec-action-row">
             <span className="rec-action-badge">{rec.proposed_action}</span>
-            <span className={`rec-status-pill ${rec.status === 'APPROVED' ? 'rec-approved' : 'rec-pending'}`}>
-              {rec.status}
+            <span className={`rec-status-pill ${(rec.status === 'APPROVED' || approvalStatus?.success) ? 'rec-approved' : 'rec-pending'}`}>
+              {(rec.status === 'APPROVED' || approvalStatus?.success) ? 'APPROVED' : rec.status}
             </span>
           </div>
 
@@ -534,13 +534,13 @@ export default function RightOperationsConsole({
             </div>
           ) : (
             <button
-              className={`btn-approve-recommendation ${rec.status === 'APPROVED' ? 'btn-approved' : ''}`}
+              className={`btn-approve-recommendation ${(rec.status === 'APPROVED' || approvalStatus?.success) ? 'btn-approved' : ''}`}
               onClick={handleApprovalClick}
-              disabled={isApproving || rec.status === 'APPROVED'}
+              disabled={isApproving || rec.status === 'APPROVED' || approvalStatus?.success}
             >
               {isApproving
                 ? 'Applying Verification...'
-                : rec.status === 'APPROVED'
+                : (rec.status === 'APPROVED' || approvalStatus?.success)
                 ? 'RECOMMENDATION APPROVED'
                 : `AUTHORIZE ACTION (${userRole})`}
             </button>

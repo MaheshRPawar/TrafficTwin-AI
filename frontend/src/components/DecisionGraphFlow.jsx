@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
-import { ReactFlow, Background, Position } from '@xyflow/react';
+import { ReactFlow, Background, Position, Handle } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-// Custom clean operational node
+// Custom clean operational node with target and source connection handles
 const OperationStepNode = ({ data }) => {
   const isCritical = data.statusCode === 'critical';
   const isApproved = data.statusCode === 'approved';
@@ -13,6 +13,7 @@ const OperationStepNode = ({ data }) => {
     <div
       className={`op-flow-node ${isCritical ? 'node-critical' : isApproved ? 'node-approved' : isExecuted ? 'node-executed' : ''} ${isActive ? 'node-active' : ''}`}
     >
+      <Handle type="target" position={Position.Top} style={{ visibility: 'hidden', top: 0 }} />
       <div className="flow-node-header">
         <span className="flow-node-step mono">{data.step}</span>
         <span className="flow-node-layer">{data.layer}</span>
@@ -25,6 +26,7 @@ const OperationStepNode = ({ data }) => {
       <div className="flow-node-title">{data.title}</div>
       <div className="flow-node-data mono">{data.data}</div>
       <div className="flow-node-detail">{data.detail}</div>
+      <Handle type="source" position={Position.Bottom} style={{ visibility: 'hidden', bottom: 0 }} />
     </div>
   );
 };
@@ -94,7 +96,6 @@ export default function DecisionGraphFlow({
         elementsSelectable={false}
         panOnDrag={false}
         zoomOnScroll={false}
-        proOptions={{ hideAttribution: true }}
       >
         <Background color="#edf2f7" gap={16} size={1} />
       </ReactFlow>

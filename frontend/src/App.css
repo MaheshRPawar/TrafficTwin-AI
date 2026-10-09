@@ -163,8 +163,31 @@
 
 .header-controls {
   display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-switch-public {
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 5px;
+  background-color: #ffffff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  padding: 0 10px;
+  height: 29px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.12s ease;
+}
+
+.btn-switch-public:hover {
+  background-color: #eff6ff;
+  border-color: #2563eb;
 }
 
 /* Connection Badge */
@@ -172,7 +195,9 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 10px;
+  padding: 0 10px;
+  height: 29px;
+  box-sizing: border-box;
   background-color: #ffffff;
   border: 1px solid #e5eaf0;
   border-radius: 6px;
@@ -224,8 +249,10 @@
   background-color: #ffffff;
   border: 1px solid #e5eaf0;
   border-radius: 6px;
-  padding: 6px 28px 6px 10px;
-  font-size: 12px;
+  padding: 5px 28px 5px 10px;
+  height: 29px;
+  box-sizing: border-box;
+  font-size: 11.5px;
   font-weight: 600;
   color: #172033;
   cursor: pointer;
@@ -253,13 +280,15 @@
   color: #ffffff;
   border: none;
   border-radius: 6px;
-  padding: 7px 14px;
-  font-size: 12px;
+  padding: 0 12px;
+  height: 29px;
+  box-sizing: border-box;
+  font-size: 11.5px;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(37,99,235,0.2);
   transition: all 0.12s ease;
-  margin-top: 12px;
+  margin-top: 0;
 }
 
 .replay-button:hover:not(:disabled) {
@@ -2154,6 +2183,7 @@
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow-x: auto;
 }
 
 .data-table-head-row {

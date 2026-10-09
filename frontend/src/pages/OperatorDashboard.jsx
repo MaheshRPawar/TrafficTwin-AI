@@ -165,6 +165,10 @@ export default function OperatorDashboard({
     },
   ];
 
+  const approvalLabel = approvalStatus
+    ? (typeof approvalStatus === 'string' ? approvalStatus : (approvalStatus.success ? 'APPROVED' : 'FAILED'))
+    : 'PENDING_APPROVAL';
+
   return (
     <div className="app-container">
       {/* 1. Left Sidebar Navigation */}
@@ -796,8 +800,8 @@ export default function OperatorDashboard({
                 <div className="data-table-container" style={{ marginBottom: '16px' }}>
                   <div className="data-table-head-row">
                     <h3 className="data-table-title">Active Control Recommendation</h3>
-                    <span className={`flow-node-badge ${approvalStatus === 'APPROVED' ? 'badge-norm' : 'badge-crit'}`}>
-                      {approvalStatus}
+                    <span className={`flow-node-badge ${approvalLabel === 'APPROVED' ? 'badge-norm' : 'badge-crit'}`}>
+                      {approvalLabel}
                     </span>
                   </div>
                   <div style={{ fontSize: '12px', lineHeight: '1.5', marginBottom: '12px', color: '#334155' }}>
@@ -809,11 +813,16 @@ export default function OperatorDashboard({
                     <button
                       className="btn-approve-rec"
                       onClick={() => handleApproveRecommendation && handleApproveRecommendation(currentRecommendation?.recommendation_id || 'REC-1')}
-                      disabled={approvalStatus === 'APPROVED'}
+                      disabled={approvalLabel === 'APPROVED'}
                       style={{ width: '100%', padding: '10px', fontSize: '12px', fontWeight: '700' }}
                     >
-                      {approvalStatus === 'APPROVED' ? '✓ Recommendation Executed' : 'Approve & Execute Recommendation'}
+                      {approvalLabel === 'APPROVED' ? '✓ Recommendation Executed' : 'Approve & Execute Recommendation'}
                     </button>
+                  )}
+                  {approvalStatus?.message && (
+                    <div style={{ marginTop: '8px', fontSize: '11px', color: approvalStatus.success ? '#16a34a' : '#dc2626' }}>
+                      {approvalStatus.message}
+                    </div>
                   )}
                 </div>
 
