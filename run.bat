@@ -37,6 +37,7 @@ echo.
 echo   - Operator Dashboard:           http://localhost:5173/
 echo   - Public Simulation Dashboard:  http://localhost:5173/public
 echo   - Backend REST & OpenAPI Docs:  http://127.0.0.1:8000/docs
+echo   - SUMO Simulation GUI:          launch_sumo_gui.bat (Double-click to view corridor in SUMO)
 echo ==========================================================
 echo.
 echo Opening Operator Dashboard in default browser...

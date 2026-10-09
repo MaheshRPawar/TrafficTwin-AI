@@ -39,16 +39,21 @@ RESULTS_DIR = Path("data/output/metrics")
 VALID_SCENARIOS = ["normal", "rush", "blocked_downstream", "ambulance"]
 
 
-def run_scenario(scenario: str) -> dict:
+def run_scenario(scenario: str, gui: bool = False) -> dict:
     """Run SUMO for one scenario and return the computed metrics dict."""
     cfg_path = SCENARIOS_DIR / f"corridor_{scenario}.sumocfg"
     if not cfg_path.exists():
         print(f"ERROR: Config not found: {cfg_path}")
         sys.exit(1)
 
-    print(f"\n--- Running fixed-time baseline: {scenario} ---")
+    print(f"\n--- Running fixed-time baseline: {scenario}{' (GUI)' if gui else ''} ---")
+    sumo_bin = "sumo-gui" if gui else "sumo"
+    cmd = [sumo_bin, "-c", str(cfg_path)]
+    if gui:
+        cmd.extend(["--start", "--quit-on-end"])
+
     result = subprocess.run(  # nosec B603 B607
-        ["sumo", "-c", str(cfg_path)],
+        cmd,
         capture_output=True,
         text=True,
     )
@@ -110,6 +115,11 @@ def main() -> None:
         action="store_true",
         help="Run all scenarios",
     )
+    parser.add_argument(
+        "--gui",
+        action="store_true",
+        help="Launch simulation in interactive SUMO GUI mode",
+    )
     args = parser.parse_args()
 
     if not args.all and not args.scenario:
@@ -120,7 +130,7 @@ def main() -> None:
     all_metrics = []
 
     for sc in scenarios:
-        m = run_scenario(sc)
+        m = run_scenario(sc, gui=args.gui)
         all_metrics.append(m)
 
     # Print summary table

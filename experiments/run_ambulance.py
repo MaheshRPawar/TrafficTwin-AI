@@ -158,7 +158,7 @@ def compute_m7_metrics(
     }
 
 
-def run_ambulance_scenario(scenario: str = "ambulance") -> dict:
+def run_ambulance_scenario(scenario: str = "ambulance", gui: bool = False) -> dict:
     """Execute SUMO simulation with M7 integrated intelligence controller."""
     cfg_path = SCENARIOS_DIR / f"corridor_{scenario}.sumocfg"
     if not cfg_path.exists():
@@ -166,7 +166,7 @@ def run_ambulance_scenario(scenario: str = "ambulance") -> dict:
         sys.exit(1)
 
     print("\n==================================================")
-    print(f"  RUNNING M7 INTELLIGENCE CONTROLLER: {scenario.upper()}")
+    print(f"  RUNNING M7 INTELLIGENCE CONTROLLER: {scenario.upper()}{' (GUI)' if gui else ''}")
     print("==================================================")
 
     config = load_m7_config()
@@ -181,8 +181,9 @@ def run_ambulance_scenario(scenario: str = "ambulance") -> dict:
     queue_path = OUTPUT_DIR / f"m7_{scenario}_queue.xml"
     summary_path = OUTPUT_DIR / f"m7_{scenario}_summary.xml"
 
+    sumo_bin = "sumo-gui" if gui else "sumo"
     sumo_cmd = [
-        "sumo",
+        sumo_bin,
         "-c",
         str(cfg_path),
         "--tripinfo-output",
@@ -192,6 +193,8 @@ def run_ambulance_scenario(scenario: str = "ambulance") -> dict:
         "--summary-output",
         str(summary_path),
     ]
+    if gui:
+        sumo_cmd.extend(["--start", "--quit-on-end"])
 
     try:
         traci.start(sumo_cmd)
@@ -298,13 +301,18 @@ def main() -> None:
         action="store_true",
         help="Run all scenarios",
     )
+    parser.add_argument(
+        "--gui",
+        action="store_true",
+        help="Launch simulation in interactive SUMO GUI mode",
+    )
     args = parser.parse_args()
 
     scenarios = VALID_SCENARIOS if args.all else [args.scenario]
     all_metrics = []
 
     for sc in scenarios:
-        m = run_ambulance_scenario(sc)
+        m = run_ambulance_scenario(sc, gui=args.gui)
         all_metrics.append(m)
 
     print("\n==================================================")

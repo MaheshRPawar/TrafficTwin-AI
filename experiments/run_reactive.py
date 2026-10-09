@@ -63,14 +63,14 @@ def save_decision_log(records: list[dict], output_path: Path) -> None:
         writer.writerows(records)
 
 
-def run_scenario(scenario: str) -> dict:
+def run_scenario(scenario: str, gui: bool = False) -> dict:
     """Run SUMO with reactive controller for one scenario and return metrics."""
     cfg_path = SCENARIOS_DIR / f"corridor_{scenario}.sumocfg"
     if not cfg_path.exists():
         print(f"ERROR: Config not found: {cfg_path}")
         sys.exit(1)
 
-    print(f"\n--- Running queue-reactive controller: {scenario} ---")
+    print(f"\n--- Running queue-reactive controller: {scenario}{' (GUI)' if gui else ''} ---")
 
     # Load controller parameters
     config = load_controller_config()
@@ -84,13 +84,16 @@ def run_scenario(scenario: str) -> dict:
     summary_path = OUTPUT_DIR / f"reactive_{scenario}_summary.xml"
 
     # Start SUMO via TraCI
+    sumo_bin = "sumo-gui" if gui else "sumo"
     sumo_cmd = [
-        "sumo",
+        sumo_bin,
         "-c", str(cfg_path),
         "--tripinfo-output", str(tripinfo_path),
         "--queue-output", str(queue_path),
         "--summary-output", str(summary_path),
     ]
+    if gui:
+        sumo_cmd.extend(["--start", "--quit-on-end"])
 
     try:
         traci.start(sumo_cmd)
@@ -175,6 +178,11 @@ def main() -> None:
         action="store_true",
         help="Run all scenarios",
     )
+    parser.add_argument(
+        "--gui",
+        action="store_true",
+        help="Launch simulation in interactive SUMO GUI mode",
+    )
     args = parser.parse_args()
 
     if not args.all and not args.scenario:
@@ -185,7 +193,7 @@ def main() -> None:
     all_metrics = []
 
     for sc in scenarios:
-        m = run_scenario(sc)
+        m = run_scenario(sc, gui=args.gui)
         all_metrics.append(m)
 
     # Print summary table
