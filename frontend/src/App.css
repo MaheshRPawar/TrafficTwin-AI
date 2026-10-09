@@ -2038,3 +2038,206 @@
   cursor: pointer;
 }
 
+/* ============================================================
+   9. SIDEBAR DEDICATED VIEWS (Corridor, Junctions, Decisions, Simulation, Results)
+   ============================================================ */
+.tab-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 0.15s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 4-Junction Matrix Grid */
+.junction-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.junction-card-detailed {
+  background-color: #ffffff;
+  border: 1px solid #e5eaf0;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.15s ease;
+}
+
+.junction-card-detailed:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.junction-card-detailed.selected {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+.junction-card-detailed.critical {
+  border-color: #fca5a5;
+  background-color: #fffafb;
+}
+
+.junction-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.j-head-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.j-head-pos {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.j-metrics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.j-metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.j-metric-label {
+  color: #64748b;
+}
+
+.j-metric-value {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.btn-inspect-action {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #2563eb;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.12s ease;
+  margin-top: 4px;
+}
+
+.btn-inspect-action:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+/* Dedicated Data Tables (Roads, Vehicles, Results) */
+.data-table-container {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.data-table-head-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.data-table-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.data-table-desc {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.engineering-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+
+.engineering-table th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 700;
+  font-size: 10.5px;
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.engineering-table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #0f172a;
+}
+
+.engineering-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.engineering-table tr.selected-row {
+  background-color: #eff6ff;
+}
+
+/* Simulation Engine Telemetry Grid */
+.engine-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.engine-telemetry-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.telemetry-label {
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.telemetry-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.telemetry-sub {
+  font-size: 9.5px;
+  color: #94a3b8;
+}
+
+
